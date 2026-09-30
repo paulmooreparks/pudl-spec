@@ -78,7 +78,7 @@ A window MAY be docked at an edge of the workspace, the top, the bottom, the lef
 
 The strip is the size of the docked window, a share of the workspace's height for the top and bottom and of its width for the sides. It is a quarter until the reader or the application sets another, and it is never more than 80% of the workspace, nor less than the docked window's title bar and a little of its body.
 
-A docked window is flush with its edge. It has no shadow, no rounded corners and no frame band, and a 1px hairline in `border` separates it from the inner area along its free edge, the one facing the workspace. Its title bar is thin, 30px tall, with a hairline at its foot, padded 10px at its start and 4px at its end, with 8px between the things it holds. Its title is set at `text-sm`, and its buttons are 20px across with glyphs 10px across. It has no maximise button.
+A docked window is flush with its edge. It has no shadow, no rounded corners and no frame band, and a 1px hairline in `border` separates it from the inner area along its free edge, the one facing the workspace. The free edge is a handle, as chapter 2 describes, so it carries the `grip` glyph at rest, at its middle and just outside the window, on the workspace, where it reads whatever colour the title bar is. Its title bar is thin, 30px tall, with a hairline at its foot, padded 10px at its start and 4px at its end, with 8px between the things it holds. Its title is set at `text-sm`, and its buttons are 20px across with glyphs 10px across. It has no maximise button.
 
 An edge holds any number of docked windows and shows one at a time, the one most recently in front; the others wait behind it and come forward from the dock of open windows.
 
@@ -268,7 +268,7 @@ A printed page with windows open carries the window in front as its content, its
 13. A zone of the layout picker has corners of `radius-xs`, and is drawn pressed in while it is pressed.
 14. A snapped window fills its zone, follows it as the inner area resizes, and restores to floating.
 15. A docked window takes its strip from every other window, is flush with a hairline on its free edge, has a 30px title bar and no maximise button, and nothing covers it.
-16. A docked window resizes along its free edge only, between its title bar and 80% of the workspace.
+16. A docked window resizes along its free edge only, between its title bar and 80% of the workspace, and its free edge carries the `grip` glyph at rest.
 17. Minimising a docked window collapses it to its title bar in place.
 18. An edge with several docked windows shows the one most recently in front.
 19. On a workspace 640px wide or less, a side dock shows at the bottom.
