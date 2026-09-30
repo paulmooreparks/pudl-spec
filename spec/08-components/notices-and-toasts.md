@@ -33,6 +33,8 @@ A toast is a small panel lifted above the view. It is filled with `dialog-bg`, b
 
 Toasts gather in a stack at the foot of the window, in its end corner, 16px (`space-4`) from the foot and from the end side. The stack is as wide as 384px or the window less 32px, whichever is smaller, and each toast fills its width. The toasts are 8px (`space-2`) apart, and a new toast joins the stack at the foot. The space between and around the toasts does not catch presses, so the reader can still press what lies beneath it.
 
+A toast raised while a modal dialog is open appears inside the dialog, above its backdrop, where the reader can read it and press its dismiss button. When the dialog closes, any such toast still showing moves back to the page's stack.
+
 ### The dismiss button
 
 The dismiss button of a notice or a toast is a small raised button, 24px across and fully rounded, filled with `raise-grad`, bounded by `raise-border` and shadowed with `raise-shadow`. It holds the close glyph at 12px in `text-muted`. Its accessible name says what it does, such as "Dismiss", and it shows that name as a tooltip.
@@ -45,7 +47,9 @@ The dismiss button of a notice or a toast is a small raised button, 24px across 
 | A notice dismissed | Gone from the view, and the space it held closes |
 | A toast arriving | It joins the foot of the stack |
 | A toast leaving | It fades and drops 8px over 200ms, then is removed; with reduced motion it is removed at once |
+| A toast raised while a modal dialog is open | Inside the dialog, above its backdrop, until the dialog closes |
 | A dismiss button under the pointer | The fill becomes `raise-grad-hover` and the glyph `text` |
+| A dismiss button while pressed | Pressed in: the fill becomes `raise-active-bg` and the shadow `raise-active-shadow` |
 | A dismiss button focused from the keyboard | A 3px ring in `focus-ring` outside its border |
 
 ## Interaction
@@ -66,7 +70,6 @@ In the platform's high-contrast mode, a notice and a toast keep a visible border
 
 ## Questions this section must settle
 
-- What happens to a toast raised while a modal dialog is open. The web implementation draws the stack beneath the dialog's backdrop, where the toast is dimmed and its dismiss button cannot be reached.
 - Whether a toast may carry an action, such as Undo, which the buttons section suggests a destructive action should offer. An action that leaves after five seconds is hard to reach for a reader who is slow, uses a keyboard or uses a screen reader, and WCAG 2.2 success criterion 2.2.1 bears on it.
 - What a danger toast is for, given that an error the reader must act on is always a notice, and whether it is announced more urgently than the other kinds.
 - Whether the kind of a notice or a toast must be exposed to assistive technology in its own right, since chapter 2 requires every shown state to be exposed and today the kind is carried only by the glyph, the colour and whatever the words say.
@@ -79,8 +82,9 @@ In the platform's high-contrast mode, a notice and a toast keep a visible border
 2. A notice is flat and sits in the flow of the view; a toast is lifted above the view in a stack at the foot of the window's end corner.
 3. A notice stays until it is dismissed or the application removes it.
 4. A toast leaves by itself after 5 seconds by default, its time stops while the pointer or focus is on it, and a toast made to stay remains until it is dismissed.
-5. The dismiss button is a raised button with the close glyph, an accessible name, and a tooltip showing that name.
-6. The stack of toasts is announced politely by assistive technology as each toast arrives, including a toast present when the view first appears.
-7. A toast's leaving motion is removed when the reader has asked for reduced motion.
-8. Every message reaches 4.5:1 against its panel in every kind, in both themes.
-9. In high-contrast mode a notice and a toast keep a border, their start edge and a visible glyph.
+5. The dismiss button is a raised button with the close glyph, an accessible name, and a tooltip showing that name, and it is pressed in while pressed.
+6. A toast raised while a modal dialog is open appears inside the dialog, above its backdrop, where it can be read and dismissed, and moves back to the page's stack when the dialog closes.
+7. The stack of toasts is announced politely by assistive technology as each toast arrives, including a toast present when the view first appears.
+8. A toast's leaving motion is removed when the reader has asked for reduced motion.
+9. Every message reaches 4.5:1 against its panel in every kind, in both themes.
+10. In high-contrast mode a notice and a toast keep a border, their start edge and a visible glyph.

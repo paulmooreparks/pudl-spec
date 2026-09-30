@@ -22,11 +22,12 @@ The application chooses which page controls to show, and marks each run it leave
 |---|---|
 | At rest | Raised, as above |
 | Under the pointer | The fill becomes `raise-grad-hover` and the border `raise-border-hover` |
+| Pressed, while the pointer or key is down | Pressed in: the fill becomes `raise-active-bg` and the shadow `raise-active-shadow` |
 | The current page | Pressed in: the fill becomes `raise-active-bg`, the shadow `raise-active-shadow` and the border `raise-border-hover`, because the reader is already there |
 | Focused from the keyboard | A 3px ring in `focus-ring` outside its border, in addition to its other state |
 | Unavailable, for previous on the first page or next on the last | Raised as at rest and dimmed to 45% opacity; it takes no presses |
 
-Being on the current page is shown by elevation, so it does not rely on colour.
+The page controls are a set of raised controls offering places, so the one for where the reader is, the current page, is drawn pressed in, as chapter 2 requires, and exposed as current. Being on the current page is shown by elevation, so it does not rely on colour.
 
 ## Interaction
 
@@ -42,9 +43,6 @@ In the platform's high-contrast mode each control keeps a visible border, the cu
 
 ## Questions this section must settle
 
-- Whether the current page's control should be drawn pressed in, as the web implementation draws it, or flat. Chapter 2 draws the tab for where the reader already is flat, and says a control drawn pressed in can still be pressed; a pressed-in current page reads as a latched toggle, although pressing it does nothing new.
-- Whether the page controls, which go to an address, are buttons or links under chapter 2. Links are underlined and must not look like buttons, and these controls are raised and carry no underline. The same question applies to a data table's sortable headers.
-- Whether a page control shows a state while it is being pressed. Other raised controls are drawn pressed in while pressed; the web implementation's page controls are not.
 - What pagination becomes on a narrow screen with many pages, beyond moving the summary to its own line. The web implementation leaves the choice of which pages to show to the application.
 - Whether the language offers an alternative to pages for long lists, such as loading more rows as the reader reaches the end, and how that would stay restorable.
 
@@ -52,11 +50,12 @@ In the platform's high-contrast mode each control keeps a visible border, the cu
 
 1. Each available control is raised, 32px high and at least 32px wide, with its words at `text-sm` and weight 600 and tabular figures.
 2. The current page's control is pressed in, and is exposed as the current page.
-3. The previous and next controls carry the `back` glyph, pointing the way each goes, and mirror in a right-to-left language.
-4. On the first page the previous control, and on the last page the next control, are dimmed to 45%, take no presses and are exposed as disabled.
-5. Each available control is one tab stop and is pressed with the platform's usual keys.
-6. Pressing a control shows that page, and the page in view is restored when the reader returns.
-7. Pagination is exposed as a named navigation region.
-8. A gap between page numbers is hidden from assistive technology.
-9. Focus from the keyboard shows a ring at least 3:1 against its surroundings.
-10. In high-contrast mode each control keeps a border, and the current page stays distinguishable.
+3. Every available control is drawn pressed in while it is pressed.
+4. The previous and next controls carry the `back` glyph, pointing the way each goes, and mirror in a right-to-left language.
+5. On the first page the previous control, and on the last page the next control, are dimmed to 45%, take no presses and are exposed as disabled.
+6. Each available control is one tab stop and is pressed with the platform's usual keys.
+7. Pressing a control shows that page, and the page in view is restored when the reader returns.
+8. Pagination is exposed as a named navigation region.
+9. A gap between page numbers is hidden from assistive technology.
+10. Focus from the keyboard shows a ring at least 3:1 against its surroundings.
+11. In high-contrast mode each control keeps a border, and the current page stays distinguishable.

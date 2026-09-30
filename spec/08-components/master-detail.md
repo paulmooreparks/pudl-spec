@@ -20,11 +20,11 @@ The sidebar is a flat band of `surface` with a 1px hairline in `border` on the s
 The list in the sidebar is made of section labels and rows.
 
 - A **section label** heads a group of rows. It is set at `text-2xs`, weight 700, in capitals spaced 0.06em apart, in `text-muted`, with 14px above it and at its sides and 4px below.
-- A **row** is flat, because it is navigation to be read and followed, and it is one link to its record. Its title is set at `text-sm` in `text`, on one line, padded 5px above and below and 14px at the sides, and it ends in an ellipsis when the sidebar is too narrow for it. Beneath the title a row MAY carry any number of metadata lines, such as a date and then a description, set at `text-2xs`, weight 500, in `text-muted`. Metadata lines wrap rather than being cut short, since the ellipsis marks the end of only the title's line. Rows are divided by a 1px line in `surface-alt`, and numbers in them are tabular.
+- A **row** is one link to its record. The rows are a list of places, the category chapter 2 describes, so each row is flat, responds under the pointer, and is not underlined. Its title is set at `text-sm` in `text`, on one line, padded 5px above and below and 14px at the sides, and it ends in an ellipsis when the sidebar is too narrow for it. Beneath the title a row MAY carry any number of metadata lines, such as a date and then a description, set at `text-2xs`, weight 500, in `text-muted`. Metadata lines wrap rather than being cut short, since the ellipsis marks the end of only the title's line. Rows are divided by a 1px line in `surface-alt`, and numbers in them are tabular.
 
 The detail pane fills the rest of the layout. It is `bg`, padded 24px, and scrolls on its own.
 
-The divider sits on the boundary between the sidebar and the detail pane, over the sidebar's hairline. It behaves as a splitter, which [its own section](splitters.md) specifies; the differences are listed under Interaction below.
+The divider sits on the boundary between the sidebar and the detail pane, over the sidebar's hairline. It is drawn and behaves as a splitter's handle, which [its own section](splitters.md) specifies: it is flat, and it carries the `grip` glyph in `text-muted` at rest. The differences are listed under Interaction below.
 
 ## States
 
@@ -35,8 +35,8 @@ The divider sits on the boundary between the sidebar and the detail pane, over t
 | Row | Current, the record in the detail pane | Filled with `surface-alt`, a 3px edge in `accent` on the side facing the detail pane, and the title at weight 700 |
 | Row | Focused from the keyboard | The focus ring of a link, in addition to its other state |
 | Chip row | No filters in force | Takes no space |
-| Divider | At rest | Unseen; the sidebar's hairline marks the boundary |
-| Divider | Under the pointer, while dragged, or focused | A rule in `accent`, with a 3px ring in `focus-ring` while focused |
+| Divider | At rest | Flat; the `grip` glyph shows in `text-muted` on the sidebar's hairline, and the rule is unseen |
+| Divider | Under the pointer, while dragged, or focused | The glyph and a rule in `accent`, with a 3px ring in `focus-ring` while focused |
 | Detail pane | Focused from the keyboard | A 3px ring in `focus-ring` drawn inside its edge |
 
 The current row carries three signals besides its colour: the edge, the weight of its title and its position beside the record it names. It MUST be exposed as the current item.
@@ -69,7 +69,7 @@ The sidebar is exposed as navigation, named for the list it holds. Each row is a
 
 In a right-to-left layout the whole layout mirrors: the sidebar sits at the right, the current row's edge stays on the side facing the detail pane, the divider and its keys follow the sidebar, and the `back` glyph turns round.
 
-In the platform's high-contrast mode the current row takes the system's highlight colours, since its fill and edge would not show there, and the divider is drawn as a rule in the system's text colour, and in its highlight colour while hovered, dragged or focused.
+In the platform's high-contrast mode the current row takes the system's highlight colours, since its fill and edge would not show there, and the divider's rule and glyph are drawn in the system's text colour, and in its highlight colour while hovered, dragged or focused.
 
 A printed layout carries the content without the toolbar, the chip row, the divider or the back control. A layout showing a record prints the record alone.
 
@@ -77,7 +77,7 @@ A printed layout carries the content without the toolbar, the chip row, the divi
 
 - Whether the sidebar's width is part of the state the reader returns to. The web implementation treats it as the reader's convenience and keeps no state for it, leaving the application to remember it; chapter 7 holds the general question of which state is the reader's own and which belongs to the application.
 - Whether Enter returns the divider to its default size, as it does for a splitter. The web implementation's divider returns only on a double-click, so the two handles answer the same gesture differently.
-- How the divider is found and grabbed without a pointer that can rest over it. It is unseen until hovered, and its grip is 6px wide, which is narrow for a finger; chapter 6 holds the minimum target size.
+- How the divider is grabbed on a touch screen. Its grip is 6px wide, which is narrow for a finger; chapter 6 holds the minimum target size.
 
 ## Conformance checklist
 
@@ -85,12 +85,14 @@ A printed layout carries the content without the toolbar, the chip row, the divi
 2. Every control in the toolbar is 30px tall.
 3. The sidebar's width stays between its minimum, 180px by default, and half the layout, however it was set, and starts at 260px.
 4. A row's title stays on one line and ends in an ellipsis when cut short, and its metadata lines wrap.
-5. The current row shows a 3px `accent` edge on the side facing the detail pane and a bold title, and is exposed as current.
-6. The detail pane is a tab stop, and its focus ring is drawn inside it.
-7. The divider moves 16px per arrow key and 64px with Shift, Home and End take it to its limits, and a double-click returns it to the default width.
-8. At a layout width of 640px or less, the layout shows either the list or the record, never both, and the choice follows the record in view.
-9. While the record shows on a narrow layout, a back control naming the list is its first element, and it returns to the list with the filters kept and the record's row in view.
-10. While the record shows on a narrow layout, the list's toolbar and chip row are hidden, and a toolbar of application-wide tools stays.
-11. The divider is hidden while one pane shows at a time.
-12. In a right-to-left layout the sidebar sits at the right and the divider and its keys follow it.
-13. In high-contrast mode the current row takes the system's highlight colours.
+5. The rows are flat, respond under the pointer and are not underlined.
+6. The current row shows a 3px `accent` edge on the side facing the detail pane and a bold title, and is exposed as current.
+7. The detail pane is a tab stop, and its focus ring is drawn inside it.
+8. The divider is flat and shows the `grip` glyph at rest, taking `accent` under the pointer, while dragged and while focused.
+9. The divider moves 16px per arrow key and 64px with Shift, Home and End take it to its limits, and a double-click returns it to the default width.
+10. At a layout width of 640px or less, the layout shows either the list or the record, never both, and the choice follows the record in view.
+11. While the record shows on a narrow layout, a back control naming the list is its first element, and it returns to the list with the filters kept and the record's row in view.
+12. While the record shows on a narrow layout, the list's toolbar and chip row are hidden, and a toolbar of application-wide tools stays.
+13. The divider is hidden while one pane shows at a time.
+14. In a right-to-left layout the sidebar sits at the right and the divider and its keys follow it.
+15. In high-contrast mode the current row takes the system's highlight colours.

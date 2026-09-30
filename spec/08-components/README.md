@@ -2,7 +2,7 @@
 
 Each component has a section of its own, which defines it by its purpose, its anatomy, its states, how it responds to pointer, touch and keyboard, and what it exposes to assistive technology, and ends in a conformance checklist. [Buttons](buttons.md) was written first, as the model for the rest.
 
-Every section is drafted. The sections other than buttons were drafted from the web implementation as it stands, and each lists the questions it must settle before 1.0, several of which turn on the grammar in chapter 2.
+Every section is drafted. The sections other than buttons were drafted from the web implementation as it stands, and each lists the questions it must still settle before 1.0. Where chapter 2 has since settled a question, the section follows the grammar and the question is gone.
 
 | Component | Section |
 |---|---|

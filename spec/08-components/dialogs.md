@@ -4,7 +4,7 @@ A dialog interrupts the reader to ask a question or take a short input before a 
 
 ## Anatomy
 
-A dialog is a panel lifted above the view, over a backdrop that dims everything behind it. The panel is filled with `dialog-bg`, which makes it one step brighter than the page it sits on, bounded by a 1px line in `border`, and has `radius` corners and 24px (`space-5`) of padding. It casts `shadow-card` together with a deep soft shadow of black at 32% opacity, 24px below it and blurred over 64px, and that shadow does the work of lifting it. The backdrop is black at 40% opacity, which dims the view gently.
+A dialog is a panel lifted above the view, over a backdrop that dims everything behind it. The panel is filled with `dialog-bg`, which makes it one step brighter than the page it sits on, bounded by a 1px line in `border`, and has `radius` corners and 24px (`space-5`) of padding. It casts `shadow-dialog`, which is a card's shadow with a deep soft shadow of `shade` added, 24px below the panel and blurred over 64px, at 1.8 times the strength `depth` sets, and that deep shadow does the work of lifting it. The backdrop is `backdrop`, which is `shade` at 40% opacity and dims the view gently. Both are derived tokens, so a theme's lighting reaches them.
 
 The panel is centred in the window. It is as wide as the window allows up to 480px, and no taller than the window less 24px above and below; when its contents are taller it scrolls.
 
@@ -24,6 +24,8 @@ A dialog is a visible context, so it holds at most one primary button, as chapte
 | Open | The backdrop dims the view, and the panel sits above it, centred |
 
 The dialog's buttons have the states the buttons section specifies.
+
+A toast raised while a dialog is open appears inside the dialog, above its backdrop, where the reader can read and dismiss it. When the dialog closes, the toast moves back to the page's toasts. The section on notices and toasts specifies the toast itself.
 
 ## Interaction
 
@@ -45,11 +47,10 @@ In the platform's high-contrast mode the panel keeps a visible border, since its
 - Whether a dialog that is open is part of the restorable state of chapter 7. Today a dialog is shown by the application in response to an action, and reloading the view closes it.
 - Whether an application on a desktop platform may use that platform's own message box instead of a PUDL dialog. The web implementation forbids the browser's equivalent, which cannot be styled and cannot name its buttons in the application's words, and a desktop message box shares only some of those faults.
 - What a dialog becomes on a narrow window, whether it stays a centred panel as it does today or fills the window as a sheet.
-- Whether the backdrop's 40% black and the panel's deep shadow should become derived tokens computed from `shade` and `depth`, since today a theme's lighting does not reach them.
 
 ## Conformance checklist
 
-1. A dialog's panel is filled with `dialog-bg`, has `radius` corners, and sits centred above a backdrop that dims the view.
+1. A dialog's panel is filled with `dialog-bg`, has `radius` corners, casts `shadow-dialog`, and sits centred above a `backdrop` that dims the view.
 2. The panel is no wider than 480px and scrolls when its contents are taller than the window allows.
 3. The title is `text-lg` at weight 700, and the actions sit at the end, with the committing action last.
 4. A dialog holds at most one primary button, and none when its committing action is destructive.
@@ -58,4 +59,5 @@ In the platform's high-contrast mode the panel keeps a visible border, since its
 7. Pressing an action closes the dialog and tells the application which action it was.
 8. Focus returns to the control that opened the dialog when it closes.
 9. A dialog is exposed as a modal dialog named by its title, and everything behind it is hidden from assistive technology while it is open.
-10. In high-contrast mode the panel keeps a visible border.
+10. A toast raised while the dialog is open appears inside the dialog, above its backdrop, can be read and dismissed there, and moves back to the page's toasts when the dialog closes.
+11. In high-contrast mode the panel keeps a visible border.

@@ -4,7 +4,7 @@ A switch turns one setting on or off, such as "Show hidden files" or "Send me a 
 
 ## Anatomy
 
-The track is sunken, since it is the slot the thumb runs in. It is 40px wide and 22px tall with fully rounded ends (`radius-pill`), filled with `recess-bg`, bounded by a 1px hairline in `border` and shaded inside its top edge by `entry-shadow`.
+The track is sunken, since it is the slot the thumb runs in. It is 40px wide and 22px tall with fully rounded ends (`radius-pill`), filled with `recess-bg`, bounded by a 1px hairline in `input-border`, which reaches 3:1 against the surface around it as the bounds of a control must, and shaded inside its top edge by `entry-shadow`.
 
 The thumb is raised, since it is the part the reader presses. It is a circle 16px across, 2px inside the track's border at the top and at the end it rests against, and it is drawn as a button is: its fill is `raise-grad`, its border a 1px hairline in `raise-border`, and its shadow `raise-shadow`.
 
@@ -21,7 +21,7 @@ When the switch is on, the track fills with `accent` and its border becomes `acc
 | Under the pointer | The thumb's border becomes `raise-border-hover` |
 | Pressed, while the pointer or key is down | The thumb is pressed in: its fill becomes `raise-active-bg` and its shadow `raise-active-shadow` |
 | Focused from the keyboard | A 3px ring in `focus-ring` outside the track's border |
-| Disabled | Drawn as off or on, and dimmed; it takes no pointer or key presses |
+| Disabled | Drawn as off or on, and dimmed to 45% opacity; it takes no pointer or key presses |
 
 A switch's state MUST show through the thumb's position as well as the track's colour, so a reader who sees no colour can still tell on from off. It MUST be exposed to assistive technology as checked or not checked.
 
@@ -44,18 +44,17 @@ A switch is exposed with the switch role, its label as its accessible name, and 
 - Whether a reader on a touch screen may drag the thumb from one end to the other, as the switches of the phone platforms allow.
 - Where the label goes in a list of settings on a phone, where the platforms' own switches put the label first and the switch at the far end of the row.
 - Whether a switch has a small size for dense lists of settings.
-- How far a disabled switch dims. A button dims to 45% and a field to 55%, and the web implementation gives a switch no disabled appearance yet.
 
 ## Conformance checklist
 
 1. A switch's track is sunken and its thumb raised, in both themes and in both states.
-2. The track is 40px by 22px with fully rounded ends, and the thumb a circle 16px across.
+2. The track is 40px by 22px with fully rounded ends and a border of `input-border` that reaches 3:1 against its surroundings in both themes, and the thumb is a circle 16px across.
 3. When the switch is on, the track is filled with the accent and the thumb sits at the far end, which is the left on a right-to-left page.
 4. Its state shows through the thumb's position as well as colour, and is exposed as checked or not checked.
 5. It is one tab stop, the platform's usual keys change it, and a pointer press counts only when released over it.
 6. Pressing its label changes it, and its accessible name is its label.
 7. The thumb is pressed in while the switch is pressed.
-8. A disabled switch is dimmed, keeps both elevations and its position, takes no presses and is exposed as disabled.
+8. A disabled switch is dimmed to 45%, keeps both elevations and its position, takes no presses and is exposed as disabled.
 9. Focus from the keyboard shows a ring at least 3:1 against its surroundings.
 10. With reduced motion the thumb moves without animating.
 11. In high-contrast mode the track and thumb keep borders, and the on state and focus stay visible.

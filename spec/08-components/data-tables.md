@@ -29,13 +29,14 @@ A table with no rows to show holds a single **empty row** spanning every column,
 ## Kinds
 
 - A **plain data table** shows records to read. It may have sortable columns and a selection column. A reader selects rows by checking their checkboxes, and may select several, for an action on all of them.
-- A **grid** is a data table whose rows are choices. It has a single selection, which the reader moves from row to row, and each row stands for one record the reader can open. A grid does not have a selection column.
+- A **grid** is a data table whose rows are choices. It has a single selection, which the reader moves from row to row, and each row stands for one record the reader can open. A grid does not have a selection column. Its rows are a list of choices, the category chapter 2 describes, so they are flat, they respond under the pointer, and the selected row is marked by its edge as well as its tint. A grid's rows are not underlined, and neither are the links inside them, since the grid already says what its rows are.
 
 ## States
 
 | State | Appearance |
 |---|---|
-| A row under the pointer | Tinted with `text` at 4%; a pointer convenience only, which an implementation MAY leave out |
+| A row of a grid under the pointer | Tinted with `text` at 4% |
+| A row of a plain data table under the pointer | Tinted with `text` at 4%; a pointer convenience only, which an implementation MAY leave out |
 | A selected row | Tinted with `accent` at 12%, with a 3px `accent` edge on its start side |
 | A focused row, in a grid | A 3px ring in `focus-ring` drawn inside the row's bounds, together with the start edge if it is selected |
 | A sortable header under the pointer | The fill becomes `raise-grad-hover` |
@@ -93,7 +94,6 @@ In the platform's high-contrast mode the frame and each sortable header keep a v
 - Whether a sortable header counts as raised under chapter 2. It has a graded fill and a lit top edge but only an end border and no shadow of its own, so it is lighter than every other raised control.
 - Whether stacking on a narrow screen is the application's choice, as it is on the web, or the rule for every data table, and whether 560px is part of the language or the web implementation's own threshold.
 - Whether Page Up and Page Down move ten rows, as the web implementation does, or a screenful of rows, as most desktop platforms do.
-- Whether a grid's rows, which can be pressed but are drawn flat, fit chapter 2's rule that flat means there to be read. The same question applies to list rows and tree nodes.
 
 ## Conformance checklist
 
@@ -109,7 +109,8 @@ In the platform's high-contrast mode the frame and each sortable header keep a v
 10. A grid is one tab stop, on its selected row or else its first.
 11. In a grid, the arrow keys, Home, End, Page Up and Page Down move the selection, and the selection follows focus.
 12. In a grid, Enter or a double press opens the selected row, and a single press selects it.
-13. A grid is exposed with the grid role, and each row as selected or not selected.
-14. A focused row in a grid shows a ring at least 3:1 against its surroundings, and a focused sortable header does the same.
-15. A table marked to stack shows each record as labelled lines when its frame is 560px wide or less, and keeps its headers exposed.
-16. In high-contrast mode the frame and sortable headers keep a border, and a selected row takes the system's highlight colours.
+13. A grid's rows are flat, respond under the pointer, and are not underlined.
+14. A grid is exposed with the grid role, and each row as selected or not selected.
+15. A focused row in a grid shows a ring at least 3:1 against its surroundings, and a focused sortable header does the same.
+16. A table marked to stack shows each record as labelled lines when its frame is 560px wide or less, and keeps its headers exposed.
+17. In high-contrast mode the frame and sortable headers keep a border, and a selected row takes the system's highlight colours.

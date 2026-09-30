@@ -38,6 +38,7 @@ A status badge and a chip have no states of their own. A filter chip's body has 
 |---|---|
 | At rest | Raised, as above |
 | Under the pointer | The fill becomes `raise-grad-hover`, the border `raise-border-hover`, and the glyph `text` |
+| Pressed, while the pointer or key is down | Pressed in: the fill becomes `raise-active-bg` and the shadow `raise-active-shadow` |
 | Focused from the keyboard | A 3px ring in `focus-ring` outside its border, in addition to its other state |
 
 ## Interaction
@@ -51,7 +52,6 @@ A badge and a chip are exposed as their words, with the glyph hidden from assist
 ## Questions this section must settle
 
 - Whether a chip may ever be pressable, for instance to go to everything that carries the same tag. The web implementation has no such chip, and a pressable chip would need an appearance that does not borrow a button's or a link's.
-- Whether the remove control shows a state while it is pressed. Chapter 2 says a raised control that is pressed is drawn pressed in; the web implementation's remove control has no such state today.
 - How large the remove control's target is on a touch screen. At 18px it is below any usual minimum target size, which chapter 6 has yet to set.
 - Whether the accent badge's meaning, a state in progress, is fixed by the language or left to each application.
 
@@ -62,7 +62,7 @@ A badge and a chip are exposed as their words, with the glyph hidden from assist
 3. Each status badge but the neutral one leads with its own glyph: `diamond` for accent, `triangle` for warning, `square` for danger and `circle` for positive.
 4. A badge's words reach 4.5:1 against its fill in every kind, in both themes, including inside a selected table row.
 5. A badge and a chip take no focus and respond to no press.
-6. A filter chip's remove control is raised, is one tab stop, and removes its filter when pressed with the pointer or the platform's usual keys.
+6. A filter chip's remove control is raised, draws the `close` glyph, is pressed in while pressed, is one tab stop, and removes its filter when pressed with the pointer or the platform's usual keys.
 7. The remove control's accessible name says which filter it removes.
 8. Focus on the remove control from the keyboard shows a ring at least 3:1 against its surroundings.
 9. The glyphs are drawn from the glyph set, not taken from a font.
