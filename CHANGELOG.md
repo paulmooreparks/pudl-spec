@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0
+
+- **A segmented control in a narrow space** may become a pop-up button labelled with the current choice, whose menu lists every choice with the current one ticked, as a desktop view switcher does in a narrow window. The application says which controls may collapse, and a control never collapses on a wide screen.
+
 ## 0.3.2
 
 - A docked window's free edge carries the `grip` glyph at rest, as every handle does, so it can be seen to resize.
