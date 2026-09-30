@@ -22,7 +22,7 @@ Links are underlined, so they can be told from the text around them without rely
 
 ## Colour is never the only signal
 
-Every state that means something carries a second signal besides its colour: a glyph, a position, an elevation or words. A warning carries the warning glyph, an error the stop glyph, a selected row its position and edge, and a toggle that is on its elevation. An application MUST still read correctly for a reader who cannot tell red from green, and for one who sees no colour at all.
+Every state that means something carries a second signal besides its colour: a glyph, a position, an elevation or words. Each status has a shape of its own, which chapter 5 lists, so a warning badge carries a triangle and an error badge a square. A selected row is marked by its position and edge, and a toggle that is on by its elevation. An application MUST still read correctly for a reader who cannot tell red from green, and for one who sees no colour at all.
 
 ## State is exposed as well as shown
 

@@ -15,7 +15,7 @@ An implementation generates its own form of the tokens and glyphs from these fil
 
 ## Status
 
-This is version 0.1.0. The grammar, the tokens and the button are written; the other chapters are outlines. The specification reaches 1.0 when every chapter is written and the web implementation passes every conformance checklist, and the web implementation's own 1.0 waits for it.
+This is version 0.1.0. Every chapter is now drafted on main, with the questions each must settle listed in it; the grammar needs decisions before the next version is tagged. The specification reaches 1.0 when every chapter is written and the web implementation passes every conformance checklist, and the web implementation's own 1.0 waits for it.
 
 ## Changing the language
 
