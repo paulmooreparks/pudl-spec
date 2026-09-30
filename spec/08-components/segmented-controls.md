@@ -39,12 +39,17 @@ Every segment can be reached and pressed from the keyboard with the platform's u
 
 A segmented control is exposed as a group, with an accessible name that says what the choices choose between, such as "Theme". Each segment is exposed with its label as its accessible name and with its state, as the States section says. In the platform's high-contrast mode the trough keeps a visible border, the chosen segment takes the system's highlight colours, since its change of elevation would not show there, and focus is drawn as a solid outline in the system's highlight colour.
 
+## In a narrow space
+
+Where a segmented control would take more room than a narrow screen can give it, such as in an application bar on a phone, an application MAY ask for it to become a pop-up button, as a desktop view switcher does in a narrow window. The pop-up button is a menu button labelled with the current choice, whose accessible name joins the control's name to that choice, such as "View: Window". Its menu lists every choice, in the same order, with the `tick` glyph beside the current one. Choosing one has the same effect as pressing its segment, and the button's label follows. The application decides which controls may collapse; the implementation decides when the space is narrow, and the web implementation does it at a screen 640px wide or less.
+
+A pop-up button takes two presses where segments take one, which is a fair price where segments do not fit and a poor one where they do, so a control never collapses on a wide screen.
+
 ## Questions this section must settle
 
 - How the keyboard moves through a segmented control. The web implementation makes each segment a tab stop, where the platforms' radio groups make the whole control one stop and move the choice with the arrow keys.
 - Which state a segment that changes something in place exposes. The web implementation accepts either pressed or checked, and the language should name one.
 - Whether four segments is a limit. The web implementation's reference page shows five in the small size.
-- What a segmented control does when its segments do not fit the width, as on a phone.
 - Whether the fully rounded shape means anything, such as a choice among views, or is only a look an application may pick.
 
 ## Conformance checklist
@@ -61,3 +66,4 @@ A segmented control is exposed as a group, with an accessible name that says wha
 10. Focus from the keyboard shows a ring at least 3:1 against its surroundings.
 11. A disabled segment is dimmed to 45%, takes no presses and is exposed as disabled.
 12. In high-contrast mode the trough keeps a border, and the chosen segment and focus stay visible.
+13. A control the application lets collapse becomes, in a narrow space only, a menu button labelled with the current choice and named with the control's name and that choice, whose menu lists every choice with the current one ticked, and choosing one has the effect of pressing its segment.
