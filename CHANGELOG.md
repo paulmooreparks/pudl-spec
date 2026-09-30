@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.2
+
+- A docked window's free edge carries the `grip` glyph at rest, as every handle does, so it can be seen to resize.
+
 ## 0.3.1
 
 - A window sized by its content has a frame of a single hairline, with no frame band, so it does not look as if its edges could be dragged.
