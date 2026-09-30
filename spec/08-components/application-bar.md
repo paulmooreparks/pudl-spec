@@ -16,6 +16,8 @@ The **chrome** is a row of controls that belong to the whole application, 8px ap
 
 A plain link in running text on the bar takes `tb-chrome-fg`, and stays underlined.
 
+The bar MAY also hold a row of **tabs** between the brand and the chrome, for an application's main sections, as a web browser puts its tabs in its title bar. The row stands on the bar's foot. Each tab the reader can go to is raised in the bar's own colours, filled with `tb-chip` and casting `tb-chip-shadow`, with its top corners at `radius-sm`, its words at `text-sm` and weight 600 in `tb-chrome-fg`, padded 5px above and below and 14px at the sides, and it stands on the bar's bottom line. The tab for where the reader is follows the exception chapter 2 makes for tabs: it stands flat and 4px taller, bounded at its top and sides by a hairline in `tb-border`, and it covers the bar's bottom line and takes the colour of what lies directly below the bar, the page's `bg` unless the application says otherwise, so it opens into the page and its words are in `text`. On a narrow screen the tabs take the bar's last row, still standing on its foot, and scroll sideways when they do not fit.
+
 ## States
 
 | Part | State | Appearance |
@@ -66,3 +68,5 @@ A printed page leaves the bar out.
 9. The bar is exposed as the application's banner.
 10. In high-contrast mode the current pill takes the system's highlight colours.
 11. A printed page leaves the bar out.
+12. Tabs on the bar stand on its foot; the current tab covers the bar's bottom line, takes the colour of what lies below the bar and is exposed as current, and the others stand raised on the line in the bar's colours.
+13. On a narrow screen the tabs are the bar's last row and scroll sideways rather than widen the page.
