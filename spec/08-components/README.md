@@ -1,34 +1,31 @@
 # 8. Components
 
-Each component has a section of its own, which defines it by its purpose, its anatomy, its states, how it responds to pointer, touch and keyboard, and what it exposes to assistive technology, and ends in a conformance checklist. [Buttons](buttons.md) is written first, as the model for the rest.
+Each component has a section of its own, which defines it by its purpose, its anatomy, its states, how it responds to pointer, touch and keyboard, and what it exposes to assistive technology, and ends in a conformance checklist. [Buttons](buttons.md) was written first, as the model for the rest.
 
-| Component | Status |
+Every section is drafted. The sections other than buttons were drafted from the web implementation as it stands, and each lists the questions it must settle before 1.0, several of which turn on the grammar in chapter 2.
+
+| Component | Section |
 |---|---|
-| [Buttons](buttons.md), including toggle buttons | Written |
-| Glyph buttons | Not yet written |
-| Fields and form states | Not yet written |
-| Switches | Not yet written |
-| Segmented controls | Not yet written |
-| Badges, chips and filter chips | Not yet written |
-| Cards | Not yet written |
-| Key and value tables | Not yet written |
-| Data tables and rows to choose from | Not yet written |
-| Trees and path bars | Not yet written |
-| Section tabs, tabs within a page, and document tabs | Not yet written |
-| Menus, menu buttons and launchers | Not yet written |
-| Dialogs | Not yet written |
-| Notices and toasts | Not yet written |
-| Empty and loading states | Not yet written |
-| Tooltips | Not yet written |
-| Pagination | Not yet written |
-| Master-detail layouts | Not yet written |
-| Splitters | Not yet written |
-| Windows, docked windows and snap zones | Not yet written |
-| Code blocks and editor surfaces | Not yet written |
-| Drop targets | Not yet written |
-| The application bar | Not yet written |
-
-Questions the windows section must settle:
-
-- What a window becomes on a phone. The web implementation shows one pane at a time, with the windows as the detail, but that answer is not yet written down as a rule.
-- Whether the layout picker's hover opener is part of the language, or a pointer convenience a platform may leave out, given that the window menu already carries the picker.
+| Buttons, including toggle buttons | [buttons.md](buttons.md) |
+| Glyph buttons | [glyph-buttons.md](glyph-buttons.md) |
+| Fields and form states | [fields.md](fields.md) |
+| Switches | [switches.md](switches.md) |
+| Segmented controls | [segmented-controls.md](segmented-controls.md) |
+| Badges, chips and filter chips | [badges-and-chips.md](badges-and-chips.md) |
+| Cards | [cards.md](cards.md) |
+| Key and value tables | [key-value-tables.md](key-value-tables.md) |
+| Data tables and rows to choose from | [data-tables.md](data-tables.md) |
+| Pagination | [pagination.md](pagination.md) |
+| Empty and loading states | [empty-and-loading.md](empty-and-loading.md) |
+| Trees and path bars | [trees-and-path-bars.md](trees-and-path-bars.md) |
+| Section tabs, tabs within a page, and document tabs | [tabs.md](tabs.md) |
+| Menus, menu buttons and launchers | [menus.md](menus.md) |
+| Tooltips | [tooltips.md](tooltips.md) |
+| Dialogs | [dialogs.md](dialogs.md) |
+| Notices and toasts | [notices-and-toasts.md](notices-and-toasts.md) |
+| Master-detail layouts | [master-detail.md](master-detail.md) |
+| Splitters | [splitters.md](splitters.md) |
+| Windows, docked windows and snap zones | [windows.md](windows.md) |
+| Code blocks and editor surfaces | [code.md](code.md) |
+| Drop targets | [drop-targets.md](drop-targets.md) |
+| The application bar | [application-bar.md](application-bar.md) |
