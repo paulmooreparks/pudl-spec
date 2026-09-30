@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1
+
+- A window sized by its content has a frame of a single hairline, with no frame band, so it does not look as if its edges could be dragged.
+
 ## 0.3.0
 
 - **Windows sized by their content.** A window is sized either by the reader or by its content, as a desktop window has a sizing border or is a dialog that sizes itself. A window sized by its content takes its content's size and follows it as it changes, larger and smaller, from a fixed top-left corner, stops at the edge of the workspace where its body scrolls, and cannot be resized, maximised, snapped or docked. An applet in it flows. From parkscomputing.com's proposal on window sizing.
