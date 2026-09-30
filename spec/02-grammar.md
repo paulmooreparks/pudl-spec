@@ -16,7 +16,9 @@ Nothing is raised that cannot be pressed, and nothing sunken that cannot take in
 
 ### Where the reader is
 
-Where a set of raised controls offers places or choices, such as the pages of a list, the pages of an application bar or the windows in a dock, the one for where the reader is, or the one chosen, is drawn pressed in, like a latched toggle, and exposed as current or chosen. A segmented control follows the same rule: the chosen segment is pressed in and the others stand raised, ready to be pressed.
+Where a set of raised controls offers places or choices, such as the pages of a list, the pages of an application bar or the windows in a dock, the one for where the reader is, or the one chosen, is drawn pressed in, like a latched toggle, and exposed as current or chosen.
+
+A switch shows its state by position. Its track is sunken and its thumb is raised, and the thumb sits at the end that says whether it is on. A segmented control is a switch with more than two positions, as macOS and iOS draw it: its trough is the track, the chosen choice is the thumb, raised, and the other positions are marked on the track, flat. Pressing one of them moves the thumb there. With only two choices, a pressed-in choice beside a raised one is hard to tell apart at a glance, and a thumb on a track is not.
 
 A tab is the one exception, whether it is a section tab, the tab of a panel within a page or the tab of an open document. The tab for where the reader is stands flat and a little taller, open at its foot into the content below it, because it is the edge of that content rather than a control beside it. The other tabs stand raised.
 

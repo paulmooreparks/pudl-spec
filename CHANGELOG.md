@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- **Segmented controls return to a raised thumb.** 0.2.0 drew the chosen segment pressed in beside raised ones, and with two choices the state was hard to read. A segmented control is now defined as a switch with more than two positions, as macOS and iOS draw it: the trough is the track, the chosen segment is the raised thumb, and the other positions lie flat on the track. Chapter 2 states the rule for switches and segmented controls together.
+
 ## 0.2.0
 
 Every chapter and every component section is drafted, and the grammar is settled where drafting them found it unclear. Paul Parks made these decisions on 2026-10-01.
