@@ -4,11 +4,11 @@ A segmented control offers a small set of choices side by side, of which exactly
 
 ## Anatomy
 
-A segmented control is a recessed trough holding a row of segments. The trough is filled with `recess-bg`, bounded by a 1px hairline in `border` and shaded inside its top edge by `entry-shadow`, and its corners are `radius-sm`. It has 3px of padding on every side, and its segments sit 2px apart.
+A segmented control is a switch with more than two positions, as chapter 2 sets out, and is drawn as macOS and iOS draw it. It is a recessed trough, the track, holding a row of segments. The trough is filled with `recess-bg`, bounded by a 1px hairline in `border` and shaded inside its top edge by `entry-shadow`, and its corners are `radius-sm`. It has 3px of padding on every side, and its segments sit 2px apart.
 
-Each segment holds a short label, set in the interface face at `text-sm` and weight 600, in `text`, on one line, with 4px of padding above and below and 12px either side. A segment is as wide as its label needs, and its corners are `radius-xs`. Each segment that is not chosen is raised in the trough, ready to be pressed, and is drawn as a button is: its fill is `raise-grad`, its border a 1px hairline in `raise-border`, and its shadow `raise-shadow`. The chosen segment is drawn pressed in, as a latched toggle button is, following chapter 2's rule for where the reader is: its fill is `raise-active-bg` and its shadow `raise-active-shadow`. The trough stays recessed around them all.
+Each segment holds a short label, set in the interface face at `text-sm` and weight 600, in `text`, on one line, with 4px of padding above and below and 12px either side. A segment is as wide as its label needs, and its corners are `radius-xs`. The chosen segment is the thumb, raised in the trough and drawn as a button is: its fill is `raise-grad`, its border a 1px hairline in `raise-border`, and its shadow `raise-shadow`. The other segments are positions marked on the track, flat, with no fill and no visible border, and pressing one moves the thumb there.
 
-Every label is in `text`, whether its segment is chosen or not, since the chosen segment is already marked by its elevation.
+Every label is in `text`, whether its segment is chosen or not. The muted colour would not reach readable contrast on the trough, and the chosen segment is already marked by its elevation.
 
 A segmented control has two sizes. The small size, for toolbars, has 2px of padding above and below each label and 9px either side, and sets the labels at `text-xs`. Either size MAY have fully rounded ends, with the trough and every segment at `radius-pill`.
 
@@ -18,10 +18,10 @@ A segmented control SHOULD hold two to four segments. More choices than that bel
 
 | State | Appearance |
 |---|---|
-| Not chosen | Raised in the trough, with its label in `text` |
-| Chosen | Pressed in: the fill `raise-active-bg` and the shadow `raise-active-shadow` |
-| Under the pointer, not chosen | The fill becomes `raise-grad-hover` and the border `raise-border-hover` |
-| Pressed, while the pointer or key is down | Pressed in, as the chosen segment is |
+| Not chosen | Flat on the track, with its label in `text` |
+| Chosen | Raised, the thumb: the fill `raise-grad`, the border `raise-border` and the shadow `raise-shadow` |
+| Under the pointer, not chosen | A faint fill of `text` at 7% over the trough |
+| Pressed, while the pointer or key is down, not chosen | A deeper fill of `text` at 13% over the trough |
 | Focused from the keyboard | A 3px ring in `focus-ring` outside the segment |
 | Disabled | Drawn as it would be otherwise, and dimmed to 45% opacity; it takes no pointer or key presses |
 
@@ -50,9 +50,9 @@ A segmented control is exposed as a group, with an accessible name that says wha
 ## Conformance checklist
 
 1. The trough is recessed, in both themes.
-2. Exactly one segment is chosen, and it is drawn pressed in while the others are raised.
+2. Exactly one segment is chosen, and it is raised as the thumb while the others lie flat on the track.
 3. Segments have corners of `radius-xs`, or `radius-pill` in the fully rounded form.
-4. A segment is drawn pressed in while it is pressed.
+4. A segment that is not chosen shows a deeper fill while it is pressed.
 5. The chosen segment is exposed as pressed or checked, or as current where it leads to a view.
 6. The control is exposed as a group with an accessible name, and each segment's accessible name is its label.
 7. Labels are `text-sm` at weight 600 in the default size and `text-xs` in the small size, and every label reaches 4.5:1 against what it sits on, in both themes.
