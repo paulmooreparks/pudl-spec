@@ -58,7 +58,7 @@ The window's content can add its commands to the second group, but it cannot cha
 
 A zone is a rectangle of the inner area on a grid of sixths, which holds the halves, the quarters, the thirds, and two thirds beside one third. A window snapped to a zone fills it, and follows it as the inner area changes size. The left half, the right half and the whole inner area are zones too, and a window in one of them is snapped to that half, or maximised.
 
-The **layout picker** offers five layouts, each drawn as a thumbnail 48px wide and 32px tall: halves, quarters, thirds, two thirds beside one third, and one third beside two thirds. The thumbnails sit in a row 6px apart, padded 6px above and below and 14px at the sides. Each zone in a thumbnail is a small raised button, inset 1px from its neighbours, filled with `raise-grad` and bounded by `raise-border`, with 3px corners, and pressing it snaps the window to that zone. The zone the window fills now is filled with `accent`.
+The **layout picker** offers five layouts, each drawn as a thumbnail 48px wide and 32px tall: halves, quarters, thirds, two thirds beside one third, and one third beside two thirds. The thumbnails sit in a row 6px apart, padded 6px above and below and 14px at the sides. Each zone in a thumbnail is a small raised button, inset 1px from its neighbours, filled with `raise-grad` and bounded by `raise-border`, with corners of `radius-xs`, and pressing it snaps the window to that zone. The zone the window fills now is drawn pressed in and filled with `accent`, so it is marked by its elevation as well as its colour.
 
 The picker sits in the window menu, after Maximise or Restore. On a platform with a mouse, resting the pointer on the maximise button for half a second also opens the picker in a panel of its own under the button, which closes once the pointer has left both the button and the panel for a moment. The picker is not offered on a docked window.
 
@@ -108,9 +108,9 @@ The outline that shows where a dragged window will land is filled with `accent` 
 
 The window buttons follow [the button's](buttons.md) states, drawn on a circle: under the pointer the glyph takes `text` and the fill and border their hover tokens, while pressed they are pressed in, and focus adds a 3px ring in `focus-ring`. The close button's glyph turns `danger` under the pointer. The menu button stays pressed in while its menu is open. The maximise button's glyph and name become Restore whenever the window is not floating, and the minimise button of a docked window is named Collapse or Expand.
 
-A tab in the dock of open windows follows the button's states, and the tab of the family in front is pressed in and exposed as current.
+A tab in the dock of open windows follows the button's states. The tabs are a set of raised controls offering places, so the tab of the family in front is drawn pressed in, as chapter 2 requires of where the reader is, and is exposed as current.
 
-A zone in the layout picker is filled with `accent` mixed at 35% into `surface`, bounded by `accent` and without its shadow, while under the pointer or focused, and focus adds a 2px outline in `accent`. The zone the window fills is filled and bounded with `accent`, and is exposed as current.
+A zone in the layout picker is filled with `accent` mixed at 35% into `surface`, bounded by `accent` and without its shadow, while under the pointer or focused, and focus adds a 2px outline in `accent`. While it is pressed, a zone is drawn pressed in: its fill becomes `raise-active-bg` and its shadow `raise-active-shadow`. The zone the window fills is drawn pressed in, with the shadow `raise-active-shadow`, filled and bounded with `accent`, and is exposed as current.
 
 The title bar and the body are each a stop in the tab order. Focus on the title bar shows a 3px ring in `focus-ring` outside it, and focus on the body shows the same ring drawn inside its edge, since the body is a large area.
 
@@ -235,8 +235,7 @@ A printed page with windows open carries the window in front as its content, its
 - The tabbed dock, for an edge holding more than one docked window. The proposal for docked windows specifies a row of tabs along the edge's inner side, one per window, replacing their title bars while there is more than one; the web implementation has not built it, and an edge today shows one window with the others reached from the dock of open windows.
 - Whether the reader must be able to dock a window at every edge. The reader can dock only at the bottom today, by dragging or by the dock button; the other three edges are reached only by the application.
 - Whether minimising every window collapses docked windows too, as the web implementation does today, or leaves the workspace's frame as it is.
-- How the dock of open windows marks the window in front. Chapter 2 says the tab for where the reader already is is flat; the web implementation draws it pressed in, as a latched toggle, since pressing it again minimises the window.
-- How the layout picker marks the zone the window fills. It is filled with the accent and keeps its raised bounds, so colour is its only signal, which chapter 2 forbids; its focus is a 2px outline where every other control takes the 3px `focus-ring`, and its 3px corners are not on the radius scale.
+- How focus is drawn on a zone of the layout picker. It is a 2px outline in `accent`, where every other control takes the 3px `focus-ring`.
 - Whether the active window's title bar, the window shadows and the drag outline become tokens of chapter 3. The web implementation lets a theme set the active title bar's four colours directly, while chapter 3 says a theme tunes elevation only through the palette.
 - Whether a window's position mirrors in a right-to-left interface. The web implementation measures positions from the left of the inner area whatever the direction, because they are coordinates in its address, which is a reason of the web's rather than of the language's.
 
@@ -253,19 +252,21 @@ A printed page with windows open carries the window in front as its content, its
 9. A double-click on the title bar maximises or restores the window, or undocks a docked one.
 10. With the title bar focused, the arrow keys move the window, Shift with them resizes it, Enter maximises or restores it, and the context-menu keys open the window menu.
 11. The window menu holds the window's own commands, then the content's, then Close, and reaches every command the title bar has.
-12. The layout picker offers halves, quarters, thirds and the two arrangements of two thirds with one third, each zone named in words and reachable by keyboard, with the zone the window fills exposed as current.
-13. A snapped window fills its zone, follows it as the inner area resizes, and restores to floating.
-14. A docked window takes its strip from every other window, is flush with a hairline on its free edge, has a 30px title bar and no maximise button, and nothing covers it.
-15. A docked window resizes along its free edge only, between its title bar and 80% of the workspace.
-16. Minimising a docked window collapses it to its title bar in place.
-17. An edge with several docked windows shows the one most recently in front.
-18. On a workspace 640px wide or less, a side dock shows at the bottom.
-19. The dock of open windows has a tab for each top-level window, in opening order, with the `circle` glyph for a window that shows and the `ring` glyph for one that is minimised.
-20. Pressing a tab brings its window forward, or minimises it when it is already in front.
-21. A child stacks above its parent, moves forward and is hidden with it, closes with it, has no tab of its own, and closes on Escape when in front and focus is not in a text field.
-22. Escape never closes a top-level window.
-23. A window opened from a link inside another window opens in that window's state.
-24. Closing a window returns focus to what opened it, or to the window now in front.
-25. Every item listed under Restorable state is restored.
-26. The window is exposed as a non-modal dialog named by its title, and the dock of open windows as navigation with its current tab exposed.
-27. In high-contrast mode window frames and buttons keep their borders, and the window in front and the current tab take the system's highlight colours.
+12. The layout picker offers halves, quarters, thirds and the two arrangements of two thirds with one third, each zone named in words and reachable by keyboard, with the zone the window fills drawn pressed in, filled with `accent` and exposed as current.
+13. A zone of the layout picker has corners of `radius-xs`, and is drawn pressed in while it is pressed.
+14. A snapped window fills its zone, follows it as the inner area resizes, and restores to floating.
+15. A docked window takes its strip from every other window, is flush with a hairline on its free edge, has a 30px title bar and no maximise button, and nothing covers it.
+16. A docked window resizes along its free edge only, between its title bar and 80% of the workspace.
+17. Minimising a docked window collapses it to its title bar in place.
+18. An edge with several docked windows shows the one most recently in front.
+19. On a workspace 640px wide or less, a side dock shows at the bottom.
+20. The dock of open windows has a tab for each top-level window, in opening order, with the `circle` glyph for a window that shows and the `ring` glyph for one that is minimised.
+21. The tab of the family in front is drawn pressed in and exposed as current.
+22. Pressing a tab brings its window forward, or minimises it when it is already in front.
+23. A child stacks above its parent, moves forward and is hidden with it, closes with it, has no tab of its own, and closes on Escape when in front and focus is not in a text field.
+24. Escape never closes a top-level window.
+25. A window opened from a link inside another window opens in that window's state.
+26. Closing a window returns focus to what opened it, or to the window now in front.
+27. Every item listed under Restorable state is restored.
+28. The window is exposed as a non-modal dialog named by its title, and the dock of open windows as navigation with its current tab exposed.
+29. In high-contrast mode window frames and buttons keep their borders, and the window in front and the current tab take the system's highlight colours.

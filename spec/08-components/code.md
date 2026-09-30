@@ -10,7 +10,7 @@ A code block is flat, because it is for reading. It is a panel of `surface-alt` 
 
 ### Editor surface
 
-An editor surface is sunken, because it takes input. It is filled with `input-bg`, bounded by a 1px hairline in `border`, with corners of `radius-sm` and the shadow `entry-shadow` falling inside its top edge, as a field has. Its text is set in the `mono` face at `text-sm`, in `text`. The editor that draws into the surface is the application's; PUDL specifies the surface and the colours of the code in it.
+An editor surface is sunken, because it takes input. It is filled with `input-bg`, bounded by a 1px hairline in `input-border`, with corners of `radius-sm` and the shadow `entry-shadow` falling inside its top edge, as a field has. Its text is set in the `mono` face at `text-sm`, in `text`. The editor that draws into the surface is the application's; PUDL specifies the surface and the colours of the code in it.
 
 ### Syntax colours
 
@@ -35,7 +35,7 @@ Code that plays none of these roles is in `text`. An implementation maps its hig
 
 A code block MAY offer the reader two actions, to copy its code and to download it as a file. When it does, a strip above the code holds them. The strip is flat, as the code is, and it sits outside the code itself, so that selecting or copying the code by hand never takes the strip's words with it. The block and its strip then share one panel of `surface-alt` with corners of `radius-sm`, and a 1px hairline in `border` divides the strip from the code.
 
-The strip is padded 4px above and below, 16px at its start and 6px at its end. At its start it names the code's language, such as "C++" or "Python", at `text-xs` and weight 600 in `text-muted`, on one line, ending in an ellipsis if the strip is too narrow; a block whose language is unknown shows no name. At its end it holds two glyph buttons, 26px square, 4px apart, carrying the `copy` and `download` glyphs at 14px. They are raised, because they are pressed, and follow [the button's](buttons.md) states.
+The strip is padded 4px above and below, 16px at its start and 6px at its end. At its start it names the code's language, such as "C++" or "Python", at `text-xs` and weight 600 in `text-muted`, on one line, ending in an ellipsis if the strip is too narrow; a block whose language is unknown shows no name. At its end it holds two glyph buttons, 26px square, 4px apart, carrying the `copy` and `download` glyphs at 14px. They are raised, because they are pressed, and follow [the button's](buttons.md) states, so each is drawn pressed in while it is pressed.
 
 ## States
 
@@ -43,7 +43,7 @@ The strip is padded 4px above and below, 16px at its start and 6px at its end. A
 |---|---|---|
 | Code block | At rest | Flat on `surface-alt` |
 | Code block | Focused from the keyboard | A 3px ring in `focus-ring` drawn inside its edge |
-| Editor surface | At rest | Sunken, with a hairline in `border` |
+| Editor surface | At rest | Sunken, with a hairline in `input-border` |
 | Editor surface | Focus within it | The hairline takes `accent`, and a 3px ring in `focus-ring` surrounds it |
 | Copy button | For two seconds after a copy | Its glyph becomes the `check` glyph, drawn in `positive` |
 
@@ -75,7 +75,7 @@ A printed code block keeps its highlighting, in colours that read on white, and 
 ## Conformance checklist
 
 1. A code block is flat on `surface-alt`, with `radius-sm` corners and no border or shadow, in the `mono` face at `text-sm`.
-2. An editor surface is sunken on `input-bg`, with a hairline in `border` and `entry-shadow`, and its hairline takes `accent` with a 3px `focus-ring` while focus is within it.
+2. An editor surface is sunken on `input-bg`, with a hairline in `input-border` and `entry-shadow`, and its hairline takes `accent` with a 3px `focus-ring` while focus is within it.
 3. A code block whose content can scroll is a tab stop, and its focus ring is drawn inside it.
 4. Highlighted code takes each of its colours from the ten syntax tokens, and a change of theme recolours it at once.
 5. Comments are italic, headings in markup are bold and links are underlined.

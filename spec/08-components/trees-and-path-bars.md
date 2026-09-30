@@ -10,9 +10,9 @@ Every node of a tree and every entry of a path bar is a place with an address of
 
 A tree is a list of nodes, and a node that has children holds a nested list of them, indented 16px (`space-4`) from its parent. Each node is one row. The row holds a toggle, or an empty space the same size where the node has no children, followed by the node's name. The name is set in the interface face at `text-sm`, with a line height of 1.5, in `text`, on one line. The row has 3px of padding above and below, 6px at its start and 10px at its end, and 6px between the toggle and the name.
 
-The rows are flat, as the rows of a list are, because each is a place to go. The row for the current place has a fill of `surface-alt`, a 3px edge in `accent` on its end side, and its name in weight 700.
+The nodes of a tree are a list of places, the category chapter 2 describes, so each row is flat, responds under the pointer, and is not underlined. The row for the current place has a fill of `surface-alt`, a 3px edge in `accent` on its end side, and its name in weight 700.
 
-The toggle is a small raised button, because pressing it opens or closes the branch. It is a 16px square with 4px corners, filled with `raise-grad`, bounded by a 1px hairline in `raise-border` and shadowed with `raise-shadow`. It holds the caret glyph at 10px in `text-muted`. While the branch is closed the caret points toward the end of the reading direction, and while it is open the caret points down.
+The toggle is a small raised button, because pressing it opens or closes the branch. It is a 16px square with corners of `radius-xs`, filled with `raise-grad`, bounded by a 1px hairline in `raise-border` and shadowed with `raise-shadow`. It holds the caret glyph at 10px in `text-muted`. While the branch is closed the caret points toward the end of the reading direction, and while it is open the caret points down.
 
 ### Path bars
 
@@ -32,6 +32,7 @@ A path bar belongs only to a hierarchy the reader browses, such as a file system
 | The current node | Filled with `surface-alt`, with a 3px `accent` edge on its end side and its name in weight 700 |
 | A toggle at rest | Raised, with the caret in `text-muted` |
 | A toggle under the pointer | The fill becomes `raise-grad-hover`, the border `raise-border-hover` and the caret `text` |
+| A toggle while pressed | Pressed in: the fill becomes `raise-active-bg` and the shadow `raise-active-shadow` |
 | A branch closed | Its children are not shown, and its toggle's caret points toward the end of the reading direction |
 | A branch open | Its children are shown beneath it, and its toggle's caret points down |
 | The current entry of a path bar | Weight 700 in `text`, and no link |
@@ -79,15 +80,16 @@ In the platform's high-contrast mode, the current node takes the system's highli
 
 ## Conformance checklist
 
-1. A tree's nodes are flat, and the current node has a `surface-alt` fill, a 3px `accent` edge on its end side and its name in weight 700.
+1. A tree's nodes are flat, respond under the pointer and are not underlined, and the current node has a `surface-alt` fill, a 3px `accent` edge on its end side and its name in weight 700.
 2. Each node with children has a raised toggle whose caret points toward the end of the reading direction while it is closed and down while it is open, and each node without children keeps the toggle's space empty.
-3. A tree is one stop in the tab order, on the current node when it is showing and otherwise on the first node.
-4. Down, Up, Home and End move focus among the nodes showing, without going anywhere.
-5. Right opens a closed node or moves into an open one, and Left closes an open node or moves to the parent, both mirrored in a right-to-left layout.
-6. Typing the start of a node's name moves focus to the next node showing whose name starts with it.
-7. Enter, or a pointer press on a node's name, goes to that node's place, and a pointer press on a toggle opens or closes the branch without going there.
-8. A tree is exposed as a tree, each node as a tree item with its level, each node with children as expanded or collapsed, and the current node as the current page.
-9. A path bar lists the places from the top of the hierarchy down, each but the last a link, and the last, the current place, is not a link and is exposed as the current location.
-10. A path bar's separators are drawn glyphs and are not exposed to assistive technology.
-11. A path bar's entries wrap onto further lines rather than widening the view.
-12. In high-contrast mode the current node, the toggles and the separators stay visible.
+3. A toggle has corners of `radius-xs` and is drawn pressed in while it is pressed.
+4. A tree is one stop in the tab order, on the current node when it is showing and otherwise on the first node.
+5. Down, Up, Home and End move focus among the nodes showing, without going anywhere.
+6. Right opens a closed node or moves into an open one, and Left closes an open node or moves to the parent, both mirrored in a right-to-left layout.
+7. Typing the start of a node's name moves focus to the next node showing whose name starts with it.
+8. Enter, or a pointer press on a node's name, goes to that node's place, and a pointer press on a toggle opens or closes the branch without going there.
+9. A tree is exposed as a tree, each node as a tree item with its level, each node with children as expanded or collapsed, and the current node as the current page.
+10. A path bar lists the places from the top of the hierarchy down, each but the last a link, and the last, the current place, is not a link and is exposed as the current location.
+11. A path bar's separators are drawn glyphs and are not exposed to assistive technology.
+12. A path bar's entries wrap onto further lines rather than widening the view.
+13. In high-contrast mode the current node, the toggles and the separators stay visible.

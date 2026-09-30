@@ -16,11 +16,11 @@ The panel is lifted above the page, like a dialog without a backdrop, because it
 
 A panel holds any of these, in this order from top to bottom.
 
-- **A filter**, at the top, which narrows the panel's rows as the reader types into it. It is a sunken field, filled with `input-bg`, bounded by `border` with `radius-sm` corners and shadowed with `entry-shadow`, set at `text-sm` with 6px of padding above and below and 11px either side. It spans the panel less 10px at each side, with 4px above it and 6px below.
+- **A filter**, at the top, which narrows the panel's rows as the reader types into it. It is a sunken field, filled with `input-bg`, bounded by `input-border` with `radius-sm` corners and shadowed with `entry-shadow`, set at `text-sm` with 6px of padding above and below and 11px either side. It spans the panel less 10px at each side, with 4px above it and 6px below.
 - **Section labels**, which group the rows beneath them, such as "Go to". A label is set at `text-2xs`, weight 700, in capitals spaced 0.06em apart, in `text-muted`, with 10px of padding above, 14px either side and 4px below, or 6px above when it is first in the panel.
-- **Places**, each a row holding a link to a place. A place row is a list row, as a master-detail sidebar's rows are. Its title is set at `text-sm` with a line height of 1.5, in `text`, on one line ending in an ellipsis when it is too long, with 5px of padding above and below and 14px either side.
+- **Places**, each a row holding a link to a place. A place row is a list row, as a master-detail sidebar's rows are, so it is flat, responds under the pointer, and is not underlined. Its title is set at `text-sm` with a line height of 1.5, in `text`, on one line ending in an ellipsis when it is too long, with 5px of padding above and below and 14px either side.
 - **A separator**, a 1px rule in `border` with 6px above and below, which sets the actions apart from the places.
-- **Actions**, each a row that performs something when pressed. An action row leads with a glyph, 8px (`space-2`) before its label, and is set at `text-sm` with a line height of 1.5, with 6px of padding above and below and 14px either side. An action that destroys something, or cannot be undone, is set in `danger` and leads with the warning glyph, so its danger never rests on colour.
+- **Actions**, each a row that performs something when pressed. An action row is a list row as a place row is, flat and responding under the pointer. It leads with a glyph, 8px (`space-2`) before its label, and is set at `text-sm` with a line height of 1.5, with 6px of padding above and below and 14px either side. An action that destroys something, or cannot be undone, is set in `danger` and leads with the warning glyph, so its danger never rests on colour.
 
 An action that switches something on and off shows the tick glyph at 12px before its label while it is on, and leaves the tick's space empty while it is off. In a panel with any such action, every other action leaves the same space empty, so that every label in the panel starts in one line.
 
@@ -106,7 +106,7 @@ In the platform's high-contrast mode, the panel keeps a visible border, a menu b
 4. A panel opens against its button, below it or above it, aligned with the button's start edge and kept 8px from the window's edges.
 5. Down on a menu button opens its panel and moves focus into it, and Up and Down move between the panel's filter and rows.
 6. Choosing a place or an action, Escape, and a press outside the panel each close it, and focus inside a closing panel returns to its button.
-7. Places are flat list rows and actions are rows led by a drawn glyph, set apart from the places by a rule.
+7. Places and actions are flat list rows that respond under the pointer and are not underlined; actions are led by a drawn glyph and set apart from the places by a rule.
 8. A destructive action is set in `danger` and led by the warning glyph.
 9. An action that switches something on and off shows a tick while it is on, is exposed as pressed or not pressed, and keeps every label in the panel aligned.
 10. A disabled action stays in the panel, takes no presses and is exposed as disabled.

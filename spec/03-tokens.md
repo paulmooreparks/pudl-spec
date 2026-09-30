@@ -39,7 +39,7 @@ A theme sets any palette token, in both forms. The result MUST keep these rules.
 
 ## The scales
 
-The scales are in `scales.tokens.json`. The type scale runs from `text-2xs`, 11px, to `text-3xl`, 30px, and every size PUDL sets is one of its nine steps. The spacing grid has six steps on a 4px base, `space-1` to `space-6`, and spacing between and around components comes from it; a control's own padding belongs to the control. The radii are `radius`, 12px, for cards, panels and windows, `radius-sm`, 7px, for buttons, fields and tabs, and `radius-pill` for fully rounded ends.
+The scales are in `scales.tokens.json`. The type scale runs from `text-2xs`, 11px, to `text-3xl`, 30px, and every size PUDL sets is one of its nine steps. The spacing grid has six steps on a 4px base, `space-1` to `space-6`, and spacing between and around components comes from it; a control's own padding belongs to the control. The radii are `radius`, 12px, for cards, panels and windows, `radius-sm`, 7px, for buttons, fields and tabs, `radius-xs`, 4px, for small parts inside another control, and `radius-pill` for fully rounded ends. Every corner PUDL rounds takes one of these.
 
 A theme MUST NOT change the scales. It MAY change the three faces, `font`, `font-display` and `mono`, within the roles chapter 4 sets out.
 

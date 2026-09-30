@@ -51,9 +51,11 @@ Each status colour has a glyph of its own, so that a status is never told by col
 | `copy` | Copy to the clipboard |
 | `download` | Download a file |
 | `gear` | Settings, or the commands an applet offers |
+| `theme` | Switch between the light and dark themes |
 | `tick` | A menu command that is switched on |
 | `sort`, `sort-up`, `sort-down` | A column that can be sorted, and one sorted ascending or descending |
 | `slash` | The separator between the places in a path |
+| `grip` | A handle the reader drags, such as the one between two panes |
 | `home` | The top of a hierarchy |
 | `empty` | Nothing to show, in an empty state |
 

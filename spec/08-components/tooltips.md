@@ -4,7 +4,7 @@ A tooltip is a short label that appears beside a control while the pointer rests
 
 ## Anatomy
 
-A tooltip is a small flat label, drawn in the reverse of the page's colours so that it stands apart from whatever it covers. It is filled with `text`, and its words are set in `bg`, in the interface face at `text-xs` and weight 600, with a line height of 1.4. It has 4px of padding above and below and 8px either side, 5px corners, and no border. It casts a soft shadow of `shade`, 4px below it and blurred over 12px, at 1.4 times the strength `depth` sets. It grows no wider than 288px, and longer words wrap onto further lines.
+A tooltip is a small flat label, drawn in the reverse of the page's colours so that it stands apart from whatever it covers. It is filled with `text`, and its words are set in `bg`, in the interface face at `text-xs` and weight 600, with a line height of 1.4. It has 4px of padding above and below and 8px either side, corners of `radius-xs`, and no border. It casts a soft shadow of `shade`, 4px below it and blurred over 12px, at 1.4 times the strength `depth` sets. It grows no wider than 288px, and longer words wrap onto further lines.
 
 The tooltip sits centred above its control, 6px from it. When there is no room above, it sits 6px below instead. It keeps 8px from the left and right edges of the window, shifting sideways as far as it must.
 
@@ -42,8 +42,6 @@ In the platform's high-contrast mode a tooltip gains a visible border, since its
 - What takes the place of a tooltip on a device with no pointer that can rest, such as a touch screen. The web implementation shows nothing there, so a reader on a phone cannot learn a glyph's meaning without pressing it. A long press is one candidate, and chapter 6 asks the same question for every affordance that relies on hover.
 - Whether the delays, 450ms to appear and 150ms to hide, are part of the language, or defaults a platform replaces with its own system setting for hover time.
 - Whether a disabled control shows its tooltip, and whether that tooltip may say why the control is disabled, given that the buttons section asks for the reason to be given nearby.
-- Whether the 5px corner radius, which is not one of the radii of chapter 3, should become `radius-sm` or a new step on the scale.
-
 ## Conformance checklist
 
 1. Every glyph-only control the implementation draws itself has a tooltip whose text is its accessible name.
@@ -56,3 +54,4 @@ In the platform's high-contrast mode a tooltip gains a visible border, since its
 8. A tooltip is exposed with the tooltip role, and a tooltip whose text differs from its control's name is exposed as the control's description.
 9. A tooltip's words reach 4.5:1 against its fill, in both themes.
 10. A tooltip holds nothing that can be pressed or focused.
+11. A tooltip's corners are `radius-xs`.

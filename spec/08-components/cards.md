@@ -29,7 +29,7 @@ A card's title, when it has one, SHOULD be exposed as a heading at the level tha
 
 ## Questions this section must settle
 
-- Whether a whole card may be pressable, as a card in a gallery of choices often is. Chapter 2 allows only raised things to be pressed, and a card is not raised, so a pressable card would need either a treatment of its own or a rule against it.
+- Whether a whole card may be pressable, as a card in a gallery of choices often is. Chapter 2 lets a flat thing be pressed only as a row of a list of places or choices, and a card is neither raised nor such a row, so a pressable card would need either a treatment of its own or a rule against it.
 - Whether a card may be selected, as one of a set of cards to choose from, and how the selection would show.
 - Whether the lift that `shadow-card` gives is a fourth kind of surface in the grammar, or a variety of flat. Chapter 2 names three elevations, and a card's shadow is neither raised nor sunken.
 
