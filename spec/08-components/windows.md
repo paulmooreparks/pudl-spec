@@ -62,6 +62,16 @@ The **layout picker** offers five layouts, each drawn as a thumbnail 48px wide a
 
 The picker sits in the window menu, after Maximise or Restore. On a platform with a mouse, resting the pointer on the maximise button for half a second also opens the picker in a panel of its own under the button, which closes once the pointer has left both the button and the panel for a moment. The picker is not offered on a docked window.
 
+### Windows sized by the reader or by their content
+
+A window is sized either by the reader or by its content, as a desktop window either has a sizing border or is a dialog that sizes itself to what it holds. A window is sized by the reader unless its content says otherwise. The content decides, because only the content knows whether it has a size of its own: a terminal or an editor fills whatever it is given, and a form or a tool with a fixed layout does not.
+
+A window **sized by its content** takes its content's width and height, and follows them as they change, larger and smaller. When the reader changes something that changes how much the content holds, such as a setting that shows more fields, the window follows at once, and nothing asks the reader to accept it. Its top-left corner stays where it is while its size changes, so a control above the part that changed stays under the pointer. At the right and bottom of the inner area it stops, and its body scrolls.
+
+Such a window has nothing to fill and no size of its own to change, so it cannot be resized, maximised, snapped or docked. It has no resize edges and no maximise or dock button, its window menu leaves out Maximise, the layout picker and Dock, and it offers Reset position in place of Reset size and position. A drag that ends at an edge moves it there without snapping it. Minimise, close, opening as a page and moving it by its title bar all work as they do for any window. Content that holds an applet tells the applet to flow, as chapter 9 sets out.
+
+A window **sized by the reader** MAY carry limits, a smallest and a largest width and height in px. Every way the window's size is reached respects them: dragging, the keyboard, and restoring an arrangement, so that a terminal keeps a usable grid however small it is dragged, and an old arrangement cannot restore it below that.
+
 ### Docked windows
 
 A window MAY be docked at an edge of the workspace, the top, the bottom, the left or the right. A docked window belongs to the workspace's frame. It takes a strip along its edge away from every other window, and nothing covers it: a maximised window ends where the dock begins, a snapped half is half of what is left, and a floating window cannot be moved into the strip. Top and bottom docks span the workspace's whole width, and side docks span the height between them.
@@ -214,6 +224,8 @@ The arrangement of windows is state the reader can return to, as chapter 2 requi
 - Each window's floating position and size, kept while it is maximised, snapped or docked, since that is where it returns.
 - The zone of a snapped window, and the strip size of a docked one.
 
+A window sized by its content restores its position only, since its size comes from its content each time.
+
 Positions, sizes and zones are held as shares of the inner area, and strip sizes as shares of the workspace, so an arrangement restores sensibly in a workspace of another size. A parent's relation to its children belongs to the content, and is not part of the arrangement.
 
 Whether a window menu or a layout picker is open, and any drag under way, are momentary and are not restored.
@@ -270,3 +282,7 @@ A printed page with windows open carries the window in front as its content, its
 27. Every item listed under Restorable state is restored.
 28. The window is exposed as a non-modal dialog named by its title, and the dock of open windows as navigation with its current tab exposed.
 29. In high-contrast mode window frames and buttons keep their borders, and the window in front and the current tab take the system's highlight colours.
+30. A window sized by its content takes its content's width and height and follows them as they change, larger and smaller, with its top-left corner fixed.
+31. A window sized by its content stops at the right and bottom of the inner area, where its body scrolls.
+32. A window sized by its content cannot be resized, maximised, snapped or docked by any route, and its window menu offers Reset position.
+33. A window sized by the reader with limits cannot be made smaller or larger than them by dragging, by the keyboard or by restoring an arrangement.
