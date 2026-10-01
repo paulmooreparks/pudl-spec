@@ -134,6 +134,8 @@ Pressing a tab in the dock of open windows brings its window forward, or its top
 
 Minimising the window in front passes the front to the highest window still showing, if there is one.
 
+A window the reader brings forward takes the keyboard, as an activated window does on the desktop, however they bring it forward: by its title bar or frame, its tab, a row in a list, or its window menu. Focus goes back to the element that last had it in that window, if it is still there and can take focus. The first time, it goes to an element the content marks to take focus first, and otherwise to the title bar, where the keys that move and resize the window work. A window that already holds focus keeps it where it is. A press inside a window's body focuses what it lands on, as usual. A window that arrives some time after the reader asked for it, such as one fetched from a server, takes focus only if the reader has not moved it elsewhere in the meantime.
+
 ### Moving and resizing
 
 Dragging the title bar moves the window, from anywhere on the bar except its buttons. A press that moves less than 4px is not a drag. Dragging a maximised, snapped or docked window lifts it back to its floating size under the pointer, at the same point along its title bar, and undocks a docked one. A floating window is always kept inside the inner area.
@@ -257,7 +259,7 @@ A printed page with windows open carries the window in front as its content, its
 2. Its title bar is raised, at least 38px tall, with its title at `text-md` and weight 700 on one line.
 3. Its buttons are raised circles 24px across, with Close last, and their names follow the window's state.
 4. At most one window is in front, and it is marked by its frame, its shadow, its title bar and its tab in the dock of open windows.
-5. A press in a window, or focus moving into it, brings it in front.
+5. A press in a window, or focus moving into it, brings it in front, and a window brought forward takes the keyboard, on the element that last had focus in it, or else on an element marked to take focus first, or else on its title bar.
 6. Dragging the title bar moves the window, and a floating window stays inside the inner area.
 7. A floating window resizes from every edge and corner, and a maximised, snapped or docked window does not resize from its frame.
 8. A drag ending at a side snaps to that half, at a corner to that quarter, at the top maximises, and at the foot of the workspace docks at the bottom, with an outline showing where it will land.
