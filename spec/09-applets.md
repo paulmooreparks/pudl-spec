@@ -34,7 +34,11 @@ The first applet declared that serves the verb, and the kind if it lists kinds, 
 
 ## Commands
 
-An instance MAY offer commands of its own, such as Save, Word wrap or Show hidden files, each with a label, an action, and optionally whether it is switched on and whether it is disabled. The host asks for them each time it shows them, so the applet builds the list from its current state and every label and tick is true when the reader sees it. In a window the commands join the window menu, after the window's own. Outside a window, where there is no window menu, the host shows them in a menu of their own, opened by a button with the `gear` glyph above the applet.
+An instance MAY offer commands of its own, such as Save, Word wrap or Show hidden files, each with a label, an action, and optionally whether it is switched on and whether it is disabled. The host asks for them each time it shows them, so the applet builds the list from its current state and every label and tick is true when the reader sees it. Where the application has a menu bar, the commands are the applet's front menu, under one title, its name. Without one, in a window they join the window menu, after the window's own, and outside a window the host shows them in a menu of their own, opened by a button with the `gear` glyph above the applet.
+
+## Menus
+
+An instance MAY offer a menu bar's front menu in full, asked afresh each time a panel opens, as its commands are. The menu is a list of titles, the first being the applet's name, each with its commands, and what the applet adds to the host's own titles, by the host title's name. A command has a label, and either an action or a list of commands making a submenu, and MAY say whether it is on, which of a named group it belongs to, whether it is disabled, whether it destroys something, and its shortcut. A list MAY hold separators and headings for the commands below them. The section on menu bars sets out the rules the menu must keep.
 
 ## Questions this chapter must settle
 
