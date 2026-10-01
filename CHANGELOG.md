@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.0
+
+- **Menu bars**, from parkscomputing.com's proposal. An application's menu bar stands in its application bar, holding the host's menu and the menu of whatever is in front, an applet or an article. Each menu is one raised surface with flat titles; a front menu may add to the host's titles but never take or change one. The bar is one tab stop and follows the WAI-ARIA menu bar pattern; it becomes one menu button when it does not fit. Shortcuts use `Mod` for the platform's command key and keep off the keys browsers and fields need. With a menu bar, an applet's commands live there and the window menu keeps the window's own.
+- **Applets** may offer a front menu in full, as titles and additions to the host's titles.
+- A new glyph, `menu`.
+
 ## 0.5.1
 
 - A window the reader brings forward takes the keyboard, on the element that last had focus in it, or the first time on an element the content marks, or else on its title bar.
