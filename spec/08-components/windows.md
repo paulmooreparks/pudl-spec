@@ -48,7 +48,7 @@ An application MAY also offer two controls that act on every window at once: one
 
 The window menu reaches every command a window has from one place, including the ones its title bar has no room for, and it is the keyboard's route to them. It is a menu, as the section on menus specifies, built afresh each time it opens so that every label is true at that moment. It holds three groups, divided by separators.
 
-1. The window's own commands: Open as a page, where the content has a place of its own; Minimise, or Collapse or Expand on a docked window; Maximise or Restore, and the layout picker, on a window that is not docked; Dock at the bottom, or Undock; and Reset size and position, which returns the window to the placement its content gave it when it opened.
+1. The window's own commands: Open as a page, where the content has a place of its own; Minimise, or Collapse or Expand on a docked window; Maximise or Restore, and the layout picker, on a window that is not docked; a Dock list; and Reset size and position, which returns the window to the placement its content gave it when it opened. The Dock list names the four edges, Top, Bottom, Left and Right, in that order, the edge the window is docked at carrying the `tick` glyph, and choosing an edge docks the window there; on a docked window it ends, after a separator, with Undock, which returns the window to where it floated. The list names all four edges on a narrow screen too, where a side dock shows at the bottom, since the window docks at its side again when there is room. Where the menu has submenus, as a menu bar's does, the Dock list is a submenu; in a window's own menu it MAY stand in the menu under a heading, as the layout picker does.
 2. The commands of what the window holds, such as an editor's word wrap, in the content's own words. A command that switches something on and off shows the `tick` glyph while it is on, and a disabled command stays in the menu, dimmed.
 3. Close, last and on its own, drawn as a destructive command, so that it is never chosen by a slip from the command above it.
 
@@ -288,3 +288,4 @@ A printed page with windows open carries the window in front as its content, its
 31. A window sized by its content stops at the right and bottom of the inner area, where its body scrolls.
 32. A window sized by its content cannot be resized, maximised, snapped or docked by any route, and its window menu offers Reset position.
 33. A window sized by the reader with limits cannot be made smaller or larger than them by dragging, by the keyboard or by restoring an arrangement.
+34. The window menu's Dock list names Top, Bottom, Left and Right, ticks the edge the window is docked at, docks the window at the edge chosen, and on a docked window ends with Undock.
