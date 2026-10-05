@@ -17,9 +17,9 @@ The **chrome** is a row of controls that belong to the whole application, 8px ap
 
 ### The status area
 
-The status area is one raised group, drawn as a menu bar's menu is: one surface filled with `tb-chip` and casting `tb-chip-shadow`, bounded by a hairline in `raise-border`, with corners of `radius-sm` and 2px of padding. It holds **items**, each a link or a button, 1px apart.
+The status area is one raised group with corners of `radius-sm`, 30px tall: a 1px hairline around 1px of padding around its items. It holds **items**, each a link or a button, 1px apart. Where the bar has a menu bar, the area MUST look exactly like the menu bar's menus beside it, in surface, height, and its items' colours and states, which are those of the menu bar's titles, so the bar does not show two kinds of group. Where the bar has no menu bar, the area is filled with `tb-chip`, casts `tb-chip-shadow` and is bounded by `tb-border`, since the bar may then be dark in the light theme, and its items take the bar's colours, as the states below give.
 
-An item is flat, as a menu bar's title is, and takes its press from the group around it. It is at least 26px tall, padded 2px above and below and 6px at the sides, with corners of `radius-xs`, and its glyph or words are in `tb-chrome-fg`. It holds an icon, which is a glyph 16px across or a picture 24px across, and MAY hold a badge after it, 4px away. A picture is shown whole and MAY be round; the group is what is raised, so the picture need not be, and a round picture inside a raised ring that hides most of it is not used. An item MAY hold words instead of an icon, such as one that signs the reader in.
+An item is flat, as a menu bar's title is, and takes its press from the group around it. It is 26px tall, padded 6px at the sides, with corners of `radius-xs`. It holds an icon, which is a glyph 16px across or a picture 24px across, and MAY hold a badge after it, 4px away. A picture is shown whole and MAY be round; the group is what is raised, so the picture need not be, and a round picture inside a raised ring that hides most of it is not used. An account with no picture shows the `account` glyph at a picture's size in its place. An item MAY hold words, instead of an icon or after it, such as one that signs the reader in.
 
 An item's **badge** is a badge as the section on badges and chips specifies, leading with its status glyph, so that a count reads as a status. A badge with nothing to say is not shown; a count of nothing is not drawn as 0.
 
@@ -41,8 +41,10 @@ The bar MAY also hold a row of **tabs** between the brand and the chrome, for an
 | Pill | Current, the page the reader is on | Pressed in: its fill becomes black mixed at 24% into `tb-bg`, a shadow of black at 50% falls 1px inside its top edge with a 3px blur, and its words take `tb-fg` |
 | Pill | Focused from the keyboard | A focus indicator that reaches 3:1 against the bar; see the questions below |
 | Plain link | Under the pointer | Its colour becomes `tb-link-hover` |
-| Status item | Under the pointer | A faint fill of `tb-fg` at 12%, and its glyph and words become `text` |
-| Status item | Pressed | Pressed into the group: the fill becomes `raise-active-bg` and the shadow `raise-active-shadow` |
+| Status item | At rest, with no menu bar | Its glyph and words in `tb-chrome-fg` |
+| Status item | Under the pointer, with no menu bar | A faint fill of `tb-fg` at 12%, and its glyph and words become `tb-chrome-hover-fg` |
+| Status item | Pressed, with no menu bar | Pressed into the group, as the current pill is |
+| Status item | Beside a menu bar | Each state as a menu bar title's, the pressed one as an open title |
 | Status item | Focused from the keyboard | A 2px ring in `focus-ring` |
 
 The pills are a set of raised controls offering places, so the pill for the page the reader is on is drawn pressed in, as chapter 2 requires of where the reader is. It MUST be exposed as the current page, and it shows that by its elevation as well as its colour.
@@ -90,6 +92,6 @@ A printed page leaves the bar out.
 11. A printed page leaves the bar out.
 12. Tabs on the bar stand on its foot; the current tab covers the bar's bottom line, takes the colour of what lies below the bar and is exposed as current, and the others stand raised on the line in the bar's colours.
 13. On a narrow screen the tabs are the bar's last row and scroll sideways rather than widen the page.
-14. The status area, where the bar has one, is the last thing in the chrome: one raised group of flat items, each highlighting under the pointer, pressed in while pressed and showing a focus ring.
+14. The status area, where the bar has one, is the last thing in the chrome: one raised group of flat items 30px tall, each highlighting under the pointer, pressed in while pressed and showing a focus ring, and looking exactly like a menu bar's menus where the bar has a menu bar.
 15. A status item's badge is a badge with its status glyph, is not shown when it has nothing to say, and is hidden from assistive technology, while the item's accessible name says what the badge means.
 16. The reader's account, where the status area has it, is its last item.

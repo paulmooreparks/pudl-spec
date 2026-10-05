@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.11.0
+
+- **The status area matches a menu bar's menus**, from YAVCHN's proposal. Where the application bar has a menu bar, the status area looks exactly like its menus, in surface, height and its items' colours and states, which are the titles'; only on a bar without a menu bar does it take the bar's own chip colours. It is 30px tall, as a menu is, with items 26px tall.
+- A new glyph, `account`, for an account with no picture, drawn at a picture's size.
+
 ## 0.10.0
 
 - **An article's Print is the application's to offer**, from parkscomputing.com's proposal. An article's first title offers printing only where the application says the article's printed form is worth having, since printing a page of windows prints the windows and the frame around them, and an article has no File title unless the application gives it one.
