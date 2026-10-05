@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.0
+
+- **A select's opener is PUDL's.** A closed select's opener is the `caret` glyph, drawn by the implementation in the select's text colour, and a platform's own drawing of a select is not used. This settles a question the section on fields had left open. The web implementation found that WebKit draws a select raised and lit, which broke the rule that a field is sunken.
+
 ## 0.7.0
 
 - **A pins group in the menu bar**, from parkscomputing.com's proposal. Between the host menu and the front menu, an application may give the reader a group of the applets and articles they go to most: the `pin` glyph and a Pins title of pinning commands, then a link for each pinned item, with its icon and title. When the pins do not fit they give way together to an Items title, before the bar becomes one button, and the collapsed bar lists the Pins commands and then the pins. With nothing pinned the group keeps its Pins title.

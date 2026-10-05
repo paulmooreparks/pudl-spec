@@ -37,7 +37,7 @@ Each status colour has a glyph of its own, so that a status is never told by col
 | `open` | Open the window's content as a page of its own |
 | `dock` | Dock a window at the foot of the workspace |
 | `undock` | Float a docked window again |
-| `caret` | Open a menu, including a window's menu |
+| `caret` | Open a menu, including a window's menu, and a select's list |
 | `branch` | A child window's row beneath its parent in a list |
 | `circle` | The dock tab of a window that is showing, and a document tab with unsaved changes |
 | `ring` | The dock tab of a minimised window |

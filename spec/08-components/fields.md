@@ -30,7 +30,7 @@ A field for choosing a file is a raised button, with 6px of padding above and be
 ## Kinds
 
 - A **text field** takes one line of text, and is 36px tall whatever kind of value it takes, so that fields side by side in a form line up. A field for a date, a number or a search is a text field.
-- A **select** takes one choice from a list. It is 36px tall like a text field. A select that shows several rows of its list at once in the page, rather than opening a list, keeps the height of those rows.
+- A **select** takes one choice from a list. It is 36px tall like a text field. Its opener is the `caret` glyph, 12px across, standing 11px in from its end edge and centred on its height, in the colour of its text, and the text stops short of it. The implementation draws the opener, so that the select is sunken and looks the same on every platform; a platform's own drawing of a select is not used, since it may be raised or lit. A select that shows several rows of its list at once in the page, rather than opening a list, keeps the height of those rows and has no opener.
 - A **text area** takes several lines of text. It is at least five times its text size tall, 70px at `text-md`, with lines 1.5 times its text size apart. Where the platform lets a reader resize it, it grows in height only.
 
 ## States
@@ -65,7 +65,7 @@ In the platform's high-contrast mode a field keeps a visible border, and focus i
 ## Questions this section must settle
 
 - Whether a checkbox and a radio button are drawn by PUDL, sunken as chapter 2 would have them, or left to the platform and tinted with the accent, as the web implementation leaves them.
-- Whether the mark on a required field's label may be a character from a font, which chapter 2's rule on glyphs forbids in chrome, or must be a drawn glyph. The same question applies to the opener of a select, which the web implementation leaves to the platform.
+- Whether the mark on a required field's label may be a character from a font, which chapter 2's rule on glyphs forbids in chrome, or must be a drawn glyph.
 - Whether a disabled field and a disabled button share one dimming. A field dims to 55% and a button to 45%.
 - When a field is checked: as the reader leaves it, as they type, or only when the form is sent. The web implementation shows only what the server returns.
 - Where focus goes when a refused form comes back.
@@ -91,3 +91,4 @@ In the platform's high-contrast mode a field keeps a visible border, and focus i
 14. A group of related choices is exposed as a group named by its title.
 15. A field's value reaches 4.5:1 against `input-bg`, and an error message 4.5:1 against its background, in both themes.
 16. In high-contrast mode a field keeps a border, and focus stays visible.
+17. A closed select's opener is the `caret` glyph drawn by the implementation, in its text colour, and no platform drawing of the select shows.
