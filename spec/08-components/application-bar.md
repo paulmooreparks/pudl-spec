@@ -13,6 +13,19 @@ The **chrome** is a row of controls that belong to the whole application, 8px ap
 - A **pill** is a link or a button on the bar. It is raised, so it is never a label. It is filled with `tb-chip` and casts `tb-chip-shadow`, with corners of `radius-sm` and no border, padded 5px above and below and 12px at the sides, and its words are set at `text-sm`, weight 600, in `tb-chrome-fg`. A pill MAY carry a glyph before its words, 6px from them.
 - A **menu button** opens a menu, as the section on menus specifies, and on the bar it takes the pill's colours.
 - The **theme control** lets the reader choose the theme. On the web implementation it is a square pill, 28px on each side, holding the `theme` glyph and no words. The glyph is drawn, as chapter 2 requires of every glyph in PUDL's chrome.
+- The **status area** holds the icons of what runs in the background of the application, such as a queue waiting for the reader or the reader's account, as the next section describes. It is the last thing in the chrome.
+
+### The status area
+
+The status area is one raised group, drawn as a menu bar's menu is: one surface filled with `tb-chip` and casting `tb-chip-shadow`, bounded by a hairline in `raise-border`, with corners of `radius-sm` and 2px of padding. It holds **items**, each a link or a button, 1px apart.
+
+An item is flat, as a menu bar's title is, and takes its press from the group around it. It is at least 26px tall, padded 2px above and below and 6px at the sides, with corners of `radius-xs`, and its glyph or words are in `tb-chrome-fg`. It holds an icon, which is a glyph 16px across or a picture 24px across, and MAY hold a badge after it, 4px away. A picture is shown whole and MAY be round; the group is what is raised, so the picture need not be, and a round picture inside a raised ring that hides most of it is not used. An item MAY hold words instead of an icon, such as one that signs the reader in.
+
+An item's **badge** is a badge as the section on badges and chips specifies, leading with its status glyph, so that a count reads as a status. A badge with nothing to say is not shown; a count of nothing is not drawn as 0.
+
+The order of the items is the application's. The reader's account, where the area has it, is the last item, at the very end of the bar.
+
+The status area draws its items and keeps them in step with what the application sets on them. Running the work behind an item, and deciding when an item has something to say, is the application's.
 
 A plain link in running text on the bar takes `tb-chrome-fg`, and stays underlined.
 
@@ -28,6 +41,9 @@ The bar MAY also hold a row of **tabs** between the brand and the chrome, for an
 | Pill | Current, the page the reader is on | Pressed in: its fill becomes black mixed at 24% into `tb-bg`, a shadow of black at 50% falls 1px inside its top edge with a 3px blur, and its words take `tb-fg` |
 | Pill | Focused from the keyboard | A focus indicator that reaches 3:1 against the bar; see the questions below |
 | Plain link | Under the pointer | Its colour becomes `tb-link-hover` |
+| Status item | Under the pointer | A faint fill of `tb-fg` at 12%, and its glyph and words become `text` |
+| Status item | Pressed | Pressed into the group: the fill becomes `raise-active-bg` and the shadow `raise-active-shadow` |
+| Status item | Focused from the keyboard | A 2px ring in `focus-ring` |
 
 The pills are a set of raised controls offering places, so the pill for the page the reader is on is drawn pressed in, as chapter 2 requires of where the reader is. It MUST be exposed as the current page, and it shows that by its elevation as well as its colour.
 
@@ -37,11 +53,15 @@ Each pill is one stop in the keyboard's tab order and acts as the link or button
 
 The bar never makes the application wider than its window. On a screen too narrow for the brand and the chrome on one line, the chrome moves to a second line, at the end, and wraps within itself if it must.
 
-When the application is 640px wide or less, the bar's padding becomes 8px above and below and 12px at each end. A pill that carries a glyph then shows its glyph alone, padded 8px at the sides, and its words are still spoken. A menu button on the bar cuts its words short with an ellipsis rather than widening the chrome.
+When the application is 640px wide or less, the bar's padding becomes 8px above and below and 12px at each end. A pill that carries a glyph then shows its glyph alone, padded 8px at the sides, and its words are still spoken. A menu button on the bar cuts its words short with an ellipsis rather than widening the chrome. The status area stays as it is, since its items are already icons; an item of words keeps them.
+
+Each status item is one stop in the keyboard's tab order and acts as the link or button it is.
 
 ## Accessibility
 
 The bar is exposed as the application's banner. The brand is a link named by the application's name. A pill showing only its glyph keeps its words as its accessible name. The theme control has an accessible name that says what it does.
+
+The status area is exposed as navigation named for what it holds, such as "Status". An item's accessible name says what it is and what its badge means, such as "Moderation: 3 waiting", and the badge is hidden from assistive technology, which hears it in the name. The application keeps the name in step with the badge.
 
 The bar's own colours are held to the same contrast as the page's: its text reaches 4.5:1 against its fill, and the bounds of a pill and a focus ring reach 3:1 against the bar.
 
@@ -70,3 +90,6 @@ A printed page leaves the bar out.
 11. A printed page leaves the bar out.
 12. Tabs on the bar stand on its foot; the current tab covers the bar's bottom line, takes the colour of what lies below the bar and is exposed as current, and the others stand raised on the line in the bar's colours.
 13. On a narrow screen the tabs are the bar's last row and scroll sideways rather than widen the page.
+14. The status area, where the bar has one, is the last thing in the chrome: one raised group of flat items, each highlighting under the pointer, pressed in while pressed and showing a focus ring.
+15. A status item's badge is a badge with its status glyph, is not shown when it has nothing to say, and is hidden from assistive technology, while the item's accessible name says what the badge means.
+16. The reader's account, where the status area has it, is its last item.
