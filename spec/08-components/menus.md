@@ -32,6 +32,7 @@ When a filter leaves no row, the panel says so in a line of text, "Nothing match
 
 - A **menu** is a menu button and its panel, holding the places and actions that belong to one thing, such as a record.
 - A **launcher** is a menu whose panel reaches everything an application offers, with one section for each category of place, a filter at the top, and the application's own actions at the foot. Its button comes first in the row that holds the window dock, and it stays on screen when a narrow layout shows one record, so the reader can reach everything from anywhere.
+- A **filter menu** holds checkbox rows that filter a list, such as the categories or the sources a list shows. Each row is a checkbox and its words, set as a menu row, and choosing one applies the filter at once, without a button to confirm it. The panel stays open while the reader chooses, so several boxes can be ticked in a row: where applying the filter reloads the part of the page that holds the menu, the panel opens again on the new page with focus on the box the reader chose. Each box belongs to the filter's form, so the filter works without script as an ordinary form.
 - A **summoned menu** is a panel that a key opens, as described under Interaction. It MAY have a button as well. A summoned menu with no button is a palette, opened near the top of the window.
 
 ## States
@@ -115,3 +116,4 @@ In the platform's high-contrast mode, the panel keeps a visible border, a menu b
 13. A panel opens with its filter empty.
 14. A panel summoned by a key opens on that key outside a text field, with focus in its filter, and the key types as usual inside a text field.
 15. An open menu is not part of the restorable state.
+16. Choosing a row of a filter menu applies the filter at once, and the panel stays open, or opens again where the filter reloads what holds it, with focus on the same row.
