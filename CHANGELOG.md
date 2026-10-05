@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.0
+
+- **A pins group in the menu bar**, from parkscomputing.com's proposal. Between the host menu and the front menu, an application may give the reader a group of the applets and articles they go to most: the `pin` glyph and a Pins title of pinning commands, then a link for each pinned item, with its icon and title. When the pins do not fit they give way together to an Items title, before the bar becomes one button, and the collapsed bar lists the Pins commands and then the pins. With nothing pinned the group keeps its Pins title.
+- A new glyph, `pin`.
+
 ## 0.6.0
 
 - **Menu bars**, from parkscomputing.com's proposal. An application's menu bar stands in its application bar, holding the host's menu and the menu of whatever is in front, an applet or an article. Each menu is one raised surface with flat titles; a front menu may add to the host's titles but never take or change one. The bar is one tab stop and follows the WAI-ARIA menu bar pattern; it becomes one menu button when it does not fit. Shortcuts use `Mod` for the platform's command key and keep off the keys browsers and fields need. With a menu bar, an applet's commands live there and the window menu keeps the window's own.
