@@ -24,6 +24,7 @@ Every section is drafted. The sections other than buttons were drafted from the 
 | Tooltips | [tooltips.md](tooltips.md) |
 | Dialogs | [dialogs.md](dialogs.md) |
 | Notices and toasts | [notices-and-toasts.md](notices-and-toasts.md) |
+| Layout: stacks, rows and grids | [layout.md](layout.md) |
 | Master-detail layouts | [master-detail.md](master-detail.md) |
 | Splitters | [splitters.md](splitters.md) |
 | Windows, docked windows and snap zones | [windows.md](windows.md) |

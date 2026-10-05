@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.14.0
+
+- **Layout**, a section of its own: a stack, a row that wraps and may align its components or push its last to the end, and a grid of as many equal columns as fit at a least width. Each places its components in document order, with a gap from the spacing grid, never overlapping them, never at fixed positions and never making its space wider. It is the grammar's layout category, with no surface and nothing exposed. PUDL Studio's canvas arranges components with these, and every application needed them.
+
 ## 0.13.0
 
 From parkscomputing.com's proposals, for it and YAVCHN.
