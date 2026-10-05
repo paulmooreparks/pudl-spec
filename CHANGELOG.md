@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.13.0
+
+From parkscomputing.com's proposals, for it and YAVCHN.
+
+- **The sidebar's side.** An application may put a master-detail sidebar at the end edge of the reading direction, mirrored as in a right-to-left layout, keeping its order for the keyboard and its width and collapsed state.
+- **Collapsing, and a peek.** The section now says that a reader may collapse the sidebar to its handle, and that an application may let the reader peek at a collapsed sidebar by resting the pointer on its handle or focusing it: the sidebar is drawn over the detail pane without moving it, and closes when the pointer or focus leaves, never changing the collapsed state or the width.
+
 ## 0.12.0
 
 From YAVCHN's proposal, for patterns it and parkscomputing.com each built for themselves.

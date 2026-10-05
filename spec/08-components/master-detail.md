@@ -49,6 +49,14 @@ The detail pane is a stop in the tab order, so that a reader with only a keyboar
 
 The divider differs from a plain splitter in four ways. Its limits come from the layout, as set out under Anatomy, rather than from the divider itself. Its default size is the sidebar's preferred width, and a double-click returns it there. Left and Right move it 16px, and 64px with Shift, and Home and End take it to its limits. In a right-to-left layout the sidebar sits at the right, and the divider widens it by moving left.
 
+### Which side, collapsing, and a peek
+
+The sidebar stands at the start of the reading direction unless the application puts it at the end, as a reader's preference may ask. At the end it is mirrored as in a right-to-left layout: its hairline faces the detail pane on its other side, and the divider widens it by moving toward the middle. The parts keep their order for the keyboard and assistive technology; only their places change. Moving the sidebar keeps its width and whether it is collapsed.
+
+An application MAY let the reader collapse the sidebar, so that the detail pane has the whole width. A collapsed sidebar leaves only the divider, at the edge, as a raised handle the reader drags or presses to expand it again. Collapsing is the reader's preference, kept as the width is.
+
+An application MAY let the reader **peek** at a collapsed sidebar without expanding it, on a wide layout with a pointer that can hover. Resting the pointer on the handle for about 200ms, or focusing it from the keyboard, draws the sidebar over the detail pane from its edge at its own width, raised with a dialog's shadow above anything in the detail pane, such as windows, and the handle at its side where an expanded sidebar would put it. Nothing behind the peek moves. The peek closes when the pointer has been off it for about 300ms, when focus leaves it, on Escape, and when the reader chooses a row; it stays while a menu of its own is open or a drag inside it goes on. A peek never changes whether the sidebar is collapsed or its width: pressing the handle, or the command that expands it, expands it for good where the peek stood. A pointer that only crosses the handle opens nothing, and a touch screen or a narrow layout has no peek.
+
 ### One pane at a time
 
 When the layout itself is 640px wide or less, it shows one pane at a time: the list, or the record. The width that counts is the layout's own, not the screen's, so a layout inside a narrow window or panel on a large screen behaves as it does on a phone. On a wider layout nothing in this subsection applies.
@@ -96,3 +104,5 @@ A printed layout carries the content without the toolbar, the chip row, the divi
 13. The divider is hidden while one pane shows at a time.
 14. In a right-to-left layout the sidebar sits at the right and the divider and its keys follow it.
 15. In high-contrast mode the current row takes the system's highlight colours.
+16. A sidebar the application puts at the end edge is mirrored, keeps its order for the keyboard, and keeps its width and collapsed state when it moves.
+17. A peek at a collapsed sidebar opens after the pointer rests on its handle or the handle is focused from the keyboard, draws over the detail pane without moving it, closes when the pointer or focus leaves it, on Escape or when a row is chosen, and never changes the collapsed state or the width.
