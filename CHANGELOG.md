@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.10.0
+
+- **An article's Print is the application's to offer**, from parkscomputing.com's proposal. An article's first title offers printing only where the application says the article's printed form is worth having, since printing a page of windows prints the windows and the frame around them, and an article has no File title unless the application gives it one.
+
 ## 0.9.0
 
 - **A status area in the application bar**, from parkscomputing.com's proposal. The last thing in the bar's chrome may be one raised group of flat items, each a glyph or a picture with an optional badge, for what runs in the background of the application, with the reader's account last. A badge with nothing to say is not shown, and an item's accessible name says what its badge means. A round picture needs no raised ring of its own, since the group is what is raised.
