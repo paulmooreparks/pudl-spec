@@ -15,6 +15,8 @@ A card may hold, in this order, any of these parts.
 
 Every part is optional. A card with no title SHOULD have content that makes plain what it is about.
 
+A **settings panel** is a column of cards, one for each group of settings, `space-3` apart and at most 720px wide, centred in a page or a window. Each card has its title, a description in `text-muted`, its controls, and at its foot a row of the buttons that act on that group, `space-2` apart. A line under the row MAY say what the last action did, such as that the settings were saved, and takes no room while it has nothing to say.
+
 ## States
 
 A card has no states of its own. It does not respond to the pointer, and it takes no focus. The components inside it keep all of their own states.
@@ -41,3 +43,4 @@ A card's title, when it has one, SHOULD be exposed as a heading at the level tha
 4. A card takes no focus and responds to no press, while the controls inside it respond as they would elsewhere.
 5. A card's title is exposed as a heading.
 6. In high-contrast mode a card keeps a visible border.
+7. A settings panel is a column of cards `space-3` apart, at most 720px wide, each card's actions in a row at its foot.

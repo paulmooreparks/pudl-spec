@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.12.0
+
+From YAVCHN's proposal, for patterns it and parkscomputing.com each built for themselves.
+
+- **A filter menu**: checkbox rows in a menu that apply a filter at once, the panel staying open, or opening again with focus on the same box where the filter reloads what holds it.
+- **A settings panel**: a column of cards, each a group of settings with its actions in a row at its foot.
+- **A disclosure button**: a plain button that shows or hides content in place, with the new `chevron` glyph pointing down or up.
+- **A window's default front menu**: a window whose content offers no menu has one title, the window's, with what every window offers.
+
 ## 0.11.0
 
 - **The status area matches a menu bar's menus**, from YAVCHN's proposal. Where the application bar has a menu bar, the status area looks exactly like its menus, in surface, height and its items' colours and states, which are the titles'; only on a bar without a menu bar does it take the bar's own chip colours. It is 30px tall, as a menu is, with items 26px tall.

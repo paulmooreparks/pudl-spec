@@ -14,6 +14,7 @@ A button has two sizes. The default size has 7px of padding above and below the 
 
 - A **plain** button performs an ordinary action.
 - A **primary** button performs the one primary action of its context, as chapter 2 requires. It is filled with the accent, lit toward its top, and its label is in `on-accent`. A visible context MUST NOT hold more than one.
+- A **disclosure** button shows or hides content in place, beneath it or beside it, such as a note under a toolbar. It is a plain button with the `chevron` glyph 16px across after its words, pointing down while the content is hidden and up while it is shown, turning between the two unless the reader asks for reduced motion. It does not latch, since the chevron says its state, and it is exposed as expanded or collapsed.
 - A **danger** button performs an action that destroys something or cannot be undone. It is a plain button whose label is in `danger` and whose border leans toward it, so the danger shows before the reader touches it; under the pointer it fills with `danger`. The danger colour is never its only signal: its label says what it destroys, and the action SHOULD ask for confirmation or offer an undo.
 
 ## States
@@ -54,3 +55,4 @@ A button is exposed with the button role and its accessible name. A toggle butto
 9. Its label reaches 4.5:1 against its fill in every kind and state except disabled, in both themes.
 10. In high-contrast mode it keeps a border, and focus and the latched state stay visible.
 11. A view offers at most one primary button.
+12. A disclosure button carries the `chevron` glyph after its words, pointing down while its content is hidden and up while it is shown, is exposed as expanded or collapsed, and turns without motion when the reader asks for reduced motion.

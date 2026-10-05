@@ -28,6 +28,8 @@ A front menu MUST NOT use a title the host menu has. It MAY add commands to one 
 
 An applet that offers only a list of commands gets a front menu of one title, its own name, holding them, so every applet has a place in the bar without changing.
 
+A window whose content offers no menu at all, neither an applet's nor an article's, gets a front menu of one title, the window's title, holding what every window offers: opening its content as a page, copying its link and closing the window. An application need not give such content a menu of its own only to have those commands.
+
 An article's menu is made of links, since every state of a PUDL application has an address. Its first title, the article's name, holds what every article offers: opening it as a page, copying its link, and in a window closing it. It also holds printing the article, after copying its link, where the application says its printed form is worth having; a command PUDL offers does what it says, and printing a page of windows prints the windows and the frame around them, not the article. An article has no File title of PUDL's, since nothing else would fill it; an application that has file commands for an article gives it one in the article's menu. A link to a heading in the article moves to that heading, in its window if it has one, without changing the address; any other link is followed as a reader's press on it would be.
 
 ## Where commands live
@@ -92,3 +94,4 @@ The bar is exposed as a menu bar, each menu as a group named by its name, each t
 14. Each pin is a link to its item, with its icon and title; a press asking for a new tab or window gets one.
 15. When the pins do not fit they give way together to an Items title, before the bar becomes one button, and the collapsed bar's panel lists the Pins commands and then the pins.
 16. An article's first title offers opening it as a page, copying its link and, in a window, closing it, and offers printing only where the application says its printed form is worth having; an article has no File title unless the application gives it one.
+17. A window whose content offers no menu has a front menu of one title, the window's title, with opening its content as a page, copying its link and closing the window.
