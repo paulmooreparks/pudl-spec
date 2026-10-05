@@ -4,13 +4,23 @@ A menu bar holds an application's commands in menus along its application bar, a
 
 ## Anatomy
 
-The menu bar stands at the start of the application bar, in the brand's place. It holds at most two **menus**. The **host menu** is the application's own and is always there. The **front menu** belongs to whatever is in front, an applet or an article, and stands to the right of the host menu, so the host menu never moves or changes width as the reader moves between windows.
+The menu bar stands at the start of the application bar, in the brand's place. It holds at most two **menus**. The **host menu** is the application's own and is always there. The **front menu** belongs to whatever is in front, an applet or an article, and stands to the right of the host menu, so the host menu never moves or changes width as the reader moves between windows. Between the two the application MAY add a **pins group**, as the section on pins below describes.
 
 Each menu is one raised surface in the bar's own colours, filled with `tb-chip` and casting `tb-chip-shadow`, with corners of `radius-sm` and 2px of padding. The `menu` glyph stands at its start, 16px across in a 26px square, in `tb-chrome-fg`; pressing it opens the menu's first title. After it come the menu's **titles**, flat words at `text-sm` and weight 600 in `tb-chrome-fg`, padded 4px above and below and 10px at the sides, with corners of `radius-xs`. The titles take their press from the surface around them, as the positions of a segmented control do, so nothing flat is pressable on its own. Under the pointer a title takes a faint fill of `tb-fg` at 12%, and the open title is pressed into the surface, its fill darkened and shaded from above.
 
 A menu's first title is its name. The host menu's first title is the application's mark and name, set in the display face, and its panel holds the application's places. The host's other titles are its standard ones, such as View, Window and Help, and a title MAY be shown only where it means something, such as Window on a page of windows. A front menu's first title is the name of the applet or article.
 
 A title opens a **panel**, a menu panel as the section on menus describes, below it. A panel holds **commands**, separators, headings for the commands below them, and submenus. A command shows its shortcut at its end in `text-muted` at `text-xs`, and a submenu's row carries the `caret` glyph turned to point at where the submenu opens. A command that switches something on and off carries the `tick` glyph while it is on, and one of a group of which only one is on carries it on the one that is.
+
+## Pins
+
+A pins group holds the few applets and articles a reader goes to most, one press away, where the host's menus are lists to read through. It stands between the host menu and the front menu, so that it stays put as the front changes, as the host menu does. It is one raised surface of the same kind as a menu.
+
+The `pin` glyph stands at its start where a menu has the `menu` glyph, and after it comes the **Pins** title, whose panel holds the application's pinning commands, such as one to pin or unpin whatever is in front. Such a command is shown but disabled while nothing pinnable is in front. After the title come the **pins**, one for each pinned item, each the item's icon and title in the style of a title. A pin is a link to the item's page, not a menu: pressing it goes to the item, and the application MAY take a plain press to open the item its own way, such as raising the item's window, while a press that asks for a new tab or window gets one, as a link's does. A pin's title MAY be shortened to fit, with the whole title kept as its accessible name.
+
+With nothing pinned, the group still shows its glyph and its Pins title, so the reader can see where pins go.
+
+What the reader has pinned, where it is kept and what can be pinned are the application's to decide. Pinning an item is an operation on the item, so the command to pin it SHOULD also be where the reader works with the item, such as its window menu.
 
 ## Rules for a front menu
 
@@ -26,7 +36,9 @@ Each command has one home. Where the application has a menu bar, an applet's com
 
 ## In a narrow space
 
-When the bar does not fit, it becomes one menu button, the `menu` glyph alone, whose panel lists each menu as a section of its titles under the menu's name. Choosing a title shows its commands in the panel's place, with a Back row first, one level at a time; a submenu opens the same way. An implementation decides when the bar does not fit by measuring it.
+When a pins group's pins do not fit, they give way together to one more title, **Items**, whose panel lists them, each with its icon. They never give way one at a time, so the bar never shows some of the pins and hides the rest.
+
+When the bar still does not fit, it becomes one menu button, the `menu` glyph alone, whose panel lists each menu as a section of its titles under the menu's name. Choosing a title shows its commands in the panel's place, with a Back row first, one level at a time; a submenu opens the same way. The pins group's section lists the Pins title's commands themselves, since there are few of them, and then the pins, so a pin is still one choice away. An implementation decides when the pins or the bar do not fit by measuring them.
 
 ## Shortcuts
 
@@ -42,8 +54,8 @@ The whole bar is one stop in the keyboard's tab order.
 
 | Key | On a title | In a panel |
 |---|---|---|
-| Left and Right | Move to the previous or next title, across both menus; with a panel open, its panel opens instead | Right opens a submenu, or moves to the next title and opens it; Left closes a submenu, or goes Back, or moves to the previous title and opens it |
-| Down, Enter, Space | Open the panel, with focus on its first command | Down moves to the next command; Enter and Space choose |
+| Left and Right | Move to the previous or next title or pin, across every group; with a panel open, the title's panel opens instead, and moving onto a pin closes it | Right opens a submenu, or moves to the next title, past any pins, and opens it; Left closes a submenu, or goes Back, or moves to the previous title, past any pins, and opens it |
+| Down, Enter, Space | Open the panel, with focus on its first command; on a pin, Enter and Space go to its item | Down moves to the next command; Enter and Space choose |
 | Up | Open the panel, with focus on its last command | Move to the previous command, and from the first, back to the title |
 | Home, End | Move to the first or last title | Move to the first or last command |
 | Escape | Close an open panel | Close the submenu or the panel, back on its row or title |
@@ -54,7 +66,7 @@ An implementation MAY also give the bar a key that moves focus to its first titl
 
 ## Accessibility
 
-The bar is exposed as a menu bar, each menu as a group named by its name, each title as a menu item that opens a menu and says whether it is open, and each panel as a menu named by its title. A command is exposed as a menu item, a command that switches as a checkable menu item, and one of a group as a radio menu item, each with its state. A disabled command is exposed as disabled, and a command with a shortcut announces it. In the platform's high-contrast mode each menu keeps a border, and the open title takes the system's highlight colours.
+The bar is exposed as a menu bar, each menu as a group named by its name, each title as a menu item that opens a menu and says whether it is open, and each panel as a menu named by its title. A command is exposed as a menu item, a command that switches as a checkable menu item, and one of a group as a radio menu item, each with its state. A disabled command is exposed as disabled, and a command with a shortcut announces it. A pins group is a group named by its Pins title, and each pin a menu item named by the item's whole title. In the platform's high-contrast mode each menu keeps a border, and the open title takes the system's highlight colours.
 
 ## Questions this section must settle
 
@@ -76,3 +88,6 @@ The bar is exposed as a menu bar, each menu as a group named by its name, each t
 10. A command never takes a reserved key.
 11. When the bar does not fit it becomes one menu button whose panel opens one level at a time, and the page does not widen.
 12. The bar, its menus, titles, panels and commands are exposed with the roles and states above.
+13. A pins group stands between the host menu and the front menu, with the `pin` glyph and the Pins title first, and stays there with nothing pinned.
+14. Each pin is a link to its item, with its icon and title; a press asking for a new tab or window gets one.
+15. When the pins do not fit they give way together to an Items title, before the bar becomes one button, and the collapsed bar's panel lists the Pins commands and then the pins.

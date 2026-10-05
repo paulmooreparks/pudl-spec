@@ -52,6 +52,7 @@ Each status colour has a glyph of its own, so that a status is never told by col
 | `download` | Download a file |
 | `gear` | Settings, or the commands an applet offers |
 | `menu` | A menu bar's menus, and the menu bar as one button when it does not fit |
+| `pin` | A menu bar's pins group, the items a reader has pinned |
 | `theme` | Switch between the light and dark themes |
 | `tick` | A menu command that is switched on |
 | `sort`, `sort-up`, `sort-down` | A column that can be sorted, and one sorted ascending or descending |
