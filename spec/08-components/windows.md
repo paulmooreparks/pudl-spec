@@ -219,15 +219,29 @@ When the workspace sits inside a [master-detail layout](master-detail.md), the w
 
 An application MAY opt into shared side docks. Each side then has a tab strip for its docked windows, with one window shown below it. Choosing a tab raises that window without replacing its content. The strip spans the full width of its dock. Tabs follow the component's normal selected and unselected treatments.
 
+All windows in a shared dock MUST use the same width. Resizing any member changes the dock's width, and changing tabs MUST preserve that width. A window moved into an existing dock adopts its width. The dock retains this preference when empty.
+
+Shared dock tab labels use the compact badge font, `text-2xs` at weight 700 with line height 1.55. Collapse and Pin occupy the same outer top corner across dock modes, top-left for a left dock and top-right for a right dock. Tabs shift inward to make room in a pinned dock and follow Pin vertically in a rail.
+
+A pinned shared dock omits window title bars. Each tab has a window-menu button in place of a close button. The selected tab connects visually to its content with no intervening border. Ordinary rail slideouts MAY retain their title bars. The menu remains accessible by pointer and keyboard, and closing through it uses the normal unsaved-change handling.
+
 An application MAY identify required windows. A required window opens even when a restored arrangement omits it, cannot be closed or replaced, and has no close affordance. Required windows appear first in their dock, in the order the application supplies. They may still float or move to another edge.
+
+Required windows MUST omit Close from every menu. A front menu with no applicable commands is omitted. Separators only appear between groups of commands, including when Close is the sole command.
+
+An application MAY restrict a permanent side panel to the left and right docks. Such a panel cannot float, snap, maximise or dock at another edge, and has no title bar even in a rail slideout. Its pinned tab menu or keyboard context menu provides the applicable dock commands. Requiring the panel to stay open is a separate choice.
 
 A shared side dock has an automatic mode, an open mode and a rail mode. Automatic mode uses a rail when the workspace is at or below a threshold set by the application, 960px by default. An explicit choice of open or rail persists across width changes. Shared side docks keep their side on narrow screens rather than moving to the bottom.
 
 A rail is a narrow strip of the dock's tab glyphs. Activating a tab opens its window over the central area without moving the other windows. Working outside that window and rail retracts it. Escape retracts it and returns focus to the tab, except when a menu or dialog needs Escape first. Pinning the dock changes its mode to open; collapsing it changes the mode to rail. A temporary slideout changes neither the saved mode nor the window's canonical placement.
 
+Rail buttons MUST use the same square icon control and dimensions as Pin. They omit dropdown buttons, including for permanent side panels. A button uses the depressed treatment while its slideout is visible and returns to the raised treatment when the slideout retracts.
+
 Arrow keys move focus between tabs without selecting them, horizontally in an open dock and vertically in a rail. Home and End move focus to the first and last tabs. Enter or Space activates the focused tab. Delete requests closing it, using the same unsaved-change handling as the window's Close command. Closing a tab moves focus to a remaining tab when one exists.
 
 An application MAY supply a glyph, an attention count, a running mark and percentage progress for a window. The dock tabs, rails and taskbar show those marks consistently. A rail may omit the visible percentage while including it in the accessible name and tooltip. Updates MUST preserve mounted content and keyboard focus. An attention count and running mark are distinguishable by shape as well as color.
+
+An application MAY omit docked windows from the taskbar, including while their dock is collapsed to a rail. Their dock tabs remain available.
 
 The shared tab strip is exposed as a tab list and its window as the selected tab's panel. A floating window retains the normal non-modal dialog semantics. Tabs in a rail have full accessible names and tooltips even when their visible names are hidden.
 
@@ -241,7 +255,7 @@ The arrangement of windows is state the reader can return to, as chapter 2 requi
 - Each window's mode: floating, maximised, snapped to a half or a zone, or docked at an edge.
 - Each window's floating position and size, kept while it is maximised, snapped or docked, since that is where it returns.
 - The zone of a snapped window, and the strip size of a docked one.
-- The selected window and automatic, open or rail preference of each shared side dock.
+- The selected window, shared width and automatic, open or rail preference of each shared side dock.
 
 A window sized by its content restores its position only, since its size comes from its content each time.
 
@@ -263,7 +277,6 @@ A printed page with windows open carries the window in front as its content, its
 
 - What a window becomes on a phone. The web implementation shows one pane at a time, with the windows as the detail, but that answer is not yet written down as a rule.
 - Whether the layout picker's opener on the maximise button, which a mouse resting there for half a second summons, is part of the language, or a pointer convenience a platform may leave out, given that the window menu already carries the picker.
-- The tabbed dock, for an edge holding more than one docked window. The proposal for docked windows specifies a row of tabs along the edge's inner side, one per window, replacing their title bars while there is more than one; the web implementation has not built it, and an edge today shows one window with the others reached from the dock of open windows.
 - Whether the reader must be able to dock a window at every edge. The reader can dock only at the bottom today, by dragging or by the dock button; the other three edges are reached only by the application.
 - Whether minimising every window collapses docked windows too, as the web implementation does today, or leaves the workspace's frame as it is.
 - How focus is drawn on a zone of the layout picker. It is a 2px outline in `accent`, where every other control takes the 3px `focus-ring`.
@@ -312,3 +325,7 @@ A printed page with windows open carries the window in front as its content, its
 38. Rail slideouts overlay other windows, retract when work moves elsewhere, and return focus to their tab on Escape. Pinning keeps the dock open.
 39. Shared dock tabs support arrow keys, Home, End, Enter, Space and Delete, and respect a window's refusal to close.
 40. Status changes update dock tabs, rails and taskbar without replacing content or losing focus.
+41. Shared docks restore one width for all their tabs, including after the dock becomes empty.
+42. Pinned shared docks omit title bars and provide tab menus, with the selected tab connected to its content.
+43. A permanent side panel stays in a left or right dock, omits its title bar even in rail slideouts, and offers only applicable placement commands.
+44. An application can omit docked windows from its taskbar while preserving their dock tabs.

@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.17.0
+
+- Rail buttons match Pin in size, omit dropdown buttons and stay depressed while their slideouts are visible.
+
+- Host menu typography matches other menu titles, and splitters retain a 1px boundary rule at rest.
+
+- Dock labels use compact badge typography. Collapse and Pin stay at the same outer top corner across dock modes, and rails place Pin above the tabs.
+- Required windows omit Close from every menu. Empty front menus and separators without a preceding group are omitted.
+
+- Shared side docks retain one width across their tabs. Tab menus replace close buttons, pinned docks omit title bars, and selected tabs connect to their content.
+- Applications can keep permanent side panels docked, without window title bars, and omit docked windows from the taskbar.
+
 ## 0.16.0
 
 - Shared side docks can show several windows through tabs and collapse to icon rails. Required windows remain available, and each dock restores its selected tab and open or rail preference. Window status marks appear in the tabs, rails and taskbar.

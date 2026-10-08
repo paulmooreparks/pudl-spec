@@ -10,7 +10,7 @@ The handle resizes the first pane, the one at the start of the reading direction
 
 The reader drags the handle rather than pressing it, so it is a handle in chapter 2's sense and is drawn flat. Its grip is 6px across and straddles the boundary, 3px into each pane, so that it can be taken without covering either pane's content. At the middle of the boundary the handle carries the `grip` glyph at 16px in `text-muted`, turned a quarter where the panes are stacked so that its dots run along the boundary. The glyph shows at rest, so a reader can find the handle without a pointer resting on it.
 
-Inside the grip the handle also draws a rule 2px across with rounded ends, running the full length of the boundary. The rule is unseen at rest, so the boundary shows as whatever the panes draw there, such as a hairline in `border` or a change of surface, with the glyph on it.
+Inside the grip the handle draws a 1px rule in `border` with rounded ends, running the full length of the boundary. The rule remains visible at rest, with the grip glyph at its center.
 
 The handle has two limits. The least the first pane may be is 80px unless the application sets another. The most it may be is set by the application in px or as a share of the splitter, and is by default the whole splitter less the least, so that the second pane never vanishes. The limits hold however the size was set, and a size beyond a limit is brought back within it when the splitter itself changes size.
 
@@ -18,7 +18,7 @@ The handle has two limits. The least the first pane may be is 80px unless the ap
 
 | State | Appearance |
 |---|---|
-| At rest | Flat; the `grip` glyph shows in `text-muted`, and the rule is unseen |
+| At rest | Flat; the `grip` glyph shows in `text-muted`, and the rule shows in `border` |
 | Under the pointer | The glyph and the rule are drawn in `accent` |
 | Dragged | The glyph and the rule are drawn in `accent` until the pointer lifts |
 | Focused from the keyboard | The glyph and the rule are drawn in `accent`, with a 3px ring in `focus-ring` around the rule |
