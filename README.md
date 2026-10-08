@@ -15,7 +15,7 @@ An implementation generates its own form of the tokens and glyphs from these fil
 
 ## Status
 
-This is version 0.6.0. Every chapter is drafted, with the questions each must still settle listed in it. The specification reaches 1.0 when every chapter is written and the web implementation passes every conformance checklist, and the web implementation's own 1.0 waits for it.
+This is version 0.16.0. Every chapter is drafted, with the questions each must still settle listed in it. The specification reaches 1.0 when every chapter is written and the web implementation passes every conformance checklist, and the web implementation's own 1.0 waits for it.
 
 ## Changing the language
 
