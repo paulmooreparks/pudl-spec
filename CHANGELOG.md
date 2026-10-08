@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.16.0
+
+- Shared side docks can show several windows through tabs and collapse to icon rails. Required windows remain available, and each dock restores its selected tab and open or rail preference. Window status marks appear in the tabs, rails and taskbar.
+
 ## 0.15.0
 
 - **A `pencil` glyph**, for editing or renaming something in place, so that an icon button for either needs no glyph of its own.

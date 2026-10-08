@@ -215,6 +215,22 @@ When the workspace is 640px wide or less, a window docked at a side shows at the
 
 When the workspace sits inside a [master-detail layout](master-detail.md), the windows are the detail pane. A layout narrow enough to show one pane at a time shows the windows while any window the reader opened shows, and the list otherwise; a default window does not turn the pane over by itself. The back control above the windows minimises every window, which returns to the list with the windows kept. An application whose detail pane holds content of its own, with windows floating over it, decides which pane shows itself.
 
+### Shared side docks
+
+An application MAY opt into shared side docks. Each side then has a tab strip for its docked windows, with one window shown below it. Choosing a tab raises that window without replacing its content. The strip spans the full width of its dock. Tabs follow the component's normal selected and unselected treatments.
+
+An application MAY identify required windows. A required window opens even when a restored arrangement omits it, cannot be closed or replaced, and has no close affordance. Required windows appear first in their dock, in the order the application supplies. They may still float or move to another edge.
+
+A shared side dock has an automatic mode, an open mode and a rail mode. Automatic mode uses a rail when the workspace is at or below a threshold set by the application, 960px by default. An explicit choice of open or rail persists across width changes. Shared side docks keep their side on narrow screens rather than moving to the bottom.
+
+A rail is a narrow strip of the dock's tab glyphs. Activating a tab opens its window over the central area without moving the other windows. Working outside that window and rail retracts it. Escape retracts it and returns focus to the tab, except when a menu or dialog needs Escape first. Pinning the dock changes its mode to open; collapsing it changes the mode to rail. A temporary slideout changes neither the saved mode nor the window's canonical placement.
+
+Arrow keys move focus between tabs without selecting them, horizontally in an open dock and vertically in a rail. Home and End move focus to the first and last tabs. Enter or Space activates the focused tab. Delete requests closing it, using the same unsaved-change handling as the window's Close command. Closing a tab moves focus to a remaining tab when one exists.
+
+An application MAY supply a glyph, an attention count, a running mark and percentage progress for a window. The dock tabs, rails and taskbar show those marks consistently. A rail may omit the visible percentage while including it in the accessible name and tooltip. Updates MUST preserve mounted content and keyboard focus. An attention count and running mark are distinguishable by shape as well as color.
+
+The shared tab strip is exposed as a tab list and its window as the selected tab's panel. A floating window retains the normal non-modal dialog semantics. Tabs in a rail have full accessible names and tooltips even when their visible names are hidden.
+
 ## Restorable state
 
 The arrangement of windows is state the reader can return to, as chapter 2 requires and chapter 7 describes. An implementation MUST be able to restore all of it.
@@ -225,16 +241,17 @@ The arrangement of windows is state the reader can return to, as chapter 2 requi
 - Each window's mode: floating, maximised, snapped to a half or a zone, or docked at an edge.
 - Each window's floating position and size, kept while it is maximised, snapped or docked, since that is where it returns.
 - The zone of a snapped window, and the strip size of a docked one.
+- The selected window and automatic, open or rail preference of each shared side dock.
 
 A window sized by its content restores its position only, since its size comes from its content each time.
 
 Positions, sizes and zones are held as shares of the inner area, and strip sizes as shares of the workspace, so an arrangement restores sensibly in a workspace of another size. A parent's relation to its children belongs to the content, and is not part of the arrangement.
 
-Whether a window menu or a layout picker is open, and any drag under way, are momentary and are not restored.
+Whether a window menu, layout picker or rail slideout is open, and any drag under way, are momentary and are not restored.
 
 ## Accessibility
 
-A window is exposed as a dialog that is not modal, named by its title. Its title bar has an accessible name that carries the title and then says what the keys do: that the arrow keys move the window, that Shift with them resizes it, and that Enter maximises or restores it. Each window button has a name that says what pressing it will do now, such as Maximise or Restore, and SHOULD show it as a tooltip. The dock of open windows is exposed as navigation named "Open windows", each tab is named by its window's title, a minimised window's tab says in its tooltip that it is minimised, and the current tab is exposed as current. Each zone of the layout picker is named in words, such as "Top left quarter", each layout is a group named for it, and the zone the window fills is exposed as current. A content command that switches something on and off is exposed as pressed or not pressed.
+A window is exposed as a dialog that is not modal, named by its title, except while it is a tab panel in a shared side dock. Its title bar has an accessible name that carries the title and then says what the keys do: that the arrow keys move the window, that Shift with them resizes it, and that Enter maximises or restores it. Each window button has a name that says what pressing it will do now, such as Maximise or Restore, and SHOULD show it as a tooltip. The dock of open windows is exposed as navigation named "Open windows", each tab is named by its window's title, a minimised window's tab says in its tooltip that it is minimised, and the current tab is exposed as current. Each zone of the layout picker is named in words, such as "Top left quarter", each layout is a group named for it, and the zone the window fills is exposed as current. A content command that switches something on and off is exposed as pressed or not pressed.
 
 Every word the implementation writes, the buttons' names, the title bar's name, the commands and the zones, SHOULD come from the application where it gives them, so they reach the reader in the reader's language.
 
@@ -282,10 +299,16 @@ A printed page with windows open carries the window in front as its content, its
 25. A window opened from a link inside another window opens in that window's state.
 26. Closing a window returns focus to what opened it, or to the window now in front.
 27. Every item listed under Restorable state is restored.
-28. The window is exposed as a non-modal dialog named by its title, and the dock of open windows as navigation with its current tab exposed.
+28. The window is exposed as a non-modal dialog named by its title, or as a tab panel while in a shared side dock, and the dock of open windows as navigation with its current tab exposed.
 29. In high-contrast mode window frames and buttons keep their borders, and the window in front and the current tab take the system's highlight colours.
 30. A window sized by its content takes its content's width and height and follows them as they change, larger and smaller, with its top-left corner fixed.
 31. A window sized by its content stops at the right and bottom of the inner area, where its body scrolls.
 32. A window sized by its content cannot be resized, maximised, snapped or docked by any route, and its window menu offers Reset position.
 33. A window sized by the reader with limits cannot be made smaller or larger than them by dragging, by the keyboard or by restoring an arrangement.
 34. The window menu's Dock list names Top, Bottom, Left and Right, ticks the edge the window is docked at, docks the window at the edge chosen, and on a docked window ends with Undock.
+35. Shared side docks show one mounted window per side, selected through a full-width tab strip.
+36. Required windows remain available through closing, replacement and arrangement restoration, have no close affordance, and precede other dock tabs.
+37. Automatic shared docks become icon rails at the configured threshold, while explicit open or rail preferences survive resizing and restoration.
+38. Rail slideouts overlay other windows, retract when work moves elsewhere, and return focus to their tab on Escape. Pinning keeps the dock open.
+39. Shared dock tabs support arrow keys, Home, End, Enter, Space and Delete, and respect a window's refusal to close.
+40. Status changes update dock tabs, rails and taskbar without replacing content or losing focus.
