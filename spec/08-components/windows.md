@@ -243,6 +243,16 @@ An application MAY supply a glyph, an attention count, a running mark and percen
 
 An application MAY omit docked windows from the taskbar, including while their dock is collapsed to a rail. Their dock tabs remain available.
 
+### Shared top and bottom docks
+
+An application that shares its side docks MAY share its top and bottom docks as well, as a separate choice, so that sharing the sides alone leaves the top and bottom docks as they were. The windows docked at a shared top or bottom edge share it under one tab strip that runs the full width of the workspace on the dock's inner side, next to the central area: above the content of a bottom dock, and below the content of a top dock, where the tabs hang from the strip's top so that the selected tab still connects to its content. Tabs, status marks, window-menu buttons, required windows and the keys are as in a shared side dock, with the arrow keys moving along the strip horizontally and Shift with the vertical arrow keys resizing the dock. All windows in the dock share one height, as a side dock's windows share one width.
+
+A shared top or bottom dock has the same automatic, open and rail modes. Its collapsed form is its tab strip alone, with no icon form, since a strip of text tabs already fits across a wide workspace. Automatic mode collapses it when the workspace's height is at or below a threshold set by the application, 600px by default. Activating a tab in a collapsed strip slides its window out over the central area, from the strip, with the same retraction, Escape and focus rules as a rail slideout; that tab takes the depressed treatment while its window shows.
+
+### Tab order
+
+The reader MAY change the order of the tabs in any shared dock. Dragging an ordinary tab along its strip moves it, with a mark showing where it will go, and Escape cancels the drag. Alt with Shift and an arrow key along the strip moves the focused tab one place. Required windows keep the first places, in the order the application supplies: an ordinary tab cannot move before them, and a required tab does not move. A window that joins the dock later takes the last place. Dragging a tab out of its strip is not part of this; the window menu and the title bar move a window to another edge.
+
 The shared tab strip is exposed as a tab list and its window as the selected tab's panel. A floating window retains the normal non-modal dialog semantics. Tabs in a rail have full accessible names and tooltips even when their visible names are hidden.
 
 ## Restorable state
@@ -255,7 +265,7 @@ The arrangement of windows is state the reader can return to, as chapter 2 requi
 - Each window's mode: floating, maximised, snapped to a half or a zone, or docked at an edge.
 - Each window's floating position and size, kept while it is maximised, snapped or docked, since that is where it returns.
 - The zone of a snapped window, and the strip size of a docked one.
-- The selected window, shared width and automatic, open or rail preference of each shared side dock.
+- The selected window, shared size, automatic, open or rail preference, and tab order of each shared dock.
 
 A window sized by its content restores its position only, since its size comes from its content each time.
 
@@ -329,3 +339,6 @@ A printed page with windows open carries the window in front as its content, its
 42. Pinned shared docks omit title bars and provide tab menus, with the selected tab connected to its content.
 43. A permanent side panel stays in a left or right dock, omits its title bar even in rail slideouts, and offers only applicable placement commands.
 44. An application can omit docked windows from its taskbar while preserving their dock tabs.
+45. An application that shares only its side docks leaves its top and bottom docks unshared; one that shares all four shows one mounted window per top or bottom edge under a full-width strip on the dock's inner side.
+46. Automatic shared top and bottom docks collapse to their strip at the configured height threshold, and a tab in a collapsed strip slides its window out over the central area, with the rail slideout's retraction and focus rules.
+47. The reader can reorder the ordinary tabs of any shared dock by dragging and by Alt with Shift and the arrow keys, Escape cancels a drag, required windows keep the first places, and the order is restored with the arrangement.
