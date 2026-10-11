@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.19.1
+
+- **Correction.** 0.19.0 said that a docked window stays docked on a narrow screen that fills the workspace with windows. That reversed the responsive workspace rule, under which a window that takes part gives up its dock there. The rule stands. What is new is that an application may set the policy for all its windows at once, and that a window may keep its own placement, as a strip docked at the bottom does.
+
 ## 0.19.0
 
 From BCN's issues.
@@ -8,7 +12,7 @@ From BCN's issues.
 - **Where windows open.** A window's content may put its own placement first, may name the zone the windows it opens go to, and may name the zone it goes to when undocked. The application is told which link opened a window.
 - **Open beside.** A link may open its target beside its window instead of in its place, in a zone it names or the other half. An application may let Ctrl or Cmd with a click do the same on a link that would replace its window.
 - **Changing a window in place.** A form in a window may be sent without the application loading again, the window taking its new content from the answer, and an application may take a window's content again or give it new content.
-- A docked window stays docked on a narrow screen that fills the workspace with windows.
+- A docked window stays docked on a narrow screen that fills the workspace with windows. (Corrected in 0.19.1.)
 - A shared dock's strip may be drawn without script, its tabs links, and without a strip a shared window leaves no empty band.
 
 ## 0.18.0

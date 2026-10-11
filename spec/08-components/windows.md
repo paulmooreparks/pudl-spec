@@ -226,7 +226,7 @@ An application MAY name default windows, standing furniture such as a panel of s
 
 When the workspace is 640px wide or less, a window docked at a side shows at the bottom instead, since there is no room beside the content, and returns to its side when the workspace widens again. It keeps its own edge in the reader's arrangement.
 
-An application MAY have its windows fill the workspace on a narrow screen. A docked window is a strip of the workspace's frame rather than a window over the content, so it stays docked.
+An application MAY have its windows fill the workspace on a narrow screen, window by window or for all of them at once. A window MAY keep its own placement while the others fill the workspace, as a strip docked at the bottom does, since filling the workspace would cover the content it sits under.
 
 When the workspace sits inside a [master-detail layout](master-detail.md), the windows are the detail pane. A layout narrow enough to show one pane at a time shows the windows while any window the reader opened shows, and the list otherwise; a default window does not turn the pane over by itself. The back control above the windows minimises every window, which returns to the list with the windows kept. An application whose detail pane holds content of its own, with windows floating over it, decides which pane shows itself.
 
@@ -364,5 +364,5 @@ A printed page with windows open carries the window in front as its content, its
 48. A window whose content puts its own placement first opens there, a window opened from one that names a zone for its windows opens in that zone, and a window that names a zone for leaving its dock goes there when undocked.
 49. A link that opens beside its window keeps the opener open and places the new window in the zone it names or the other half, and a modified click opens beside only where the application asks.
 50. A form sent in place changes only its own window, keeping the window's place and tab, and takes its content, title and status marks from the answer; focus stays on the same field where it can, and a notice is announced.
-51. On a narrow screen that fills the workspace with windows, a docked window stays docked.
+51. An application can have all its windows fill the workspace on a narrow screen, and a window that keeps its placement is left where it is.
 52. A shared dock's strip drawn without script switches tabs by its links, the script takes it as it is, and without a strip a shared window keeps its title bar and leaves no empty band.
