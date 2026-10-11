@@ -50,6 +50,11 @@ Each status colour has a glyph of its own, so that a status is never told by col
 | `back` | Go back to the list from a record |
 | `copy` | Copy to the clipboard |
 | `pencil` | Edit or rename something in place |
+| `reload` | Load what is shown again, as a browser's reload does |
+| `flag` | Something marked or reported for attention, such as reports of abuse |
+| `inbox` | Items waiting to be dealt with, such as drafts waiting for review |
+| `shield` | Protection, security or moderation |
+| `terminal` | A command line or console, where `script` is a program's source |
 | `download` | Download a file |
 | `gear` | Settings, or the commands an applet offers |
 | `menu` | A menu bar's menus, and the menu bar as one button when it does not fit |
