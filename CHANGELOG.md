@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.18.0
+
+From GK Companion's proposal.
+
+- An application can share its top and bottom docks as well as its sides. Each shares its edge under a full-width tab strip on the side next to the central area, collapses to that strip when the workspace is short, and slides a window out from it.
+- The reader can reorder the tabs of a shared dock by dragging them or with Alt, Shift and the arrow keys. Required windows keep the first places, and the order is restored with the arrangement.
+
 ## 0.17.0
 
 - Rail buttons match Pin in size, omit dropdown buttons and stay depressed while their slideouts are visible.
