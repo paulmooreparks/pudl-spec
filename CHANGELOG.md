@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.19.0
+
+From the site's issues.
+
+- **Five glyphs**: `reload`, `flag`, `inbox`, `shield` and `terminal`, the last told apart from `script` by a window's title bar above its prompt.
+- **Where windows open.** A window's content may put its own placement first, may name the zone the windows it opens go to, and may name the zone it goes to when undocked. The application is told which link opened a window.
+- **Open beside.** A link may open its target beside its window instead of in its place, in a zone it names or the other half. An application may let Ctrl or Cmd with a click do the same on a link that would replace its window.
+- **Changing a window in place.** A form in a window may be sent without the application loading again, the window taking its new content from the answer, and an application may take a window's content again or give it new content.
+- A docked window stays docked on a narrow screen that fills the workspace with windows.
+- A shared dock's strip may be drawn without script, its tabs links, and without a strip a shared window leaves no empty band.
+
 ## 0.18.0
 
 From an application's proposal.

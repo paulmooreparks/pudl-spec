@@ -173,14 +173,27 @@ A window opens in front. It takes focus if focus is where it was when the reader
 
 A window opening with no placement of its own takes the first of these that gives one.
 
-1. A placement the application supplies for it, such as one it remembered.
-2. The state of the window whose content opened it, so that following a link never overturns the reader's arrangement. From a maximised window it opens maximised, from a snapped one in the same zone, and from a floating one it floats 3% of the inner area down and to the right of its opener, starting again 3% from the top left when that step would run past the edge. A window opened from a docked window takes nothing from it.
-3. The position its content gives it.
-4. The mode its content gives it, with a position cascading from the top left to restore to. A reading application opens its articles maximised this way.
+1. The zone a link opening it beside its opener asks for, described below.
+2. A placement the application supplies for it, such as one it remembered. The application is told which link opened the window, so that two links in one window may place their windows differently.
+3. The placement its content gives it, when its content says that its own placement comes first, as an editor that needs the left half wherever it is opened from does.
+4. The zone the window whose content opened it names for the windows it opens, such as the right half for the days a report opens beside it.
+5. The state of the window whose content opened it, so that following a link never overturns the reader's arrangement. From a maximised window it opens maximised, from a snapped one in the same zone, and from a floating one it floats 3% of the inner area down and to the right of its opener, starting again 3% from the top left when that step would run past the edge. A window opened from a docked window takes nothing from it.
+6. The position its content gives it.
+7. The mode its content gives it, with a position cascading from the top left to restore to. A reading application opens its articles maximised this way.
+
+A window's content MAY name the zone it goes to when it is undocked, such as a half, in place of where it last floated.
 
 A floating window with no position cascades from 6% of the inner area from its left and 5% from its top, each new window a further 4% down and to the right, for six steps before starting again; it is 55% of the inner area wide and 75% tall.
 
 A link inside a window MAY open its target in place of that window, as a link does in a browser tab. The new window takes the old one's placement and its place in the dock of open windows, the old one closes, and the change is one step in the reader's history, so going back returns to the old window.
+
+A link MAY instead open its target beside the window it sits in, so that two views of one thing, such as two days of a log, stand side by side. The new window takes the zone the link names, or else the half of the inner area that the opener's middle is not in, and a maximised opener takes the other half. Its address without script names both windows. An application MAY also let Ctrl, or Cmd on a Mac, with a click on a link that would replace its window open the target beside it instead; it SHOULD NOT take over a middle click or Shift with a click, which belong to the browser.
+
+### Changing a window in place
+
+A form inside a window MAY be sent without the application loading again, so that an action on one window, such as dismissing a report, leaves every other window as it is. The request says which window it comes from, and the answer is that window as the application would draw it, at any status, so that a refused form comes back with its errors in place. The window keeps its place, its size and its tab, and takes its content, its title and its status marks from the answer. An answer that leads somewhere else is followed as a page would follow it. Without script the form is sent as any form is.
+
+An application MAY also take a window's content again from its source, or give it new content, in the same way. After the change, focus stays on the field that had it when the new content has the same field, and otherwise goes to the window's content; a notice in the new content is announced.
 
 When a window's content cannot be loaded, the application SHOULD take the reader to the content's own place instead, where it has one.
 
@@ -212,6 +225,8 @@ An application MAY name default windows, standing furniture such as a panel of s
 ### Narrow screens
 
 When the workspace is 640px wide or less, a window docked at a side shows at the bottom instead, since there is no room beside the content, and returns to its side when the workspace widens again. It keeps its own edge in the reader's arrangement.
+
+An application MAY have its windows fill the workspace on a narrow screen. A docked window is a strip of the workspace's frame rather than a window over the content, so it stays docked.
 
 When the workspace sits inside a [master-detail layout](master-detail.md), the windows are the detail pane. A layout narrow enough to show one pane at a time shows the windows while any window the reader opened shows, and the list otherwise; a default window does not turn the pane over by itself. The back control above the windows minimises every window, which returns to the list with the windows kept. An application whose detail pane holds content of its own, with windows floating over it, decides which pane shows itself.
 
@@ -248,6 +263,10 @@ An application MAY omit docked windows from the taskbar, including while their d
 An application that shares its side docks MAY share its top and bottom docks as well, as a separate choice, so that sharing the sides alone leaves the top and bottom docks as they were. The windows docked at a shared top or bottom edge share it under one tab strip that runs the full width of the workspace on the dock's inner side, next to the central area: above the content of a bottom dock, and below the content of a top dock, where the tabs hang from the strip's top so that the selected tab still connects to its content. Tabs, status marks, window-menu buttons, required windows and the keys are as in a shared side dock, with the arrow keys moving along the strip horizontally and Shift with the vertical arrow keys resizing the dock. All windows in the dock share one height, as a side dock's windows share one width.
 
 A shared top or bottom dock has the same automatic, open and rail modes. Its collapsed form is its tab strip alone, with no icon form, since a strip of text tabs already fits across a wide workspace. Automatic mode collapses it when the workspace's height is at or below a threshold set by the application, 600px by default. Activating a tab in a collapsed strip slides its window out over the central area, from the strip, with the same retraction, Escape and focus rules as a rail slideout; that tab takes the depressed treatment while its window shows.
+
+### A strip without script
+
+An application that draws its windows without script MAY draw a shared dock's tab strip too, each tab a link to the arrangement that selects it, so that switching tabs works as a page load. The script then takes the strip as it finds it. Until a strip is there, a window in a shared dock keeps its title bar and the whole of its dock, leaving no empty band where the strip would be.
 
 ### Tab order
 
@@ -342,3 +361,8 @@ A printed page with windows open carries the window in front as its content, its
 45. An application that shares only its side docks leaves its top and bottom docks unshared; one that shares all four shows one mounted window per top or bottom edge under a full-width strip on the dock's inner side.
 46. Automatic shared top and bottom docks collapse to their strip at the configured height threshold, and a tab in a collapsed strip slides its window out over the central area, with the rail slideout's retraction and focus rules.
 47. The reader can reorder the ordinary tabs of any shared dock by dragging and by Alt with Shift and the arrow keys, Escape cancels a drag, required windows keep the first places, and the order is restored with the arrangement.
+48. A window whose content puts its own placement first opens there, a window opened from one that names a zone for its windows opens in that zone, and a window that names a zone for leaving its dock goes there when undocked.
+49. A link that opens beside its window keeps the opener open and places the new window in the zone it names or the other half, and a modified click opens beside only where the application asks.
+50. A form sent in place changes only its own window, keeping the window's place and tab, and takes its content, title and status marks from the answer; focus stays on the same field where it can, and a notice is announced.
+51. On a narrow screen that fills the workspace with windows, a docked window stays docked.
+52. A shared dock's strip drawn without script switches tabs by its links, the script takes it as it is, and without a strip a shared window keeps its title bar and leaves no empty band.
