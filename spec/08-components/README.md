@@ -12,7 +12,9 @@ Every section is drafted. The sections other than buttons were drafted from the 
 | Switches | [switches.md](switches.md) |
 | Segmented controls | [segmented-controls.md](segmented-controls.md) |
 | Badges, chips and filter chips | [badges-and-chips.md](badges-and-chips.md) |
-| Cards | [cards.md](cards.md) |
+| Cards, including disclosure cards | [cards.md](cards.md) |
+| Row editors | [row-editor.md](row-editor.md) |
+| Zoom | [zoom.md](zoom.md) |
 | Key and value tables | [key-value-tables.md](key-value-tables.md) |
 | Data tables and rows to choose from | [data-tables.md](data-tables.md) |
 | Pagination | [pagination.md](pagination.md) |

@@ -13,11 +13,13 @@ Several components carry a glyph button of their own, sized to fit where it sits
 | Where it sits | Size | Shape | Glyph |
 |---|---|---|---|
 | A notice or a toast, to dismiss it | 24px | Circle | 12px |
-| A window's title bar | 24px, or 20px on a window docked to an edge | Circle | 12px, or 10px |
+| A window's title bar | 1.7 times the title's text size: 24px at `text-md`, 22px at `text-sm` on a window docked to an edge | Circle | 0.85 times the title's text size: 12px, or 11px docked; the window menu's `caret` is drawn in a box of 1.2 times, 17px, since the caret fills less of its box than the other glyphs do |
 | A filter chip, to remove the filter | 18px | Circle | Set by the chip |
 | A document tab, to close it | 18px | Circle | 9px |
 | A row of a tree, to expand or collapse it | 16px | Corners of `radius-xs` | 10px |
 | The end of a filter field, to apply the filter | 32px wide, the field's height | Square corners where it meets the field | 14px |
+
+A window's buttons are sized from its title's text rather than in pixels, so that they grow with the text when the reader enlarges it, and a glyph there is about the height of the title's letters.
 
 The last of these is joined to the field it belongs to. Its corners on the side that meets the field are square, and its border overlaps the field's by 1px, so the sunken field and the raised button read as one control made of two parts.
 
@@ -78,3 +80,4 @@ A glyph button is exposed with the button role and its accessible name, and the 
 9. Focus from the keyboard shows a ring at least 3:1 against its surroundings.
 10. A glyph button that confirms an action by changing its glyph also announces the outcome in words.
 11. In high-contrast mode it keeps a border, and its glyph and focus stay visible.
+12. A window's buttons and their glyphs are sized from the title's text and grow with it, and the window menu's caret is as tall as the title's letters.
