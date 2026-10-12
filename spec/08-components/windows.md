@@ -20,7 +20,7 @@ The **frame** is `surface-alt`, bounded by a 1px hairline in `raise-border`, wit
 
 The **title bar** is raised, because the reader presses it to drag the window. It is filled with `raise-grad` and bounded by a 1px hairline in `raise-border`, with the light of `light` at `lit` along its top edge, and its top corners follow the frame's, at 7px. It is at least 38px tall, padded 5px above and below, 12px at its start and 7px at its end, with 10px between the things it holds. Its title is set at `text-md` and weight 700, on one line, ending in an ellipsis when the bar is too narrow for it.
 
-The **window buttons** sit at the end of the title bar, 5px apart, with Close last. Each is a small raised circle, 24px across, filled with `raise-grad`, bounded by `raise-border` and casting `raise-shadow`, with its glyph drawn 12px across in `text-muted`. The buttons a window MAY carry are these.
+The **window buttons** sit at the end of the title bar, 5px apart, with Close last. Each is a small raised circle, 1.7 times the title's text size across, 24px at `text-md`, filled with `raise-grad`, bounded by `raise-border` and casting `raise-shadow`, with its glyph drawn 0.85 times the title's text size across, 12px, in `text-muted`; the window menu's `caret`, which fills less of its box than the other glyphs, is drawn in a box of 1.2 times, 17px, so that it stands as tall as the title's letters. The buttons follow the title's text when the reader enlarges it. The buttons a window MAY carry are these.
 
 | Button | Glyph | Does |
 |---|---|---|
@@ -78,7 +78,7 @@ A window MAY be docked at an edge of the workspace, the top, the bottom, the lef
 
 The strip is the size of the docked window, a share of the workspace's height for the top and bottom and of its width for the sides. It is a quarter until the reader or the application sets another, and it is never more than 80% of the workspace, nor less than the docked window's title bar and a little of its body.
 
-A docked window is flush with its edge. It has no shadow, no rounded corners and no frame band, and a 1px hairline in `border` separates it from the inner area along its free edge, the one facing the workspace. The free edge is a handle, as chapter 2 describes, so it carries the `grip` glyph at rest, at its middle and just outside the window, on the workspace, where it reads whatever colour the title bar is. Its title bar is thin, 30px tall, with a hairline at its foot, padded 10px at its start and 4px at its end, with 8px between the things it holds. Its title is set at `text-sm`, and its buttons are 20px across with glyphs 10px across. It has no maximise button.
+A docked window is flush with its edge. It has no shadow, no rounded corners and no frame band, and a 1px hairline in `border` separates it from the inner area along its free edge, the one facing the workspace. The free edge is a handle, as chapter 2 describes, so it carries the `grip` glyph at rest, at its middle and just outside the window, on the workspace, where it reads whatever colour the title bar is. Its title bar is thin, 30px tall, with a hairline at its foot, padded 10px at its start and 4px at its end, with 8px between the things it holds. Its title is set at `text-sm`, and its buttons follow it, 22px across with glyphs 11px across. It has no maximise button.
 
 An edge holds any number of docked windows and shows one at a time, the one most recently in front; the others wait behind it and come forward from the dock of open windows.
 
@@ -318,7 +318,7 @@ A printed page with windows open carries the window in front as its content, its
 
 1. A floating window has a `surface-alt` frame with a `raise-border` hairline, a 5px band, corners of `radius` and a soft shadow, and is never smaller than 320px by 200px unless the inner area is.
 2. Its title bar is raised, at least 38px tall, with its title at `text-md` and weight 700 on one line.
-3. Its buttons are raised circles 24px across, with Close last, and their names follow the window's state.
+3. Its buttons are raised circles sized from the title's text, 24px at `text-md`, with Close last, and their names follow the window's state; the menu button's caret stands as tall as the title's letters.
 4. At most one window is in front, and it is marked by its frame, its shadow, its title bar and its tab in the dock of open windows.
 5. A press in a window, or focus moving into it, brings it in front, and a window brought forward takes the keyboard, on the element that last had focus in it, or else on an element marked to take focus first, or else on its title bar.
 6. Dragging the title bar moves the window, and a floating window stays inside the inner area.

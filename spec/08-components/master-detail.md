@@ -47,6 +47,12 @@ Choosing a row shows its record in the detail pane. The record in view is part o
 
 The detail pane is a stop in the tab order, so that a reader with only a keyboard can scroll a record that has no link or field inside it.
 
+The list's rows are one stop in the tab order, on the current row when there is one and otherwise on the first, and the keys of a tree move among them: Down and Up to the next and previous row, Home and End to the first and last, and Enter or a pointer press goes to the row's place. Moving focus goes nowhere by itself.
+
+### A list of rows on its own
+
+The list's rows MAY stand on their own, apart from the layout, wherever a page lists things to open: a window's recent documents, the runs of a flow, the results of a search. Such a **row list** is drawn as the sidebar's list is, row for row, with the same current mark, the same keys and the same accessibility, and each row is a link to its thing's address, as chapter 7 asks of every state a reader can reach. A page may take the link and show the thing in place; the address is still written, and the row is then current.
+
 The divider differs from a plain splitter in four ways. Its limits come from the layout, as set out under Anatomy, rather than from the divider itself. Its default size is the sidebar's preferred width, and a double-click returns it there. Left and Right move it 16px, and 64px with Shift, and Home and End take it to its limits. In a right-to-left layout the sidebar sits at the right, and the divider widens it by moving left.
 
 ### Which side, collapsing, and a peek
@@ -106,3 +112,5 @@ A printed layout carries the content without the toolbar, the chip row, the divi
 15. In high-contrast mode the current row takes the system's highlight colours.
 16. A sidebar the application puts at the end edge is mirrored, keeps its order for the keyboard, and keeps its width and collapsed state when it moves.
 17. A peek at a collapsed sidebar opens after the pointer rests on its handle or the handle is focused from the keyboard, draws over the detail pane without moving it, closes when the pointer or focus leaves it, on Escape or when a row is chosen, and never changes the collapsed state or the width.
+18. The rows are one tab stop, Down, Up, Home and End move among them without going anywhere, and Enter goes to the focused row's place.
+19. A row list on its own is drawn as the sidebar's rows are, has the same current mark and keys, and each of its rows is a link to an address.

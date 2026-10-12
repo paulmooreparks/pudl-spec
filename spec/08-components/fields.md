@@ -21,6 +21,8 @@ A field sits in a group with the words that belong to it, stacked in this order 
 
 Groups follow one another `space-4` apart.
 
+The label's line MAY carry, at its end, a command that acts on the field, such as a menu that inserts a reference into the text, or a button that fills the field from elsewhere. The line is then a row with the label at its start and the command at its end, aligned on the label's baseline, and the command is a small raised control, a small button, a glyph button or a menu button, never a field, since it holds no value. When the line is too narrow for both, the command wraps under the label at the line's start rather than squeezing the label. The command has a name of its own; the label still names the field and nothing else.
+
 The label of a field that must be filled in carries a mark after it, 3px from the label's words, in `danger`. The web implementation draws an asterisk.
 
 A set of related choices, such as radio buttons, sits in a group with a border and a title. The group's border is a 1px hairline in `border` with corners of `radius-sm`, and its padding is 12px at the top and 16px at the sides and the foot. Its title is set at `text-sm` and weight 600, and sits in the top border with `space-1` either side. The choices inside it stack `space-2` apart, or run along a line, wrapping, `space-2` apart between lines and `space-5` apart along them. Each choice is a checkbox or a radio button 16px square, tinted with the accent, with its words `space-2` after it at `text-md`, and the words are part of what the reader presses.
@@ -92,3 +94,4 @@ In the platform's high-contrast mode a field keeps a visible border, and focus i
 15. A field's value reaches 4.5:1 against `input-bg`, and an error message 4.5:1 against its background, in both themes.
 16. In high-contrast mode a field keeps a border, and focus stays visible.
 17. A closed select's opener is the `caret` glyph drawn by the implementation, in its text colour, and no platform drawing of the select shows.
+18. A command at the end of a label's line is a small raised control with a name of its own, aligned on the label's baseline, and wraps under the label when the line is too narrow; the label still names only the field.

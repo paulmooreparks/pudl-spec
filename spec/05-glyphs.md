@@ -55,6 +55,9 @@ Each status colour has a glyph of its own, so that a status is never told by col
 | `inbox` | Items waiting to be dealt with, such as drafts waiting for review |
 | `shield` | Protection, security or moderation |
 | `terminal` | A command line or console, where `script` is a program's source |
+| `plus` | Add one, or zoom in: a row to a list, a step of scale |
+| `minus` | Take one away, or zoom out |
+| `arrow-up`, `arrow-down` | Move something up or down, such as a step in a list; a chevron says direction, an arrow with a stem says movement |
 | `download` | Download a file |
 | `gear` | Settings, or the commands an applet offers |
 | `menu` | A menu bar's menus, and the menu bar as one button when it does not fit |

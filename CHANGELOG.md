@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.21.0
+
+From an application's proposal on the controls its Flow window built for itself.
+
+- **Disclosure cards.** A card that opens and closes by a raised toggle at the start of its head, drawn as a tree's toggle, with a summary shown only while closed and a foot of actions. The open question of whether a whole card may be pressable is settled: it may not.
+- **Zoom**, a section of its own: a group of Zoom Out, the scale, Zoom In and Fit above a viewport that scrolls, keeping the middle in place, with Ctrl and the keys while the viewport has focus.
+- **Row editors**, a section of its own: a table of fields with flat headings, a remove button at each row's end, an Add button beneath, and a stacked layout at a narrow width measured on the editor.
+- A field's label line may end in a command, a small raised control with a name of its own.
+- A master-detail list's rows take a tree's keys, and may stand on their own as a row list of links wherever a page lists things to open.
+- A window's buttons and glyphs are sized from the title's text, and the window menu's caret stands as tall as the title's letters.
+- Four glyphs: `plus`, `minus`, `arrow-up` and `arrow-down`.
+
 ## 0.20.1
 
 - The conformance checklist gains the item for room to ask for, which 0.20.0 left out.
