@@ -183,6 +183,8 @@ A window opening with no placement of its own takes the first of these that give
 
 A window's content MAY name the zone it goes to when it is undocked, such as a half, in place of where it last floated.
 
+A window's content MAY ask for a width, such as an editor that needs room for two columns. While that window is in front, an automatic shared side dock that would leave it less room shows as a rail, the widest first and no more than it takes. This is momentary: the reader's arrangement does not change, and the dock is as it was once the window closes, loses the front or has the room. A dock the reader pinned open stays open.
+
 A floating window with no position cascades from 6% of the inner area from its left and 5% from its top, each new window a further 4% down and to the right, for six steps before starting again; it is 55% of the inner area wide and 75% tall.
 
 A link inside a window MAY open its target in place of that window, as a link does in a browser tab. The new window takes the old one's placement and its place in the dock of open windows, the old one closes, and the change is one step in the reader's history, so going back returns to the old window.
@@ -290,7 +292,7 @@ A window sized by its content restores its position only, since its size comes f
 
 Positions, sizes and zones are held as shares of the inner area, and strip sizes as shares of the workspace, so an arrangement restores sensibly in a workspace of another size. A parent's relation to its children belongs to the content, and is not part of the arrangement.
 
-Whether a window menu, layout picker or rail slideout is open, and any drag under way, are momentary and are not restored.
+Whether a window menu, layout picker or rail slideout is open, any drag under way, and a dock giving way to a window that asked for room, are momentary and are not restored.
 
 ## Accessibility
 

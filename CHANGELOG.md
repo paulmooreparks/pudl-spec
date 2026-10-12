@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.20.0
+
+- **Room to ask for.** A window's content may ask for a width. While it is in front, automatic shared side docks that would leave it less give way to rails, the widest first, without changing the reader's arrangement. A dock the reader pinned open stays open. From the site's issue #16.
+
 ## 0.19.1
 
 - **Correction.** 0.19.0 said that a docked window stays docked on a narrow screen that fills the workspace with windows. That reversed the responsive workspace rule, under which a window that takes part gives up its dock there. The rule stands. What is new is that an application may set the policy for all its windows at once, and that a window may keep its own placement, as a strip docked at the bottom does.
