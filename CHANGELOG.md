@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.20.1
+
+- The conformance checklist gains the item for room to ask for, which 0.20.0 left out.
+
 ## 0.20.0
 
 - **Room to ask for.** A window's content may ask for a width. While it is in front, automatic shared side docks that would leave it less give way to rails, the widest first, without changing the reader's arrangement. A dock the reader pinned open stays open. From the site's issue #16.

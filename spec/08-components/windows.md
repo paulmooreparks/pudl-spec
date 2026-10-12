@@ -368,3 +368,4 @@ A printed page with windows open carries the window in front as its content, its
 50. A form sent in place changes only its own window, keeping the window's place and tab, and takes its content, title and status marks from the answer; focus stays on the same field where it can, and a notice is announced.
 51. An application can have all its windows fill the workspace on a narrow screen, and a window that keeps its placement is left where it is.
 52. A shared dock's strip drawn without script switches tabs by its links, the script takes it as it is, and without a strip a shared window keeps its title bar and leaves no empty band.
+53. A window that asks for a width has it while it is in front, by automatic side docks giving way to rails, without changing the arrangement, and a pinned dock stays open.
