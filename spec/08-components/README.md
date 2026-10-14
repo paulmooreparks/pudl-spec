@@ -22,7 +22,8 @@ Every section is drafted. The sections other than buttons were drafted from the 
 | Trees and path bars | [trees-and-path-bars.md](trees-and-path-bars.md) |
 | Section tabs, tabs within a page, and document tabs | [tabs.md](tabs.md) |
 | Menus, menu buttons and launchers | [menus.md](menus.md) |
-| Menu bars | [menu-bar.md](menu-bar.md) |
+| Menu bars, their letters and keys | [menu-bar.md](menu-bar.md) |
+| Toolbars | [toolbar.md](toolbar.md) |
 | Tooltips | [tooltips.md](tooltips.md) |
 | Dialogs | [dialogs.md](dialogs.md) |
 | Notices and toasts | [notices-and-toasts.md](notices-and-toasts.md) |

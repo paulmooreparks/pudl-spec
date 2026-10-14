@@ -58,6 +58,22 @@ Each status colour has a glyph of its own, so that a status is never told by col
 | `plus` | Add one, or zoom in: a row to a list, a step of scale |
 | `minus` | Take one away, or zoom out |
 | `arrow-up`, `arrow-down` | Move something up or down, such as a step in a list; a chevron says direction, an arrow with a stem says movement |
+| `new-window` | Open something in a window of its own, where `open` means go to its page |
+| `pencil-off` | A place that cannot be written to, such as a read-only folder; `shield` marks what needs elevation |
+
+### Editing text
+
+The commands of a page editor's toolbar, each the mark its command leaves or the thing it inserts.
+
+| Glyph | Meaning |
+|---|---|
+| `bold`, `italic`, `underline`, `strike`, `code` | The text's treatment |
+| `list`, `list-numbered` | A bulleted and a numbered list |
+| `quote` | A quotation |
+| `table` | A table, and the table commands |
+| `panel` | A panel inserted into the page, such as a note or a warning |
+| `colour` | A colour to choose, such as a cell's |
+| `paragraph` | The paragraph's style, such as a heading level |
 | `download` | Download a file |
 | `gear` | Settings, or the commands an applet offers |
 | `menu` | A menu bar's menus, and the menu bar as one button when it does not fit |
@@ -85,6 +101,8 @@ These mark what an item in a list is, in file managers, document lists and attac
 | `app` | An application |
 | `script` | A script or a program's source |
 | `link` | A link to somewhere else |
+| `board` | A project, a board or a backlog, such as a tracker's project |
+| `ticket` | An issue, a task or a request in a tracker |
 
 ## Adding a glyph
 
