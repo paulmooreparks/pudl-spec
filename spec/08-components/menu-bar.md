@@ -46,7 +46,29 @@ When the bar still does not fit, it becomes one menu button, the `menu` glyph al
 
 A command MAY have a shortcut, written with `Mod` for the platform's command key, which is Ctrl on Windows and Linux and Command on a Mac, as `Mod+S`. A front menu's shortcut works while focus is in what the menu belongs to, and a host menu's works anywhere. A shortcut with no modifier does nothing while focus is in a field.
 
-A command MUST NOT claim a key a page cannot have or that every field needs: `Mod` with N, T, W, Q or Tab, with or without Shift, which browsers keep for their windows and tabs, and `Mod` with A, C, X or V, the editing keys. A command that claims one keeps its place in the menu without the shortcut, and the implementation says so as it says so of a clash. These have one meaning everywhere, and a command that uses one MUST mean it: `Mod+S` save, `Mod+O` open, `Mod+Z` undo, `Mod+Y` and `Mod+Shift+Z` redo, `Mod+F` find, `Mod+P` print, F2 rename, and Delete.
+A command MUST NOT claim a key a page cannot have or that every field needs: `Mod` with N, T, W, Q or Tab, with or without Shift, which browsers keep for their windows and tabs, and `Mod` with A, C, X or V, the editing keys. A command that claims one keeps its place in the menu without the shortcut, and the implementation says so as it says so of a clash. A function key, F1 to F12 alone or with Shift, types nothing, so a command's function key works while focus is in a field too; a field that handles the key for itself keeps it.
+
+An application that is a **desktop host**, running with no browser around it, says so on the bar, and its commands may then claim `Mod` with N, T and W, with and without Shift, since there is no browser window or tab for them to act on. `Mod` with Q, Tab, A, C, X and V stay reserved there, for the operating system and the fields. The same declaration gives the bar the accelerators the section on letters describes.
+
+An implementation offers a **listing** of every key bound in the bar at that moment, with each key's command, title and whether it is the host's or the front menu's, so that an application can show a reference of its keys from the bar rather than keep a list of its own. When two commands of one source bind the same key, the implementation says so, naming both; a front command sharing a host command's key is not a clash, since the front menu's key wins by the rule above.
+
+## Letters
+
+Every title and every command has a **letter**, so that a reader who knows that Save As… is under Document reaches it by typing, as desktop applications teach. An application declares a letter, one letter of the label, once per bar for the titles and once per panel for the commands; a declared letter that is not in the label, or that repeats an earlier one, is dropped and reported, and the first declaration wins. A title or command with no declaration is given one when the bar or panel is drawn: the first letter of its first word, else the first letter of a later word, else any letter of the label, the first not already taken there; a command whose label begins with a digit and a full stop, as a numbered window does, takes the digit. Commands left over when the letters run out have none and keep the arrow keys. The generated window commands take their letters from the application's text for them. Letters are compared without case.
+
+The letters work on every platform, inside the bar's own focus. With focus on a title, typing a letter opens the title that has it, with its first command focused. In an open panel, typing a letter chooses the command that has it, or opens its submenu with the first command focused; where several commands share a letter it moves focus from one to the next and Enter chooses; where none has it nothing happens; a disabled command's letter does nothing. This replaces moving to the next command that starts with the letter.
+
+Under a desktop host, the keys a browser would otherwise own reach the bar from anywhere, a field included:
+
+- Alt pressed and released alone moves focus to the bar's first title, on every platform, since Option alone types nothing on a Mac either. Alone means no other key between the press and the release and no loss of focus between them, so switching windows with Alt+Tab does nothing on the return. Escape from a title with no panel open returns focus to where it was.
+- F10 does the same on Windows and Linux. macOS keeps F10 for the system, and its own key for the menu bar reaches the platform's bar, so the Mac's route is Option alone.
+- The platform's access-key modifier with a title's letter opens that title with its first command focused: Alt on Windows and Linux, Ctrl+Option on a Mac, which is the modifier browsers give an access key. In the collapsed bar it opens the one menu showing that title's commands. A shortcut of the same chord is refused and reported; the title's letter wins.
+
+A letter is **underlined** in its title while the access-key modifier is held and while focus is in the bar, and in a panel's commands while the panel was opened from the keyboard, not with the pointer. A title whose content is a mark rather than words, such as the application's, keeps its letter without an underline. Each title's chord, under a desktop host, and each command's letter are announced.
+
+## More of a command
+
+A command MAY be dangerous, drawn in `danger`; MAY carry a glyph before its words; MAY have a **detail**, a second line at `text-xs` in `text-muted` under its label; and, when disabled, MAY give a **reason**, shown as that second line and as its tooltip and exposed as its description, such as "Open a workspace first". A command the application writes in the page's markup says all four there, as an applet's command says them in its definition. A list of commands of which one is on, the themes say, is a group of radio commands however it was given. These have one meaning everywhere, and a command that uses one MUST mean it: `Mod+S` save, `Mod+O` open, `Mod+Z` undo, `Mod+Y` and `Mod+Shift+Z` redo, `Mod+F` find, `Mod+P` print, F2 rename, and Delete.
 
 ## Interaction
 
@@ -62,9 +84,9 @@ The whole bar is one stop in the keyboard's tab order.
 | Home, End | Move to the first or last title | Move to the first or last command |
 | Escape | Close an open panel | Close the submenu or the panel, back on its row or title |
 | Tab | Leave the bar | Close the panel and leave the bar |
-| A letter | | Move to the next command that starts with it |
+| A letter | Open the title that has it, as the section on letters describes | Choose the command that has it, or open its submenu; move among commands that share it |
 
-An implementation MAY also give the bar a key that moves focus to its first title, where the platform has one an application can use without taking it from the reader's other tools.
+An implementation MAY also give the bar a key that moves focus to its first title, where the platform has one an application can use without taking it from the reader's other tools; a desktop host has Alt alone and F10, as the section on letters describes.
 
 ## Accessibility
 
@@ -95,3 +117,9 @@ The bar is exposed as a menu bar, each menu as a group named by its name, each t
 15. When the pins do not fit they give way together to an Items title, before the bar becomes one button, and the collapsed bar's panel lists the Pins commands and then the pins.
 16. An article's first title offers opening it as a page, copying its link and, in a window, closing it, and offers printing only where the application says its printed form is worth having; an article has no File title unless the application gives it one.
 17. A window whose content offers no menu has a front menu of one title, the window's title, with opening its content as a page, copying its link and closing the window.
+18. A function key works from a field unless the field keeps it; a desktop host may claim `Mod` with N, T and W, and nothing else that is reserved.
+19. The bar lists every key bound in it, and reports a key bound to two commands of one source.
+20. Every title and command has a letter, declared or assigned by the rule, reported when a declaration is not in its label or repeats another; a letter opens its title from the bar and chooses its command in a panel, cycling among commands that share it, on every platform.
+21. Under a desktop host, Alt alone and F10 move focus to the bar, with Alt+Tab doing nothing on its return, and the platform's access-key modifier with a title's letter opens the title from anywhere, with a chord that is a title's letter refused as a shortcut.
+22. Letters are underlined while the modifier is held, while focus is in the bar, and in a panel opened from the keyboard, and never in one opened with the pointer; the chords and letters are announced.
+23. A command may be dangerous, carry a glyph, have a detail line, and when disabled give a reason that is shown and announced; a markup list of one-of-several commands is exposed as radio commands.

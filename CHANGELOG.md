@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.22.0
+
+From an application's second batch of proposals (PUDL's `docs/proposals/menu-bar-keys-and-toolbar.md`).
+
+- **Letters in the menu bar.** Every title and command has a letter, declared or assigned by a rule, which opens the title from the bar and chooses the command in a panel on every platform, replacing type-ahead. A desktop host gains Alt alone and F10 to reach the bar and the platform's access-key modifier with a letter to open a title from anywhere, Ctrl+Option on a Mac. Letters are underlined while they can be typed.
+- **A desktop host** may claim `Mod` with N, T and W. A function key works from a field. The bar lists its keys and reports one bound twice.
+- **More of a command**: dangerous, a glyph, a detail line, and a reason while disabled, from markup as from an applet; a markup list of one-of-several commands.
+- **Toolbars**, a section of their own: groups of raised controls, one tab stop with the arrow keys, latched controls pressed in, and a menu button disabled with its commands.
+- **A window's detail**, a second part of its title that gives way before the title.
+- **Sixteen glyphs**: `board`, `ticket`, `pencil-off`, `new-window`, and the editing glyphs `bold`, `italic`, `underline`, `strike`, `code`, `list`, `list-numbered`, `quote`, `table`, `panel`, `colour` and `paragraph`.
+
 ## 0.21.0
 
 From an application's proposal on the controls its Flow window built for itself.
