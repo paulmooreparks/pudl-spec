@@ -45,7 +45,7 @@ When a filter leaves no row, the panel says so in a line of text, "Nothing match
 | A row focused from the keyboard | Filled with `surface-alt`, with a 3px `accent` edge on its start side |
 | The current place row | Filled with `surface-alt`, with a 3px `accent` edge on its end side and its title in weight 700 |
 | An action switched on | The tick shows before its label |
-| A disabled action | Its label in `text-muted`; it takes no presses and does not respond to the pointer |
+| A disabled action | Its label in `text-muted` and faded to half, as a disabled button is dimmed, so that it is told from a live action at a glance; it takes no presses and does not respond to the pointer |
 | A destructive action | Its label in `danger`, led by the warning glyph |
 
 A disabled action stays in the panel, so the reader learns that it exists.
@@ -110,7 +110,7 @@ In the platform's high-contrast mode, the panel keeps a visible border, a menu b
 7. Places and actions are flat list rows that respond under the pointer and are not underlined; actions are led by a drawn glyph and set apart from the places by a rule.
 8. A destructive action is set in `danger` and led by the warning glyph.
 9. An action that switches something on and off shows a tick while it is on, is exposed as pressed or not pressed, and keeps every label in the panel aligned.
-10. A disabled action stays in the panel, takes no presses and is exposed as disabled.
+10. A disabled action stays in the panel, faded to half, takes no presses and is exposed as disabled.
 11. A filter narrows the rows as the reader types, ignoring case, hides section labels left with no rows, and says so when nothing matches.
 12. Enter in a filter goes to the first place left, and with none left hands the typed text to the application.
 13. A panel opens with its filter empty.

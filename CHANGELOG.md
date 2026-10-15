@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.23.0
+
+From an application's third batch of proposals.
+
+- **Switching windows.** The order the windows were last in front is part of the state, and an application may offer a switcher on Ctrl+Tab that flips between the last two windows, walks the order while Ctrl is held with a list of the windows, and leaves docked windows out.
+- A notice's and a toast's content stays inside the card: an unbroken word breaks at the edge, a code block scrolls, a long action ends in an ellipsis.
+- A disabled action in a menu is faded to half as well as muted. A placeholder is not faded, as chapter 8's fields section already requires, since it would fall below 4.5:1.
+- Two glyphs: `image` and `clip`.
+
 ## 0.22.0
 
 From an application's second batch of proposals (PUDL's `docs/proposals/menu-bar-keys-and-toolbar.md`).
