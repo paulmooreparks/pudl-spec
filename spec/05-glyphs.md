@@ -74,6 +74,8 @@ The commands of a page editor's toolbar, each the mark its command leaves or the
 | `panel` | A panel inserted into the page, such as a note or a warning |
 | `colour` | A colour to choose, such as a cell's |
 | `paragraph` | The paragraph's style, such as a heading level |
+| `image` | Insert a picture |
+| `clip` | Attach a file |
 | `download` | Download a file |
 | `gear` | Settings, or the commands an applet offers |
 | `menu` | A menu bar's menus, and the menu bar as one button when it does not fit |

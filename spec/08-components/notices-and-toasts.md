@@ -25,6 +25,8 @@ Inside the panel, 12px (`space-3`) apart, are these parts.
 
 - **The kind's glyph**, at 18px in the notice colour, level with the first line of text.
 - **The content**, which is an optional title, set at `text-md` and weight 700 with 2px below it, then the message, then optionally a row of actions 8px (`space-2`) below the message. The actions are buttons, usually in the small size, 8px (`space-2`) apart and wrapping onto further lines when they must. An action leads to what the reader needs to do, such as "Edit the amount".
+
+A notice keeps its content inside its card whatever the text. A word with no space in it, such as a path, an identifier or an address, breaks where it would otherwise run past the edge, and prose breaks as it always has; a block of code in a notice scrolls sideways rather than widening it; and an action whose label is too long for the room ends in an ellipsis, with its whole label as its tooltip. A toast does the same.
 - **A dismiss button**, optionally, at the end.
 
 ### Toasts
@@ -88,3 +90,4 @@ In the platform's high-contrast mode, a notice and a toast keep a visible border
 8. A toast's leaving motion is removed when the reader has asked for reduced motion.
 9. Every message reaches 4.5:1 against its panel in every kind, in both themes.
 10. In high-contrast mode a notice and a toast keep a border, their start edge and a visible glyph.
+11. A notice's and a toast's content stays inside the card: a word with no space breaks at the edge, prose breaks as before, a code block scrolls, and a long action ends in an ellipsis with its whole label as its tooltip.
