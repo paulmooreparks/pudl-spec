@@ -1,11 +1,15 @@
 # Changelog
 
+## 0.24.1
+
+- **Correction.** 0.24.0 also gave the pills on a bar holding a menu bar a plain button's surface in the dark theme. The proposal asked that of the menus alone, and the pills keep `tb-chip` as before.
+
 ## 0.24.0
 
 From Parks Computing's proposal.
 
 - A menu bar's menu has the surface of a plain button in every theme, `raise-grad`, `raise-border` and `raise-shadow`, as though it were a button with the `menu` glyph at its start. It had the bar's chip colour, which matched a button in the light theme only.
-- On a bar holding a menu bar, its pills and its status area take the same surface in the dark theme as in the light, so every pressable thing on the bar looks alike.
+- On a bar holding a menu bar, its pills and its status area take the same surface in the dark theme as in the light, so every pressable thing on the bar looks alike. (Withdrawn for the pills in 0.24.1.)
 - The menu's glyph and titles are described in the colours the web implementation draws: `text` drawn toward `surface-alt`, `text` under the pointer, and the open title pressed in with `raise-active-bg`.
 
 ## 0.23.0
