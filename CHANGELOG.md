@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.24.2
+
+- **Restored.** The pills on a bar holding a menu bar take a plain button's surface in every theme, as 0.24.0 had it, so the bar's controls look uniform in both themes. 0.24.1's withdrawal is reversed at the maintainer's direction.
+
 ## 0.24.1
 
 - **Correction.** 0.24.0 also gave the pills on a bar holding a menu bar a plain button's surface in the dark theme. The proposal asked that of the menus alone, and the pills keep `tb-chip` as before.
