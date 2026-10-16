@@ -10,7 +10,7 @@ The **brand** is the application's name, a link to its home. It is set in the `f
 
 The **chrome** is a row of controls that belong to the whole application, 8px apart, pushed to the end of the bar. It holds any of these.
 
-- A **pill** is a link or a button on the bar. It is raised, so it is never a label. It is filled with `tb-chip` and casts `tb-chip-shadow`, with corners of `radius-sm` and no border, padded 5px above and below and 12px at the sides, and its words are set at `text-sm`, weight 600, in `tb-chrome-fg`. A pill MAY carry a glyph before its words, 6px from them.
+- A **pill** is a link or a button on the bar. It is raised, so it is never a label. It is filled with `tb-chip` and casts `tb-chip-shadow`, which on a bar holding a menu bar are a plain button's `raise-grad` and `raise-shadow` in every theme, so the pills match the menus beside them, with corners of `radius-sm` and no border, padded 5px above and below and 12px at the sides, and its words are set at `text-sm`, weight 600, in `tb-chrome-fg`. A pill MAY carry a glyph before its words, 6px from them.
 - A **menu button** opens a menu, as the section on menus specifies, and on the bar it takes the pill's colours.
 - The **theme control** lets the reader choose the theme. On the web implementation it is a square pill, 28px on each side, holding the `theme` glyph and no words. The glyph is drawn, as chapter 2 requires of every glyph in PUDL's chrome.
 - The **status area** holds the icons of what runs in the background of the application, such as a queue waiting for the reader or the reader's account, as the next section describes. It is the last thing in the chrome.
