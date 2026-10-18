@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.24.3
+
+- A menu bar's command may carry a picture of its own, such as an applet's icon, before its words, as a pin carries its item's icon. From Example's installed applet packages.
+
 ## 0.24.2
 
 - **Restored.** The pills on a bar holding a menu bar take a plain button's surface in every theme, as 0.24.0 had it, so the bar's controls look uniform in both themes. 0.24.1's withdrawal is reversed at the maintainer's direction.
