@@ -6,13 +6,15 @@ A dialog interrupts the reader to ask a question or take a short input before a 
 
 A dialog is a panel lifted above the view, over a backdrop that dims everything behind it. The panel is filled with `dialog-bg`, which makes it one step brighter than the page it sits on, bounded by a 1px line in `border`, and has `radius` corners and 24px (`space-5`) of padding. It casts `shadow-dialog`, which is a card's shadow with a deep soft shadow of `shade` added, 24px below the panel and blurred over 64px, at 1.8 times the strength `depth` sets, and that deep shadow does the work of lifting it. The backdrop is `backdrop`, which is `shade` at 40% opacity and dims the view gently. Both are derived tokens, so a theme's lighting reaches them.
 
-The panel is centred in the window. It is as wide as the window allows up to 480px, and no taller than the window less 24px above and below; when its contents are taller it scrolls.
+The panel is centred in the window. It is as wide as the window allows up to 480px, and no taller than the window less 24px above and below.
 
 A dialog holds, from top to bottom, these parts.
 
-- **A title**, which asks the question or names the task, such as "Discard unsaved changes?". It is set at `text-lg` and weight 700, in `text`, with 8px (`space-2`) below it.
-- **A body**, which says what the choice means, set at `text-md` with a line height of 1.55, in `text-muted`, with 24px (`space-5`) below it. The body MAY hold fields, when the dialog takes a short input.
-- **Actions**, a row of buttons at the end of the panel, 8px (`space-2`) apart. The action that leaves things as they were comes first, and the action that commits comes last, at the end.
+- **A title**, which asks the question or names the task, such as "Discard unsaved changes?". It is set at `text-lg` and weight 700, in `text`, with 8px (`space-2`) below it. The title MAY share a head with controls that belong to it, such as a field that filters a list below.
+- **A body**, which says what the choice means, set at `text-md` with a line height of 1.55, in `text-muted`. The body MAY hold fields, when the dialog takes a short input, and the dialog MAY hold other content, such as a list or a table, after it.
+- **Actions**, a row of buttons at the end of the panel, 8px (`space-2`) apart, with 24px (`space-5`) between them and whatever comes before them. The action that leaves things as they were comes first, and the action that commits comes last, at the end.
+
+When the dialog's contents are taller than the panel can be, the content between the head and the actions scrolls, and the head and the actions stay in view, so the reader never has to scroll to find the way out of the dialog. The head and the actions are filled with `dialog-bg` and reach the panel's sides, and the content passes beneath them. While content is hidden beneath one of them, a 1px line in `border` separates it from the content, which tells the reader there is more to scroll to; when nothing is hidden there, no line is drawn, so a dialog that fits looks the same as one that cannot scroll. Moving focus to a control in the content scrolls it clear of the head and the actions, and moving focus to an action scrolls nothing.
 
 A dialog is a visible context, so it holds at most one primary button, as chapter 2 requires. When the committing action destroys something or cannot be undone, it is a danger button, leading with the warning glyph, and the dialog holds no primary button. Each action's label says what it does, such as "Stay" and "Discard changes", so the reader can answer without reading the body.
 
@@ -51,7 +53,7 @@ In the platform's high-contrast mode the panel keeps a visible border, since its
 ## Conformance checklist
 
 1. A dialog's panel is filled with `dialog-bg`, has `radius` corners, casts `shadow-dialog`, and sits centred above a `backdrop` that dims the view.
-2. The panel is no wider than 480px and scrolls when its contents are taller than the window allows.
+2. The panel is no wider than 480px. When its contents are taller than the window allows, the content between the head and the actions scrolls, the head and the actions stay in view, a line separates each from the content only while content is hidden beneath it, and a focused control in the content is scrolled clear of both.
 3. The title is `text-lg` at weight 700, and the actions sit at the end, with the committing action last.
 4. A dialog holds at most one primary button, and none when its committing action is destructive.
 5. Opening a dialog moves focus into it, and while it is open nothing behind it can be pressed or focused.

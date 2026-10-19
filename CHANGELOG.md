@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.25.0
+
+From an application's proposals on a dialog's buttons.
+
+- A dialog's title, with any head it shares with controls of its own, and its actions stay in view when its contents are taller than the window allows, and only the content between them scrolls. A 1px line in `border` separates the head or the actions from the content only while content is hidden beneath it, and a focused control is scrolled clear of both.
+- A dialog's actions keep 24px (`space-5`) between them and whatever comes before them, a list or a table as well as the body.
+
 ## 0.24.3
 
 - A menu bar's command may carry a picture of its own, such as an applet's icon, before its words, as a pin carries its item's icon. From Example's installed applet packages.
