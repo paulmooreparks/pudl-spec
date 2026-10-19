@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.26.0
+
+From an application's proposals on danger controls and on starting applets.
+
+- A danger button leads with the warning glyph, which the implementation draws unless the button already shows a picture of its own. A destructive menu action's glyph is drawn the same way, at 12px in the tick's space. The danger colour was the only mark on a danger button that did not carry the glyph in its markup.
+- An applet may ask to start when its window is first seen, or when seen or once nothing else is starting, rather than when the window opens. Until it starts, its window shows the loading line and is busy, and stays busy until the instance says it is ready. A window closed before its applet started never starts it, and a host can ask whether a window's applet has started and start it at once.
+
 ## 0.25.0
 
 From an application's proposals on a dialog's buttons.

@@ -8,6 +8,14 @@ An applet knows itself and never its host. It MUST NOT reach outside the space t
 
 A host starts an applet by giving it a space to build in and the options below, and the applet returns an instance. The host stops it by asking the instance to destroy itself, and the instance MUST then undo everything it set up, including anything it listens to outside its space and any timer it started. A host starts the applets in its content when the content appears, and destroys them when it goes, such as when a window closes, so that an application needs no wiring of its own.
 
+An applet MAY say when it would rather be started inside a window, so that a restored arrangement of many windows does not start them all at once and set them competing with the one the reader is looking at. It is one of three choices.
+
+- **When the window opens.** This is the default, and an applet that says nothing is started this way.
+- **When the window is first seen.** A window is seen when it comes to the front, takes focus or a press, or is shown in a dock, a zone, a split, or the single pane of a narrow screen. A window partly showing behind another is not seen, and a minimised one is not seen until it is restored.
+- **When seen, or when nothing else is starting.** As the second choice, and a window not yet seen also starts once every applet started before it is ready, one at a time, so a restored arrangement fills in behind the window in front.
+
+Outside a window the choice has no effect, and the applet starts when its content appears. Until an applet starts, its window shows its frame, title and place in the docks as usual, and its body shows the loading line that the section on empty and loading states describes and is marked busy, so nothing in it looks ready to use. An instance MAY say that it is not ready yet, such as while it loads what it shows, and the window stays busy until it is. A window closed before its applet started closes without starting it. A host MUST be able to ask whether a window's applet has started, and to start it at once, for a command that needs every instance, such as saving every open document.
+
 ## What the host tells the applet
 
 - The host says whether the applet is inside a window.
