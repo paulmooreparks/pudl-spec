@@ -9,6 +9,7 @@ A reader who arranges an application to do their work has made something, and PU
 - The tab chosen among tabs within a page or among section tabs.
 - The windows that are open, the order they were opened in, which is in front and which are minimised.
 - Each window's placement (floating with its position and size, maximised, snapped to a zone, or docked at an edge with the size of its strip), and for a window that is not floating, the floating position and size it returns to.
+- Where the reader has moved the lines between snapped windows.
 - An applet's state, where its host chooses to keep it, as chapter 9 sets out.
 
 State that belongs to the application rather than to what the reader is doing, such as the width they dragged a sidebar to, MAY be kept per reader instead, since it is a preference about the application and not part of any one piece of work.

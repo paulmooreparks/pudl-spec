@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.27.0
+
+From the maintainer's request for splitters between windows side by side.
+
+- The lines of the zones' grid can move. Where two snapped windows meet, a splitter on their shared line moves the whole line, by pointer and by keys, and every snapped window with an edge on it follows while the other dividing lines stay put. Lines never cross, keep each window at its least size, go back toward the grid when the inner area shrinks, and are forgotten once no two snapped windows meet across them. Enter or a double-click returns a line to the grid. Where two splitters cross, a handle moves both. The moved lines are part of the restorable arrangement.
+
 ## 0.26.0
 
 From an application's proposals on danger controls and on starting applets.
