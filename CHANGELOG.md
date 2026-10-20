@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.28.0
+
+From the maintainer's decision that PUDL is AI-native, and from example.com's proposal that PUDL take in applet actions.
+
+- **Agents** (chapter 1). PUDL is meant to be used by software agents as well as people. Where a part of the language gives a reader something to find out or to do, it SHOULD give an agent the same, by a documented, structured means that does not depend on reading the screen. A part about appearance alone has no such side, and none is invented for it.
+- **Actions** (chapter 9). An applet may publish actions in a manifest: versioned references, input and output schemas in JSON Schema 2020-12, capabilities from a closed list the application may extend, and a replay rule, pure, once or human, now defined. A caller's grant decides what it may run; the reader holds everything, a script or an agent only what it is granted, and the application may ask the reader to allow more. Calls are checked at both ends and answer with a record. An action may be answered by the running applet. Request verbs are published as actions, and an action never navigates the page that called it. The five MCP tools an application and example.com share are the recommended binding for agents outside the page.
+
 ## 0.27.0
 
 From the maintainer's request for splitters between windows side by side.
