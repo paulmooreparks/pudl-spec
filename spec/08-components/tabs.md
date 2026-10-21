@@ -22,6 +22,8 @@ Section tabs go to the sections of an application, each of which has an address 
 
 Tabs within a page switch between panels of one thing, such as the details, the receipt and the history of one expense, without going anywhere. One panel shows at a time, below the bar. The panel is filled with `surface`, which is also the chosen tab's fill here, bounded by a 1px line in `border` on its sides and foot and open at its top into the chosen tab, and it has 16px (`space-4`) of padding.
 
+Tabs within a page in a dialog or a window keep one size: the size of their largest panel, or the size of the window that holds them. Choosing a tab MUST NOT change the size of the dialog or the window, or move it, since the tab the reader pressed would move from under the pointer. Tabs that are the whole content of a window, or the content of a dialog between its title and its actions, reach its sides. Their bar runs from edge to edge, directly under the window's title bar or the dialog's title, and the panel takes the rest of the space. In a window the reader sizes, the chosen panel fills the window below the bar and scrolls on its own, so the bar stays in view. In a dialog, the panel takes the dialog's fill and padding and has no border of its own. Elsewhere on a page, tabs MAY keep the size of their largest panel, and an application MAY let a dialog's or a window's tabs follow each panel's size where the panels are alike in size and the reader is better served.
+
 Which panel is chosen is part of the reader's restorable state, as chapter 7 describes. Returning to the view, or opening a link to one of its panels, shows that panel. Choosing a panel SHOULD NOT count as a step for the platform's Back action, where the platform has one, so that switching panels does not fill the reader's history.
 
 ### Document tabs
@@ -103,3 +105,5 @@ In the platform's high-contrast mode, every tab and panel keeps a visible border
 13. Tabs within a page and document tabs are exposed as a tab list of tabs, with the chosen one exposed as selected.
 14. Focus from the keyboard shows a ring at least 3:1 against its surroundings, on the current tab as on the others.
 15. In high-contrast mode every tab keeps a border and the current or chosen tab stays distinguishable.
+16. Choosing a tab within a page in a dialog or a window changes neither the dialog's or the window's size nor its place, unless the application has asked for tabs that follow each panel's size.
+17. Tabs that are the whole content of a window, or a dialog's content between its title and its actions, run their bar from edge to edge directly beneath the title, and the chosen panel takes the rest of the space; in a window the reader sizes, the panel scrolls on its own and the bar stays in view.

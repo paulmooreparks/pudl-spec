@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.29.0
+
+From an agent that kept building tabbed dialogs that jumped as their tabs were chosen, and from the maintainer's review of the window menu.
+
+- **Tabs in a dialog or a window keep one size** (tabs, dialogs, windows). Choosing a tab MUST NOT resize or move the dialog or the window. Tabs that are a window's whole content, or a dialog's content between its title and its actions, reach its sides, with the bar from edge to edge under the title and the panel taking the rest of the space. A dialog with more than a few tabs, or with settings the reader returns to, belongs in a window.
+- **The window menu** (windows). Reset size and position ends the window's own commands. The layout picker and the Dock list follow, each under its heading, Snap or Dock, after a separator, where the menu has no submenus, so that snapping and docking are told apart; where it has submenus, both are submenus.
+
 ## 0.28.0
 
 From the maintainer's decision that PUDL is AI-native, and from example.com's proposal that PUDL take in applet actions.

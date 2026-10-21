@@ -14,6 +14,8 @@ A dialog holds, from top to bottom, these parts.
 - **A body**, which says what the choice means, set at `text-md` with a line height of 1.55, in `text-muted`. The body MAY hold fields, when the dialog takes a short input, and the dialog MAY hold other content, such as a list or a table, after it.
 - **Actions**, a row of buttons at the end of the panel, 8px (`space-2`) apart, with 24px (`space-5`) between them and whatever comes before them. The action that leaves things as they were comes first, and the action that commits comes last, at the end.
 
+A dialog that holds tabs within a page keeps the size of its largest panel, and the tabs reach its sides, as the section on tabs specifies, so choosing a tab never resizes or moves the dialog. A dialog with more than a few tabs, or with settings the reader returns to, has outgrown being a dialog, and belongs in a window.
+
 When the dialog's contents are taller than the panel can be, the content between the head and the actions scrolls, and the head and the actions stay in view, so the reader never has to scroll to find the way out of the dialog. The head and the actions are filled with `dialog-bg` and reach the panel's sides, and the content passes beneath them. While content is hidden beneath one of them, a 1px line in `border` separates it from the content, which tells the reader there is more to scroll to; when nothing is hidden there, no line is drawn, so a dialog that fits looks the same as one that cannot scroll. Moving focus to a control in the content scrolls it clear of the head and the actions, and moving focus to an action scrolls nothing.
 
 A dialog is a visible context, so it holds at most one primary button, as chapter 2 requires. When the committing action destroys something or cannot be undone, it is a danger button, leading with the warning glyph, and the dialog holds no primary button. Each action's label says what it does, such as "Stay" and "Discard changes", so the reader can answer without reading the body.
@@ -63,3 +65,4 @@ In the platform's high-contrast mode the panel keeps a visible border, since its
 9. A dialog is exposed as a modal dialog named by its title, and everything behind it is hidden from assistive technology while it is open.
 10. A toast raised while the dialog is open appears inside the dialog, above its backdrop, can be read and dismissed there, and moves back to the page's toasts when the dialog closes.
 11. In high-contrast mode the panel keeps a visible border.
+12. A dialog that holds tabs within a page keeps one size as the reader chooses among them, and its tab bar reaches its sides.
