@@ -16,6 +16,8 @@ A dialog holds, from top to bottom, these parts.
 
 A dialog that holds tabs within a page keeps the size of its largest panel, and the tabs reach its sides, as the section on tabs specifies, so choosing a tab never resizes or moves the dialog. A dialog with more than a few tabs, or with settings the reader returns to, has outgrown being a dialog, and belongs in a window.
 
+Pinning the head and the actions, as the next paragraph sets out, is the default for every dialog, and an application MAY turn it off for a dialog that reads better scrolled as one, such as a long document whose actions follow its last page.
+
 When the dialog's contents are taller than the panel can be, the content between the head and the actions scrolls, and the head and the actions stay in view, so the reader never has to scroll to find the way out of the dialog. The head and the actions are filled with `dialog-bg` and reach the panel's sides, and the content passes beneath them. While content is hidden beneath one of them, a 1px line in `border` separates it from the content, which tells the reader there is more to scroll to; when nothing is hidden there, no line is drawn, so a dialog that fits looks the same as one that cannot scroll. Moving focus to a control in the content scrolls it clear of the head and the actions, and moving focus to an action scrolls nothing.
 
 A dialog is a visible context, so it holds at most one primary button, as chapter 2 requires. When the committing action destroys something or cannot be undone, it is a danger button, leading with the warning glyph, and the dialog holds no primary button. Each action's label says what it does, such as "Stay" and "Discard changes", so the reader can answer without reading the body.

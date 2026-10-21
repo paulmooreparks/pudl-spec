@@ -6,13 +6,13 @@ A segmented control offers a small set of choices side by side, of which exactly
 
 A segmented control is a row of keys joined side by side, of which one is in, as on a bank of radio buttons. Every segment that can be pressed is raised, as chapter 2 requires of everything that can be pressed, and the chosen one is pressed in, as a pressed button is. Until specification 0.30.0 the segments lay flat on a recessed track with the chosen one raised, which drew the controls the reader can press as flat and the one that does nothing when pressed as raised, the opposite of the rest of the grammar.
 
-Each segment is drawn as a button is: its fill is `raise-grad`, its border a 1px hairline in `raise-border`, and its shadow `raise-shadow`. Neighbouring segments share their border, so the row reads as one control, and only its two ends are rounded, at `radius-sm`. Each segment holds a short label, set in the interface face at `text-sm` and weight 600, in `text`, on one line, with 4px of padding above and below and 12px either side, and it MAY lead with a glyph, 6px before the label. A segment is as wide as its label needs.
+Each segment is drawn as a button is: its fill is `raise-grad`, its border a 1px hairline in `raise-border`, and its shadow `raise-shadow`. Neighbouring segments share their border, so the row reads as one control, and only its two ends are rounded, at `radius-sm`. Each segment holds a short label, set in the interface face at `text-sm` and weight 600, in `text`, on one line, centred in a key 30px tall, the height of a menu bar's groups so that the two line up in an application bar, with 12px of padding either side, and it MAY lead with a glyph, 6px before the label. A segment is as wide as its label needs.
 
 The chosen segment is pressed in: its fill is `raise-active-bg`, its shadow `raise-active-shadow`, which falls inside its top edge, and its border `border`. It is drawn above its neighbours, so its border shows whole.
 
 Every label is in `text`, whether its segment is chosen or not. The chosen segment is marked by its depth, and its state is exposed to assistive technology.
 
-A segmented control has two sizes. The small size, for toolbars, has 2px of padding above and below each label and 9px either side, and sets the labels at `text-xs`. Either size MAY have fully rounded ends, at `radius-pill`.
+A segmented control has two sizes. The small size, for toolbars, is as tall as its label with 2px of padding above and below, and 9px either side, and sets the labels at `text-xs`. Either size MAY have fully rounded ends, at `radius-pill`.
 
 A segmented control SHOULD hold two to four segments. More choices than that belong in a select or a menu.
 

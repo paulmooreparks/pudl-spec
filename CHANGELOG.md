@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.31.0
+
+From the maintainer's question of what PUDL lacks to be a complete UI library, and the controls he chose from mockups. Every control here is designed against the complaints made most often about it elsewhere, follows the reader's language and culture, and is built from the grammar.
+
+- **The grammar.** A tick reports a state and a check box asks the reader to set one, so a component that sets state draws check boxes and one that reports it draws ticks. The wheel changes a field's value only while it has focus and the pointer is over it.
+- **Context menus** (menus), opened by the secondary press, Shift with F10 or the Menu key, at the pointer or the focused element, with the menu bar's rows, glyphs in one column, and the platform's own menu where the application offers none or Shift is held.
+- **Split buttons** (buttons), two joined keys whose menu lines up under the whole button.
+- **Popovers**, a new section: a non-modal panel anchored to its control, with an optional pointer, head and actions, the head and actions pinned.
+- **Progress bars and meters**, a new section: 16px flat bars always with words, a busy form that stands still for less motion, and meters banded by the application's thresholds in either direction, with the band's glyph, or with marks.
+- **Images and avatars**, a new section: frames that keep their proportion, failures shown as words, neutral avatars with an optional tint by name, and status marks with shapes.
+- **Steppers**, a new section: done, current and to come by shape and colour, done steps links back, the names but the current one hidden on a narrow window, and a form down the side.
+- **Fields.** Sliders, number fields read and written in the reader's language, password fields with a Show key and a Caps Lock notice, list boxes whose rows carry check boxes or radio buttons and need no modifier keys, token fields with chips below the field and a separator of the application's choosing, and date and time fields: typed in any of the forms the reader is likely to use, echoed in words, shown in the page's language and calendar or in ISO 8601, with PUDL's calendar, a chooser of months and years, and a time list at any interval.
+- **Dialogs** pin their head and actions by default, and an application may turn it off.
+- **Segmented controls** are 30px tall, a menu bar's groups' height.
+- **Glyphs:** `forward`, `eye` and `eye-off`.
+
 ## 0.30.1
 
 - A combo box's text looks a suggestion up only when exactly one suggestion has it as its value or a key; text several suggestions share, such as a sign three currencies use, stays as typed.

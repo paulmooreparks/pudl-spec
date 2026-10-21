@@ -26,6 +26,10 @@ Every section is drafted. The sections other than buttons were drafted from the 
 | Toolbars | [toolbar.md](toolbar.md) |
 | Tooltips | [tooltips.md](tooltips.md) |
 | Dialogs | [dialogs.md](dialogs.md) |
+| Popovers | [popovers.md](popovers.md) |
+| Progress bars and meters | [progress-and-meters.md](progress-and-meters.md) |
+| Images and avatars | [images-and-avatars.md](images-and-avatars.md) |
+| Steppers | [steppers.md](steppers.md) |
 | Notices and toasts | [notices-and-toasts.md](notices-and-toasts.md) |
 | Layout: stacks, rows and grids | [layout.md](layout.md) |
 | Master-detail layouts | [master-detail.md](master-detail.md) |

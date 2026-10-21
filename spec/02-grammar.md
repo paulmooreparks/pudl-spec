@@ -40,6 +40,14 @@ A link in running text is underlined, so it can be told from the text around it 
 
 Every state that means something carries a second signal besides its colour: a glyph, a position, an elevation or words. Each status has a shape of its own, which chapter 5 lists, so a warning badge carries a triangle and an error badge a square. A selected row is marked by its position and edge, and a toggle that is on by its elevation. An application MUST still read correctly for a reader who cannot tell red from green, and for one who sees no colour at all.
 
+## A tick reports, a check box asks
+
+A tick and a check box both say that something is on, and they are not interchangeable. A tick reports a state: it is drawn flat, beside a row of a menu or a list that tells the reader what is so, and pressing the row runs a command that may change it. A check box invites the reader to set a state: it is a control, sunken as every input is, and pressing it sets what it shows. A component whose purpose is to let the reader set state draws check boxes, or radio buttons where only one may be chosen; a component that reports state draws ticks. The same distinction holds for any pair like it, such as a dot that marks the chosen option and a radio button that chooses it.
+
+## The wheel changes only what has focus
+
+A field whose value has a smallest step, such as a number, a year or a time, MAY step by it when the mouse wheel turns, but only while the field has focus and the pointer is over it. A page scrolling past a field MUST never change its value, which is the commonest complaint about fields that answer the wheel.
+
 ## State is exposed as well as shown
 
 A state is exposed to assistive technology in the same terms the eye receives it. When a component shows that it is the current place, that it is pressed or checked, or that it is selected, it MUST also expose that state through the platform's accessibility interface. The visual treatment SHOULD follow from the exposed state, so that the two come from one source and cannot drift apart.

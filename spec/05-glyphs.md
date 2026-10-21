@@ -47,7 +47,10 @@ Each status colour has a glyph of its own, so that a status is never told by col
 | Glyph | Meaning |
 |---|---|
 | `search` | Search or filter |
-| `back` | Go back to the list from a record |
+| `back` | Go back to the list from a record, or to the previous page, month or item |
+| `forward` | Go on to the next page, month or item; `back` mirrored without turning a glyph |
+| `eye` | Show what is hidden, such as a password |
+| `eye-off` | Hide it again; the eye struck through |
 | `copy` | Copy to the clipboard |
 | `pencil` | Edit or rename something in place |
 | `reload` | Load what is shown again, as a browser's reload does |
