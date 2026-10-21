@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.30.0
+
+From an application's need for a field that takes a typed value or a chosen one, and from the maintainer's review of the segmented control.
+
+- **Combo boxes and searchable selects** (fields). A combo box is a sunken text field joined to a raised opener with a list of suggestions drawn as a menu; the reader may type any value or choose one. Typing filters the list and never completes the field unless the application asks. A suggestion may have keys it is found by that are not its value, and text left in the field that is exactly a key or a value becomes that suggestion's value, so a currency's code typed becomes its sign. A searchable select is a select drawn as a combo box, whose value is always one of its choices. Suggestions may come from the application as the reader types. Keys, exposure and conformance items are set out.
+- **Segmented controls are keys** (grammar, segmented controls). Every choice that can be pressed is raised and the chosen one pressed in, joined in a row; the flat choices on a sunken track with a raised thumb are gone, since they drew the pressable choices as display.
+
 ## 0.29.0
 
 From an agent that kept building tabbed dialogs that jumped as their tabs were chosen, and from the maintainer's review of the window menu.

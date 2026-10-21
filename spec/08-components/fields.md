@@ -33,6 +33,8 @@ A field for choosing a file is a raised button, with 6px of padding above and be
 
 - A **text field** takes one line of text, and is 36px tall whatever kind of value it takes, so that fields side by side in a form line up. A field for a date, a number or a search is a text field.
 - A **select** takes one choice from a list. It is 36px tall like a text field. Its opener is the `caret` glyph, 12px across, standing 11px in from its end edge and centred on its height, in the colour of its text, and the text stops short of it. The implementation draws the opener, so that the select is sunken and looks the same on every platform; a platform's own drawing of a select is not used, since it may be raised or lit. A select that shows several rows of its list at once in the page, rather than opening a list, keeps the height of those rows and has no opener.
+- A **combo box** is a text field with a list of suggestions. The reader may type any value or choose one from the list, and the value is whatever the field holds. At its end edge stands its opener, a raised button 34px wide holding the `caret` glyph, joined to the field so that the two share a border: the field is sunken because it is typed in, and the opener raised because it is pressed. That is what tells a combo box from a select, whose whole surface opens it and whose caret stands inside it. The list is drawn as a menu is, below the field, or above it where there is no room below, at least as wide as the field. Each row shows a suggestion, with a line of description under it in `text-muted` at `text-xs` where it has one, the row whose value equals the field's carries the `tick` glyph, and the row the keyboard is on is drawn as a focused menu row. A suggestion MAY have keys, words the reader can find it by that are not its value, such as a currency's code for a suggestion whose value is its sign.
+- A **searchable select** is a select drawn as a combo box: the reader types to find a choice in a long list, and its value is still always one of its choices.
 - A **text area** takes several lines of text. It is at least five times its text size tall, 70px at `text-md`, with lines 1.5 times its text size apart. Where the platform lets a reader resize it, it grows in height only.
 
 ## States
@@ -56,11 +58,25 @@ An invalid field MUST NOT rely on the colour of its border. The error message, w
 
 A field is one stop in the keyboard's tab order. Pressing its label moves focus into it, and pressing the words of a checkbox or a radio button changes it. Focus shows whether it arrived from the keyboard or the pointer, because the ring tells the reader where the next key they type will go.
 
+A combo box keeps focus in its field while its list is open, and follows the editable combobox with list autocomplete of the ARIA Authoring Practices.
+
+- Typing filters the list to the suggestions whose value, description or keys contain what is typed, ignoring case, and opens it where any match; a list with no match closes. Typing MUST NOT complete the field by itself unless the application asks for it, since in a field that accepts new values a completed match is a value the reader did not type.
+- Down opens the list and moves to the next row, and Up to the previous, wrapping around. Alt with Down opens the list without moving to a row, and Alt with Up closes it.
+- Enter chooses the row the keyboard is on, putting its value in the field and closing the list. Pressing a row does the same.
+- Escape closes the list. Escape with the list closed clears the field, unless the field must have a value.
+- Tab leaves with the field as typed, and closes the list; leaving never chooses the row the keyboard is on.
+- Text left in the field, by Tab, by Enter with no row lit or by moving away, that is exactly a suggestion's value or one of its keys becomes that suggestion's value, so a reader who types a currency's code gets its sign.
+- Pressing the opener shows every suggestion, with the field's own value ticked, and pressing it again closes the list. The opener is not a stop in the tab order.
+
+Choosing a suggestion tells the application that the field's value has changed, as typing does. A searchable select behaves the same, except that its value is always one of its choices: leaving it with text that names no choice puts back the choice it had. Its suggestions MAY come from the application as the reader types, after a pause, where the list is too long to hold in full.
+
 A form the application refuses SHOULD come back holding every value the reader entered, with each wrong field marked invalid and its message beneath it, and a notice at the top of the form saying what went wrong, as the section on notices specifies.
 
 ## Accessibility
 
 A field is exposed with the role the platform gives its kind, with its label as its accessible name, and with its hint and its error message as its description. A field that must be filled in is exposed as required, and the mark after its label is hidden from assistive technology, which hears "required" from the field itself. An invalid field is exposed as invalid, a read-only field as read-only, and a disabled field as disabled. A group of related choices is exposed as a group named by its title.
+
+A combo box and a searchable select are exposed as a combo box, with their list as a list box of options, the field as expanded while the list is open, and the row the keyboard is on as the field's active descendant. A row whose value is the field's is exposed as selected.
 
 In the platform's high-contrast mode a field keeps a visible border, and focus is drawn as a solid outline in the system's highlight colour.
 
@@ -95,3 +111,9 @@ In the platform's high-contrast mode a field keeps a visible border, and focus i
 16. In high-contrast mode a field keeps a border, and focus stays visible.
 17. A closed select's opener is the `caret` glyph drawn by the implementation, in its text colour, and no platform drawing of the select shows.
 18. A command at the end of a label's line is a small raised control with a name of its own, aligned on the label's baseline, and wraps under the label when the line is too narrow; the label still names only the field.
+19. A combo box is a sunken field joined at its end to a raised opener holding the `caret` glyph, and its list is drawn as a menu, the field's own value ticked and the keyboard's row lit.
+20. Typing in a combo box filters its list by value, description and keys, never completes the field unless the application asked for it, and closes the list when nothing matches.
+21. Down, Up, Alt with Down, Alt with Up, Enter, Escape and Tab behave as this section sets out, and focus stays in the field while the list is open.
+22. Text left in a combo box that is exactly a suggestion's value or key becomes that suggestion's value.
+23. A searchable select's value is always one of its choices, and leaving it with text that names none puts its choice back.
+24. A combo box and a searchable select are exposed as a combo box with a list box, expanded while open, the keyboard's row as the active descendant.
