@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.30.1
+
+- A combo box's text looks a suggestion up only when exactly one suggestion has it as its value or a key; text several suggestions share, such as a sign three currencies use, stays as typed.
+
 ## 0.30.0
 
 From an application's need for a field that takes a typed value or a chosen one, and from the maintainer's review of the segmented control.

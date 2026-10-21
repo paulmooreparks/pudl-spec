@@ -65,7 +65,7 @@ A combo box keeps focus in its field while its list is open, and follows the edi
 - Enter chooses the row the keyboard is on, putting its value in the field and closing the list. Pressing a row does the same.
 - Escape closes the list. Escape with the list closed clears the field, unless the field must have a value.
 - Tab leaves with the field as typed, and closes the list; leaving never chooses the row the keyboard is on.
-- Text left in the field, by Tab, by Enter with no row lit or by moving away, that is exactly a suggestion's value or one of its keys becomes that suggestion's value, so a reader who types a currency's code gets its sign.
+- Text left in the field, by Tab, by Enter with no row lit or by moving away, that is exactly the value or one of the keys of one suggestion, and of no other, becomes that suggestion's value, so a reader who types a currency's code gets its sign. Text that several suggestions share stays as typed.
 - Pressing the opener shows every suggestion, with the field's own value ticked, and pressing it again closes the list. The opener is not a stop in the tab order.
 
 Choosing a suggestion tells the application that the field's value has changed, as typing does. A searchable select behaves the same, except that its value is always one of its choices: leaving it with text that names no choice puts back the choice it had. Its suggestions MAY come from the application as the reader types, after a pause, where the list is too long to hold in full.
@@ -114,6 +114,6 @@ In the platform's high-contrast mode a field keeps a visible border, and focus i
 19. A combo box is a sunken field joined at its end to a raised opener holding the `caret` glyph, and its list is drawn as a menu, the field's own value ticked and the keyboard's row lit.
 20. Typing in a combo box filters its list by value, description and keys, never completes the field unless the application asked for it, and closes the list when nothing matches.
 21. Down, Up, Alt with Down, Alt with Up, Enter, Escape and Tab behave as this section sets out, and focus stays in the field while the list is open.
-22. Text left in a combo box that is exactly a suggestion's value or key becomes that suggestion's value.
+22. Text left in a combo box that is exactly the value or a key of one suggestion alone becomes that suggestion's value, and text several share stays as typed.
 23. A searchable select's value is always one of its choices, and leaving it with text that names none puts its choice back.
 24. A combo box and a searchable select are exposed as a combo box with a list box, expanded while open, the keyboard's row as the active descendant.
