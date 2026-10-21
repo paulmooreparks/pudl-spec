@@ -12,7 +12,7 @@ The chosen segment is pressed in: its fill is `raise-active-bg`, its shadow `rai
 
 Every label is in `text`, whether its segment is chosen or not. The chosen segment is marked by its depth, and its state is exposed to assistive technology.
 
-A segmented control has two sizes. The small size, for toolbars, is as tall as its label with 2px of padding above and below, and 9px either side, and sets the labels at `text-xs`. Either size MAY have fully rounded ends, at `radius-pill`.
+A segmented control has two sizes. The small size, for toolbars, is 28px tall, the height of every small raised key, as a small button and a glyph button are, with 9px either side, and sets the labels at `text-xs`. Either size MAY have fully rounded ends, at `radius-pill`.
 
 A segmented control SHOULD hold two to four segments. More choices than that belong in a select or a menu.
 

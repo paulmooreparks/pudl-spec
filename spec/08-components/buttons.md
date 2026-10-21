@@ -8,7 +8,7 @@ A button is a raised surface holding a label, a glyph, or a glyph and a label. T
 
 The raised surface is drawn from the derived tokens. Its fill is `raise-grad`, its border a 1px hairline in `raise-border`, its shadow `raise-shadow`, and its corners are `radius-sm`. Its label is set in the interface face at `text-md` and weight 600, in `text`, on one line.
 
-A button has two sizes. The default size has 7px of padding above and below the label and 14px either side. The small size, for toolbars and dense rows, has 4px and 10px and sets its label at `text-xs`.
+A button has two sizes. The default size has 7px of padding above and below the label and 14px either side. The small size, for toolbars and dense rows, is 28px tall whatever it holds, a glyph button's height, with its label at `text-xs`, centred, and 10px either side. Every small raised key, a small button, a small segmented control's keys and a glyph button, is that one height, so they line up beside one another in a toolbar.
 
 ## Kinds
 

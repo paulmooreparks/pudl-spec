@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.31.1
+
+- Every small raised key is 28px tall, a glyph button's height: a small button, whatever it holds, and a small segmented control's keys, which were shorter than the small buttons beside them in a toolbar (buttons, segmented controls). From the reader application's reader toolbar.
+
 ## 0.31.0
 
 From the maintainer's question of what PUDL lacks to be a complete UI library, and the controls he chose from mockups. Every control here is designed against the complaints made most often about it elsewhere, follows the reader's language and culture, and is built from the grammar.
