@@ -56,7 +56,7 @@ An action MAY be answered by the applet's running instance rather than by code t
 
 An action never takes the reader away from the page that called it: where a request would go to the applet's own page, an action opens that page in a new tab.
 
-**For agents outside the page,** a host SHOULD offer actions through the Model Context Protocol as five tools: `applet_discover`, which lists the manifests as callers see them; `applet_invoke`, which calls an action with its input and an optional identity and answers with the record; `applet_status`; `applet_cancel`; and `applet_artifact`, which fetches an artifact. These are the names an application and example.com chose first, and keeping them lets an agent that has used one host's applets use another's.
+**For agents outside the page,** a host SHOULD offer actions through the Model Context Protocol as five tools: `applet_discover`, which lists the manifests as callers see them; `applet_invoke`, which calls an action with its input and an optional identity and answers with the record; `applet_status`; `applet_cancel`; and `applet_artifact`, which fetches an artifact. Every host uses these names, so that an agent that has used one host's applets use another's.
 
 ## Commands
 

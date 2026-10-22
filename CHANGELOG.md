@@ -1,28 +1,32 @@
 # Changelog
 
+## 0.34.2
+
+- The specification and its changelog no longer refer to any application or site that uses PUDL, nor say who asked for a change. Nothing normative changes.
+
 ## 0.34.1
 
-- A menu's panel drops below its button and opens above only when it does not fit below and either fits whole above or has less than 240px below, with more room above (menus, popovers). A long panel with plenty of room below now stays there and scrolls, where it used to flip up over the page because there was more room above. the maintainer saw it in the command bar mockup, on a ribbon's folded menu.
+- A menu's panel drops below its button and opens above only when it does not fit below and either fits whole above or has less than 240px below, with more room above (menus, popovers). A long panel with plenty of room below now stays there and scrolls, where it used to flip up over the page because there was more room above.
 
 ## 0.34.0
 
-- A menu bar's panel lines up its commands' glyphs as a context menu does (menu bars). Glyphs, pictures, ticks and warnings share one 16px column wherever any command has a glyph or a picture, and a command with none leaves the column empty, so every command's words start in one line. A glyph is 14px in `text-muted`. Until now a command without a glyph started at the panel's edge while the commands with one were pushed in, as in the reader application's Story menu.
+- A menu bar's panel lines up its commands' glyphs as a context menu does (menu bars). Glyphs, pictures, ticks and warnings share one 16px column wherever any command has a glyph or a picture, and a command with none leaves the column empty, so every command's words start in one line. A glyph is 14px in `text-muted`. Until now a command without a glyph started at the panel's edge while the commands with one were pushed in.
 
 ## 0.33.0
 
-- While a context menu is open, the thing it acts on keeps the look it had under the pointer, whether the pointer or the keyboard opened the menu, so a reader can still see which of several like rows the commands are for (menus). The application says which element that is, since the element under the pointer is often a word inside a row; one element is marked at a time, and the mark goes when the menu closes. From an application.
+- While a context menu is open, the thing it acts on keeps the look it had under the pointer, whether the pointer or the keyboard opened the menu, so a reader can still see which of several like rows the commands are for (menus). The application says which element that is, since the element under the pointer is often a word inside a row; one element is marked at a time, and the mark goes when the menu closes.
 
 ## 0.32.0
 
-- Every field with a key in it is drawn as one sunken field whose border runs round everything, with each key a raised strip inside that border behind a hairline (fields, glyph buttons). The field's focus ring, danger border and dimming go round the whole control, keys included, and a key shows its keyboard focus as a ring inside its strip. This covers the combo box and searchable select, the number field, the password field, the date and time fields, the year in a calendar's chooser and a toolbar's filter with its apply button. Until now each key was joined to the field from outside, sharing its border, so the field's border stopped where the key began. the maintainer found that look dated and chose this one from four drawn alternatives.
+- Every field with a key in it is drawn as one sunken field whose border runs round everything, with each key a raised strip inside that border behind a hairline (fields, glyph buttons). The field's focus ring, danger border and dimming go round the whole control, keys included, and a key shows its keyboard focus as a ring inside its strip. This covers the combo box and searchable select, the number field, the password field, the date and time fields, the year in a calendar's chooser and a toolbar's filter with its apply button. Until now each key was joined to the field from outside, sharing its border, so the field's border stopped where the key began.
 
 ## 0.31.1
 
-- Every small raised key is 28px tall, a glyph button's height: a small button, whatever it holds, and a small segmented control's keys, which were shorter than the small buttons beside them in a toolbar (buttons, segmented controls). From the reader application's reader toolbar.
+- Every small raised key is 28px tall, a glyph button's height: a small button, whatever it holds, and a small segmented control's keys, which were shorter than the small buttons beside them in a toolbar (buttons, segmented controls).
 
 ## 0.31.0
 
-From the maintainer's question of what PUDL lacks to be a complete UI library, and the controls he chose from mockups. Every control here is designed against the complaints made most often about it elsewhere, follows the reader's language and culture, and is built from the grammar.
+Every control here is designed against the complaints made most often about it elsewhere, follows the reader's language and culture, and is built from the grammar.
 
 - **The grammar.** A tick reports a state and a check box asks the reader to set one, so a component that sets state draws check boxes and one that reports it draws ticks. The wheel changes a field's value only while it has focus and the pointer is over it.
 - **Context menus** (menus), opened by the secondary press, Shift with F10 or the Menu key, at the pointer or the focused element, with the menu bar's rows, glyphs in one column, and the platform's own menu where the application offers none or Shift is held.
@@ -42,60 +46,46 @@ From the maintainer's question of what PUDL lacks to be a complete UI library, a
 
 ## 0.30.0
 
-From an application's need for a field that takes a typed value or a chosen one, and from the maintainer's review of the segmented control.
-
 - **Combo boxes and searchable selects** (fields). A combo box is a sunken text field joined to a raised opener with a list of suggestions drawn as a menu; the reader may type any value or choose one. Typing filters the list and never completes the field unless the application asks. A suggestion may have keys it is found by that are not its value, and text left in the field that is exactly a key or a value becomes that suggestion's value, so a currency's code typed becomes its sign. A searchable select is a select drawn as a combo box, whose value is always one of its choices. Suggestions may come from the application as the reader types. Keys, exposure and conformance items are set out.
 - **Segmented controls are keys** (grammar, segmented controls). Every choice that can be pressed is raised and the chosen one pressed in, joined in a row; the flat choices on a sunken track with a raised thumb are gone, since they drew the pressable choices as display.
 
 ## 0.29.0
-
-From an agent that kept building tabbed dialogs that jumped as their tabs were chosen, and from the maintainer's review of the window menu.
 
 - **Tabs in a dialog or a window keep one size** (tabs, dialogs, windows). Choosing a tab MUST NOT resize or move the dialog or the window. Tabs that are a window's whole content, or a dialog's content between its title and its actions, reach its sides, with the bar from edge to edge under the title and the panel taking the rest of the space. A dialog with more than a few tabs, or with settings the reader returns to, belongs in a window.
 - **The window menu** (windows). Reset size and position ends the window's own commands. The layout picker and the Dock list follow, each under its heading, Snap or Dock, after a separator, where the menu has no submenus, so that snapping and docking are told apart; where it has submenus, both are submenus.
 
 ## 0.28.0
 
-From the maintainer's decision that PUDL is AI-native, and from example.com's proposal that PUDL take in applet actions.
-
 - **Agents** (chapter 1). PUDL is meant to be used by software agents as well as people. Where a part of the language gives a reader something to find out or to do, it SHOULD give an agent the same, by a documented, structured means that does not depend on reading the screen. A part about appearance alone has no such side, and none is invented for it.
-- **Actions** (chapter 9). An applet may publish actions in a manifest: versioned references, input and output schemas in JSON Schema 2020-12, capabilities from a closed list the application may extend, and a replay rule, pure, once or human, now defined. A caller's grant decides what it may run; the reader holds everything, a script or an agent only what it is granted, and the application may ask the reader to allow more. Calls are checked at both ends and answer with a record. An action may be answered by the running applet. Request verbs are published as actions, and an action never navigates the page that called it. The five MCP tools an application and example.com share are the recommended binding for agents outside the page.
+- **Actions** (chapter 9). An applet may publish actions in a manifest: versioned references, input and output schemas in JSON Schema 2020-12, capabilities from a closed list the application may extend, and a replay rule, pure, once or human, now defined. A caller's grant decides what it may run; the reader holds everything, a script or an agent only what it is granted, and the application may ask the reader to allow more. Calls are checked at both ends and answer with a record. An action may be answered by the running applet. Request verbs are published as actions, and an action never navigates the page that called it. Five MCP tools are the recommended binding for agents outside the page.
 
 ## 0.27.0
-
-From the maintainer's request for splitters between windows side by side.
 
 - The lines of the zones' grid can move. Where two snapped windows meet, a splitter on their shared line moves the whole line, by pointer and by keys, and every snapped window with an edge on it follows while the other dividing lines stay put. Lines never cross, keep each window at its least size, go back toward the grid when the inner area shrinks, and are forgotten once no two snapped windows meet across them. Enter or a double-click returns a line to the grid. Where two splitters cross, a handle moves both. The moved lines are part of the restorable arrangement.
 
 ## 0.26.0
-
-From an application's proposals on danger controls and on starting applets.
 
 - A danger button leads with the warning glyph, which the implementation draws unless the button already shows a picture of its own. A destructive menu action's glyph is drawn the same way, at 12px in the tick's space. The danger colour was the only mark on a danger button that did not carry the glyph in its markup.
 - An applet may ask to start when its window is first seen, or when seen or once nothing else is starting, rather than when the window opens. Until it starts, its window shows the loading line and is busy, and stays busy until the instance says it is ready. A window closed before its applet started never starts it, and a host can ask whether a window's applet has started and start it at once.
 
 ## 0.25.0
 
-From an application's proposals on a dialog's buttons.
-
 - A dialog's title, with any head it shares with controls of its own, and its actions stay in view when its contents are taller than the window allows, and only the content between them scrolls. A 1px line in `border` separates the head or the actions from the content only while content is hidden beneath it, and a focused control is scrolled clear of both.
 - A dialog's actions keep 24px (`space-5`) between them and whatever comes before them, a list or a table as well as the body.
 
 ## 0.24.3
 
-- A menu bar's command may carry a picture of its own, such as an applet's icon, before its words, as a pin carries its item's icon. From Example's installed applet packages.
+- A menu bar's command may carry a picture of its own, such as an applet's icon, before its words, as a pin carries its item's icon.
 
 ## 0.24.2
 
-- **Restored.** The pills on a bar holding a menu bar take a plain button's surface in every theme, as 0.24.0 had it, so the bar's controls look uniform in both themes. 0.24.1's withdrawal is reversed at the maintainer's direction.
+- **Restored.** The pills on a bar holding a menu bar take a plain button's surface in every theme, as 0.24.0 had it, so the bar's controls look uniform in both themes. 0.24.1's withdrawal is reversed.
 
 ## 0.24.1
 
-- **Correction.** 0.24.0 also gave the pills on a bar holding a menu bar a plain button's surface in the dark theme. The proposal asked that of the menus alone, and the pills keep `tb-chip` as before.
+- **Correction.** 0.24.0 also gave the pills on a bar holding a menu bar a plain button's surface in the dark theme. That change was meant for the menus alone, and the pills keep `tb-chip` as before.
 
 ## 0.24.0
-
-From Example's proposal.
 
 - A menu bar's menu has the surface of a plain button in every theme, `raise-grad`, `raise-border` and `raise-shadow`, as though it were a button with the `menu` glyph at its start. It had the bar's chip colour, which matched a button in the light theme only.
 - On a bar holding a menu bar, its pills and its status area take the same surface in the dark theme as in the light, so every pressable thing on the bar looks alike. (Withdrawn for the pills in 0.24.1.)
@@ -103,16 +93,12 @@ From Example's proposal.
 
 ## 0.23.0
 
-From an application's third batch of proposals.
-
 - **Switching windows.** The order the windows were last in front is part of the state, and an application may offer a switcher on Ctrl+Tab that flips between the last two windows, walks the order while Ctrl is held with a list of the windows, and leaves docked windows out.
 - A notice's and a toast's content stays inside the card: an unbroken word breaks at the edge, a code block scrolls, a long action ends in an ellipsis.
 - A disabled action in a menu is faded to half as well as muted. A placeholder is not faded, as chapter 8's fields section already requires, since it would fall below 4.5:1.
 - Two glyphs: `image` and `clip`.
 
 ## 0.22.0
-
-From an application's second batch of proposals (PUDL's `docs/proposals/menu-bar-keys-and-toolbar.md`).
 
 - **Letters in the menu bar.** Every title and command has a letter, declared or assigned by a rule, which opens the title from the bar and chooses the command in a panel on every platform, replacing type-ahead. A desktop host gains Alt alone and F10 to reach the bar and the platform's access-key modifier with a letter to open a title from anywhere, Ctrl+Option on a Mac. Letters are underlined while they can be typed.
 - **A desktop host** may claim `Mod` with N, T and W. A function key works from a field. The bar lists its keys and reports one bound twice.
@@ -122,8 +108,6 @@ From an application's second batch of proposals (PUDL's `docs/proposals/menu-bar
 - **Sixteen glyphs**: `board`, `ticket`, `pencil-off`, `new-window`, and the editing glyphs `bold`, `italic`, `underline`, `strike`, `code`, `list`, `list-numbered`, `quote`, `table`, `panel`, `colour` and `paragraph`.
 
 ## 0.21.0
-
-From an application's proposal on the controls its Flow window built for itself.
 
 - **Disclosure cards.** A card that opens and closes by a raised toggle at the start of its head, drawn as a tree's toggle, with a summary shown only while closed and a foot of actions. The open question of whether a whole card may be pressable is settled: it may not.
 - **Zoom**, a section of its own: a group of Zoom Out, the scale, Zoom In and Fit above a viewport that scrolls, keeping the middle in place, with Ctrl and the keys while the viewport has focus.
@@ -139,15 +123,13 @@ From an application's proposal on the controls its Flow window built for itself.
 
 ## 0.20.0
 
-- **Room to ask for.** A window's content may ask for a width. While it is in front, automatic shared side docks that would leave it less give way to rails, the widest first, without changing the reader's arrangement. A dock the reader pinned open stays open. From the site's issue #16.
+- **Room to ask for.** A window's content may ask for a width. While it is in front, automatic shared side docks that would leave it less give way to rails, the widest first, without changing the reader's arrangement. A dock the reader pinned open stays open.
 
 ## 0.19.1
 
 - **Correction.** 0.19.0 said that a docked window stays docked on a narrow screen that fills the workspace with windows. That reversed the responsive workspace rule, under which a window that takes part gives up its dock there. The rule stands. What is new is that an application may set the policy for all its windows at once, and that a window may keep its own placement, as a strip docked at the bottom does.
 
 ## 0.19.0
-
-From the site's issues.
 
 - **Five glyphs**: `reload`, `flag`, `inbox`, `shield` and `terminal`, the last told apart from `script` by a window's title bar above its prompt.
 - **Where windows open.** A window's content may put its own placement first, may name the zone the windows it opens go to, and may name the zone it goes to when undocked. The application is told which link opened a window.
@@ -157,8 +139,6 @@ From the site's issues.
 - A shared dock's strip may be drawn without script, its tabs links, and without a strip a shared window leaves no empty band.
 
 ## 0.18.0
-
-From an application's proposal.
 
 - An application can share its top and bottom docks as well as its sides. Each shares its edge under a full-width tab strip on the side next to the central area, collapses to that strip when the workspace is short, and slides a window out from it.
 - The reader can reorder the tabs of a shared dock by dragging them or with Alt, Shift and the arrow keys. Required windows keep the first places, and the order is restored with the arrangement.
@@ -185,18 +165,14 @@ From an application's proposal.
 
 ## 0.14.0
 
-- **Layout**, a section of its own: a stack, a row that wraps and may align its components or push its last to the end, and a grid of as many equal columns as fit at a least width. Each places its components in document order, with a gap from the spacing grid, never overlapping them, never at fixed positions and never making its space wider. It is the grammar's layout category, with no surface and nothing exposed. a development tool's canvas arranges components with these, and every application needed them.
+- **Layout**, a section of its own: a stack, a row that wraps and may align its components or push its last to the end, and a grid of as many equal columns as fit at a least width. Each places its components in document order, with a gap from the spacing grid, never overlapping them, never at fixed positions and never making its space wider. It is the grammar's layout category, with no surface and nothing exposed.
 
 ## 0.13.0
-
-From example.com's proposals, for it and the reader application.
 
 - **The sidebar's side.** An application may put a master-detail sidebar at the end edge of the reading direction, mirrored as in a right-to-left layout, keeping its order for the keyboard and its width and collapsed state.
 - **Collapsing, and a peek.** The section now says that a reader may collapse the sidebar to its handle, and that an application may let the reader peek at a collapsed sidebar by resting the pointer on its handle or focusing it: the sidebar is drawn over the detail pane without moving it, and closes when the pointer or focus leaves, never changing the collapsed state or the width.
 
 ## 0.12.0
-
-From the reader application's proposal, for patterns it and example.com each built for themselves.
 
 - **A filter menu**: checkbox rows in a menu that apply a filter at once, the panel staying open, or opening again with focus on the same box where the filter reloads what holds it.
 - **A settings panel**: a column of cards, each a group of settings with its actions in a row at its foot.
@@ -205,17 +181,17 @@ From the reader application's proposal, for patterns it and example.com each bui
 
 ## 0.11.0
 
-- **The status area matches a menu bar's menus**, from the reader application's proposal. Where the application bar has a menu bar, the status area looks exactly like its menus, in surface, height and its items' colours and states, which are the titles'; only on a bar without a menu bar does it take the bar's own chip colours. It is 30px tall, as a menu is, with items 26px tall.
+- **The status area matches a menu bar's menus**. Where the application bar has a menu bar, the status area looks exactly like its menus, in surface, height and its items' colours and states, which are the titles'; only on a bar without a menu bar does it take the bar's own chip colours. It is 30px tall, as a menu is, with items 26px tall.
 - A new glyph, `account`, for an account with no picture, drawn at a picture's size.
 
 ## 0.10.0
 
-- **An article's Print is the application's to offer**, from example.com's proposal. An article's first title offers printing only where the application says the article's printed form is worth having, since printing a page of windows prints the windows and the frame around them, and an article has no File title unless the application gives it one.
+- **An article's Print is the application's to offer**. An article's first title offers printing only where the application says the article's printed form is worth having, since printing a page of windows prints the windows and the frame around them, and an article has no File title unless the application gives it one.
 
 ## 0.9.0
 
-- **A status area in the application bar**, from example.com's proposal. The last thing in the bar's chrome may be one raised group of flat items, each a glyph or a picture with an optional badge, for what runs in the background of the application, with the reader's account last. A badge with nothing to say is not shown, and an item's accessible name says what its badge means. A round picture needs no raised ring of its own, since the group is what is raised.
-- **The window menu docks at every edge**, from example.com's proposal. Its Dock at the bottom becomes a Dock list of Top, Bottom, Left and Right, ticking the edge the window is docked at, with Undock at its end on a docked window.
+- **A status area in the application bar**. The last thing in the bar's chrome may be one raised group of flat items, each a glyph or a picture with an optional badge, for what runs in the background of the application, with the reader's account last. A badge with nothing to say is not shown, and an item's accessible name says what its badge means. A round picture needs no raised ring of its own, since the group is what is raised.
+- **The window menu docks at every edge**. Its Dock at the bottom becomes a Dock list of Top, Bottom, Left and Right, ticking the edge the window is docked at, with Undock at its end on a docked window.
 - A new glyph, `comments`.
 
 ## 0.8.0
@@ -224,12 +200,12 @@ From the reader application's proposal, for patterns it and example.com each bui
 
 ## 0.7.0
 
-- **A pins group in the menu bar**, from example.com's proposal. Between the host menu and the front menu, an application may give the reader a group of the applets and articles they go to most: the `pin` glyph and a Pins title of pinning commands, then a link for each pinned item, with its icon and title. When the pins do not fit they give way together to an Items title, before the bar becomes one button, and the collapsed bar lists the Pins commands and then the pins. With nothing pinned the group keeps its Pins title.
+- **A pins group in the menu bar**. Between the host menu and the front menu, an application may give the reader a group of the applets and articles they go to most: the `pin` glyph and a Pins title of pinning commands, then a link for each pinned item, with its icon and title. When the pins do not fit they give way together to an Items title, before the bar becomes one button, and the collapsed bar lists the Pins commands and then the pins. With nothing pinned the group keeps its Pins title.
 - A new glyph, `pin`.
 
 ## 0.6.0
 
-- **Menu bars**, from example.com's proposal. An application's menu bar stands in its application bar, holding the host's menu and the menu of whatever is in front, an applet or an article. Each menu is one raised surface with flat titles; a front menu may add to the host's titles but never take or change one. The bar is one tab stop and follows the WAI-ARIA menu bar pattern; it becomes one menu button when it does not fit. Shortcuts use `Mod` for the platform's command key and keep off the keys browsers and fields need. With a menu bar, an applet's commands live there and the window menu keeps the window's own.
+- **Menu bars**. An application's menu bar stands in its application bar, holding the host's menu and the menu of whatever is in front, an applet or an article. Each menu is one raised surface with flat titles; a front menu may add to the host's titles but never take or change one. The bar is one tab stop and follows the WAI-ARIA menu bar pattern; it becomes one menu button when it does not fit. Shortcuts use `Mod` for the platform's command key and keep off the keys browsers and fields need. With a menu bar, an applet's commands live there and the window menu keeps the window's own.
 - **Applets** may offer a front menu in full, as titles and additions to the host's titles.
 - A new glyph, `menu`.
 
@@ -255,7 +231,7 @@ From the reader application's proposal, for patterns it and example.com each bui
 
 ## 0.3.0
 
-- **Windows sized by their content.** A window is sized either by the reader or by its content, as a desktop window has a sizing border or is a dialog that sizes itself. A window sized by its content takes its content's size and follows it as it changes, larger and smaller, from a fixed top-left corner, stops at the edge of the workspace where its body scrolls, and cannot be resized, maximised, snapped or docked. An applet in it flows. From example.com's proposal on window sizing.
+- **Windows sized by their content.** A window is sized either by the reader or by its content, as a desktop window has a sizing border or is a dialog that sizes itself. A window sized by its content takes its content's size and follows it as it changes, larger and smaller, from a fixed top-left corner, stops at the edge of the workspace where its body scrolls, and cannot be resized, maximised, snapped or docked. An applet in it flows.
 - **Limits on windows the reader sizes.** A window MAY carry a smallest and a largest size, which dragging, the keyboard and restoring an arrangement all respect.
 
 ## 0.2.1
@@ -264,7 +240,7 @@ From the reader application's proposal, for patterns it and example.com each bui
 
 ## 0.2.0
 
-Every chapter and every component section is drafted, and the grammar is settled where drafting them found it unclear. the maintainer made these decisions on 2026-10-01.
+Every chapter and every component section is drafted, and the grammar is settled where drafting them found it unclear.
 
 - **Where the reader is.** In a set of raised controls, the one for where the reader is, or the one chosen, is drawn pressed in and exposed as current or chosen. Tabs are the exception: the current tab stands flat, taller, open into the content below.
 - **Segmented controls.** The chosen segment is pressed in and the others stand raised.
@@ -273,11 +249,11 @@ Every chapter and every component section is drafted, and the grammar is settled
 - **Every raised control** is pressed in while pressed, and dims to 45% when disabled.
 - **Tokens.** New: `input-border`, which reaches 3:1 against every surface in both themes for the bounds of fields and switch tracks; `shadow-dialog` and `backdrop`; `radius-xs`, 4px, for small parts inside another control.
 - **Glyphs.** New: `grip` and `theme`.
-- **Chapter 2** names the badge shapes correctly: a warning badge carries a triangle and an error badge a square.
+- **Chapter 2** gives the badge shapes correctly: a warning badge carries a triangle and an error badge a square.
 
 ## 0.1.0
 
-The specification separated from the web implementation, as `docs/proposals/spec-and-implementations.md` in paulmooreparks/pudl proposed and the maintainer decided on 2026-09-30.
+The specification is separated from the web implementation and becomes a repository of its own.
 
 - The introduction, the grammar, the tokens chapter and the button are written. The other chapters are outlines that list the questions each must settle.
 - The palette and the scales are in the Design Tokens Community Group format, 2025.10. The derived tokens are formulas in `derived.json`, which chapter 3 defines.
