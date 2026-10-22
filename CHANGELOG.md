@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.34.1
+
+- A menu's panel drops below its button and opens above only when it does not fit below and either fits whole above or has less than 240px below, with more room above (menus, popovers). A long panel with plenty of room below now stays there and scrolls, where it used to flip up over the page because there was more room above. the maintainer saw it in the command bar mockup, on a ribbon's folded menu.
+
 ## 0.34.0
 
 - A menu bar's panel lines up its commands' glyphs as a context menu does (menu bars). Glyphs, pictures, ticks and warnings share one 16px column wherever any command has a glyph or a picture, and a command with none leaves the column empty, so every command's words start in one line. A glyph is 14px in `text-muted`. Until now a command without a glyph started at the panel's edge while the commands with one were pushed in, as in the reader application's Story menu.

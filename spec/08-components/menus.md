@@ -63,7 +63,7 @@ The panel closes when the reader chooses a place or an action in it, when they p
 
 ### Placement
 
-A panel opens against its button, 4px away from it, below the button unless there is more room above it and the panel does not fit below. Its start edge lines up with the button's start edge, which is its left edge in a left-to-right layout and its right edge in a right-to-left one. It keeps 8px from every edge of the window, and when the room available is less than its height it takes the room available, down to 120px, and scrolls. While a panel is open it follows its button as the page scrolls and the window changes size.
+A panel opens against its button, 4px away from it, and drops below the button, as menus do on the desktop. It opens above only when it does not fit below and either fits whole above or has less than 240px below, about six rows, with more room above; otherwise it stays below, shortened, and scrolls, so a long menu never flips up over the page merely for being long. Its start edge lines up with the button's start edge, which is its left edge in a left-to-right layout and its right edge in a right-to-left one. It keeps 8px from every edge of the window, and when the room available is less than its height it takes the room available, down to 120px, and scrolls. While a panel is open it follows its button as the page scrolls and the window changes size.
 
 A palette opens centred across the window, 15% of the window's height down from its top.
 

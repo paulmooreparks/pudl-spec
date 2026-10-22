@@ -12,7 +12,7 @@ A popover MAY have a pointer: a small square turned to a point, in the panel's f
 
 ## Placement
 
-A popover opens against its control as a menu's panel does: below it, or above it when there is more room above, lined up with the control's start edge and kept 8px from the window's edges. On a narrow window it opens as a sheet across the full width, without its pointer.
+A popover opens against its control as a menu's panel does: below it, or above it on the terms the section on menus sets out, lined up with the control's start edge and kept 8px from the window's edges. On a narrow window it opens as a sheet across the full width, without its pointer.
 
 ## Interaction
 
