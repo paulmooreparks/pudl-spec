@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.33.0
+
+- While a context menu is open, the thing it acts on keeps the look it had under the pointer, whether the pointer or the keyboard opened the menu, so a reader can still see which of several like rows the commands are for (menus). The application says which element that is, since the element under the pointer is often a word inside a row; one element is marked at a time, and the mark goes when the menu closes. From an application.
+
 ## 0.32.0
 
 - Every field with a key in it is drawn as one sunken field whose border runs round everything, with each key a raised strip inside that border behind a hairline (fields, glyph buttons). The field's focus ring, danger border and dimming go round the whole control, keys included, and a key shows its keyboard focus as a ring inside its strip. This covers the combo box and searchable select, the number field, the password field, the date and time fields, the year in a calendar's chooser and a toolbar's filter with its apply button. Until now each key was joined to the field from outside, sharing its border, so the field's border stopped where the key began. the maintainer found that look dated and chose this one from four drawn alternatives.
