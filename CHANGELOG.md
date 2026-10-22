@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.34.0
+
+- A menu bar's panel lines up its commands' glyphs as a context menu does (menu bars). Glyphs, pictures, ticks and warnings share one 16px column wherever any command has a glyph or a picture, and a command with none leaves the column empty, so every command's words start in one line. A glyph is 14px in `text-muted`. Until now a command without a glyph started at the panel's edge while the commands with one were pushed in, as in the reader application's Story menu.
+
 ## 0.33.0
 
 - While a context menu is open, the thing it acts on keeps the look it had under the pointer, whether the pointer or the keyboard opened the menu, so a reader can still see which of several like rows the commands are for (menus). The application says which element that is, since the element under the pointer is often a word inside a row; one element is marked at a time, and the mark goes when the menu closes. From an application.
