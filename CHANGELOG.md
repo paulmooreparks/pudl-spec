@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.36.0
+
+- **Window buttons are glyph buttons** (windows). Each is a raised square with corners of `radius-sm`, twice the title's text across, 28px at `text-md` and 26px on a docked window, with its glyph as large as the text. The window menu button shows the new `window` glyph followed by a smaller `caret`. The title bar is padded 4px all round. They were small raised circles 1.7 times the text across.
+- **A maximised window has a docked window's title bar** (windows), 30px tall with its title at `text-sm`, so the content keeps the room. It keeps its colours, buttons and gestures.
+- **A dock tab's context menu** (windows) is its window's menu, opened against the tab, which wears an `accent` ring while it is open. An application can replace it or turn it off. Close all joins Minimise all and Restore all as a control that acts on every window, closing each as its own Close would.
+- **Context menus against an element** (menus). An application can have a context menu open against the element it acts on, below it in the window's top half and above it in the bottom half, and the part of an application nearest the thing pressed answers a secondary press first.
+- **The taskbar** (windows, preview). A bar along the workspace's foot or head holding the dock on one scrolling line, the application's own controls on either side, Minimise all and Restore all in one place, Close all, and a tray, which is the application bar's status area. A press in its padding goes to the nearest control, and a secondary press away from a tab opens the taskbar's own menu.
+- **A menu bar unfolds into a ribbon** (menu bars, ribbons, preview). Show as ribbon at the end of the application bar turns every title but Pins into a tab and shows the chosen tab's commands as a row of tools built from the menu's rows: groups from headings and separators, toggles from switches, segmented controls from choices, menu buttons from submenus and danger buttons from dangerous commands. Each applet keeps its chosen tab.
+- **Title glyphs and folding in steps** (menu bars). A title may carry a glyph before its words (preview), and the bar gives way in steps: the ribbon toggle's words, titles' words beside their glyphs, the pins, then the whole bar. Things that fold beside the menu bar share the application bar's room in an order the application can set (preview).
+- **The pins group starts with the `menu` glyph** (menu bars), as every menu does, and the Pins title carries the `pin` glyph. Pins may instead live in a command bar of their own at the application bar's end (preview).
+- **Resident applets** (menu bars, preview). An applet running for as long as the application does has its menu in the bar after the host menu, whatever is in front, with its shortcuts working anywhere.
+- **Choices are captioned** (toolbars). A toolbar with captions off may still caption a group (preview), and should caption one holding a choice. A toolbar of one group stops at its menu button rather than folding into More, and a toolbar folds again once the page's fonts arrive.
+- **Glyphs.** `window`, `minimize-all`, `restore-all` and `close-all`.
+
 ## 0.35.0
 
 - **Folding toolbars** (toolbars). A toolbar either wraps or folds. A folding toolbar keeps to one row, its groups passing through five stages, from words and glyphs to glyphs alone, to one menu button, to its glyph alone, to a section of a More menu, and back as the row widens. A fold menu holds everything its group holds: commands, switches as ticked rows that keep the menu open, choices as radio rows, a select's options in a submenu, stepping keys as rows that keep the menu open, a field in a popover, and a menu as a submenu, shown in place with a Back row on a narrow window. A command whose glyph nearly every reader knows may show its glyph alone at every stage, and the application chooses whether a toolbar shows its group names as captions. A field in a toolbar is a tab stop of its own.

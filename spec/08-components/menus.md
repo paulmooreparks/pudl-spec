@@ -38,6 +38,8 @@ When a filter leaves no row, the panel says so in a line of text, "Nothing match
 
   While a context menu is open, the thing it acts on keeps the look it had under the pointer, the background of a row being pointed at, so that a reader who has moved the pointer into the menu can still see which of several like rows its commands are for. A menu opened from the keyboard marks it the same way, since focus has moved into the menu and the thing has lost its focus ring. The implementation cannot tell which element that thing is, because the element under the pointer is often a word or a glyph inside a row, and a tree's entry may hold its children, so the application says which element it is when it supplies the rows. One element is marked at a time, the mark goes when the menu closes however it closes, and where the application says nothing, nothing is marked. A component whose rows have a look of their own under the pointer gives the marked row that look. In the platform's high-contrast mode the marked element is outlined in the system's highlight colour.
 
+  The application MAY also have a context menu open against the element it acts on, as a menu button's panel opens, instead of at the pointer: below the element's start where the element is in the top half of the window, and above it in the bottom half. A small target such as a taskbar's tab asks for this, since a menu opened at the pointer would cover it. The keyboard's menu opens there too. Where several parts of an application could offer rows for one secondary press, such as a component and the application around it, the part nearest the thing pressed answers, and a part further out MAY offer its rows only where nothing nearer has, or MAY stop the parts further out from answering.
+
 ## States
 
 | State | Appearance |
@@ -124,4 +126,5 @@ In the platform's high-contrast mode, the panel keeps a visible border, a menu b
 18. A context menu's rows show glyphs, ticks, keys, reasons, the warning on a destructive row and submenus as the menu bar's rows do, with every row's words in one line.
 19. A context menu's keys move, wrap, open and close submenus, choose and close as this section sets out, and focus returns where it was when it closes.
 20. The element a context menu acts on, where the application says which it is, keeps its pointed-at look while the menu is open, whether the pointer or the keyboard opened it, and loses it when the menu closes; one element is marked at a time.
+21. A context menu the application opens against an element opens below it in the window's top half and above it in the bottom half, from the pointer and the keyboard alike.
 20. Where the application offers no rows, and always with Shift and the secondary press, the platform's own menu opens.

@@ -18,11 +18,11 @@ A window is a frame holding a title bar above a body.
 
 The **frame** is `surface-alt`, bounded by a 1px hairline in `raise-border`, with corners of `radius`. A band 5px wide runs between that hairline and the hairlines of the title bar and body, so the frame reads as a band of the raised tint between two hairlines, and the whole band is where the window is resized from. The window casts a soft shadow in `shade`, in two layers: 2px down with a 6px blur at 0.8 times `depth`, and 10px down with a 28px blur at 0.9 times `depth`. A window is never smaller than 320px wide and 200px tall, or the whole inner area where that is smaller.
 
-The **title bar** is raised, because the reader presses it to drag the window. It is filled with `raise-grad` and bounded by a 1px hairline in `raise-border`, with the light of `light` at `lit` along its top edge, and its top corners follow the frame's, at 7px. It is at least 38px tall, padded 5px above and below, 12px at its start and 7px at its end, with 10px between the things it holds. Its title is set at `text-md` and weight 700, on one line, ending in an ellipsis when the bar is too narrow for it.
+The **title bar** is raised, because the reader presses it to drag the window. It is filled with `raise-grad` and bounded by a 1px hairline in `raise-border`, with the light of `light` at `lit` along its top edge, and its top corners follow the frame's, at 7px. It is at least 38px tall, padded 4px all round, with 10px between the things it holds. Its title is set at `text-md` and weight 700, on one line, ending in an ellipsis when the bar is too narrow for it.
 
 A window MAY carry a **detail** beside its title, a second part that says where the thing belongs, such as the customer a document is for. It follows the title after a separator the application chooses, " · " unless it says otherwise, at the title's size in weight 500 and a little lighter, and the same two parts stand in the window's tab in the dock, in a shared dock's tab and in the rows of the window menu and the Window list. The title has priority when the room is short: the detail gives way first, each part ending in its own ellipsis, down to six characters and the ellipsis, and below that both shrink, the title keeping about two thirds of the room. In an icon rail, where a tab shows only its glyph, the full title and detail are the tooltip. The title alone remains the window's name and what its heading says.
 
-The **window buttons** sit at the end of the title bar, 5px apart, with Close last. Each is a small raised circle, 1.7 times the title's text size across, 24px at `text-md`, filled with `raise-grad`, bounded by `raise-border` and casting `raise-shadow`, with its glyph drawn 0.85 times the title's text size across, 12px, in `text-muted`; the window menu's `caret`, which fills less of its box than the other glyphs, is drawn in a box of 1.2 times, 17px, so that it stands as tall as the title's letters. The buttons follow the title's text when the reader enlarges it. The buttons a window MAY carry are these.
+The **window buttons** sit at the end of the title bar, 5px apart, with Close last. Each is a [glyph button](glyph-buttons.md): a raised square with corners of `radius-sm`, twice the title's text size across, 28px at `text-md`, filled with `raise-grad`, bounded by `raise-border` and casting `raise-shadow`, with its glyph drawn as large as the title's text, 14px, in `text-muted`. The buttons follow the title's text when the reader enlarges it. The buttons a window MAY carry are these.
 
 | Button | Glyph | Does |
 |---|---|---|
@@ -32,19 +32,33 @@ The **window buttons** sit at the end of the title bar, 5px apart, with Close la
 | Maximise | `maximize`, or `restore` while not floating | Fills the inner area with the window, or returns it to floating |
 | Close | `close` | Closes the window |
 
-A window MAY also carry a menu button at the start of its title bar, with the `caret` glyph and 4px of extra space after it, which opens the window menu. An application MAY give every window one.
+A window MAY also carry a menu button at the start of its title bar, which opens the window menu, with 4px of extra space after it. It is a glyph menu button as tall as the others and as wide as it needs: the `window` glyph, then 4px, then the `caret` every menu button carries, three quarters of the title's text size across at three quarters of the glyph's strength, padded 8px at its start and 6px at its end. An application MAY give every window one.
 
 The **body** is `surface`, bounded by a 1px hairline in `border` at its sides and foot, with its bottom corners following the frame's. It is padded 16px above and below and 18px at the sides, and it scrolls on its own. A body whose whole content is tabs within a page gives up its padding to them, as the section on tabs specifies: their bar runs from edge to edge under the title bar, and the chosen panel fills the rest of the body and scrolls on its own.
 
 ### The dock of open windows
 
-The dock of open windows has one tab for each open top-level window, in the order the windows were opened, and it MAY sit anywhere in the application, usually in a toolbar above the workspace. An empty dock draws nothing and takes no height.
+The dock of open windows has one tab for each open top-level window, in the order the windows were opened, and it MAY sit anywhere in the application, usually in a taskbar along the workspace's foot, as below, or in a toolbar above the workspace. An empty dock draws nothing and takes no height.
 
 A tab is raised, with corners of `radius-sm`, filled with `raise-grad`, bounded by `raise-border` and casting `raise-shadow`, padded 3px above and below and 10px at the sides. Its words are the window's title at `text-xs` and weight 600, on one line, at most 220px wide and ending in an ellipsis. The tabs are 6px apart and wrap onto further lines when they need to.
 
 Each tab starts with a glyph 9px across that says whether its window shows: `circle`, filled, in `accent` while it shows, and `ring` in `text-muted` while it is minimised, when the tab's words are in `text-muted` too. The glyph's shape carries the state without its colour.
 
-An application MAY also offer two controls that act on every window at once: one that minimises them all, which shows what lies beneath, and one that restores them all, with the window that was in front back in front. Each is disabled while it would change nothing.
+An application MAY also offer controls that act on every window at once: one that minimises them all, which shows what lies beneath, one that restores them all, with the window that was in front back in front, and one that closes every window the reader may close, each as its own Close would, so a window that refuses its close stays open. Each is disabled while it would change nothing.
+
+A tab's **context menu** is its window's menu: the window's own commands, then Snap and Dock as submenus, then the commands of what the window holds, then Close. It opens against the tab, as a menu button's panel opens, below the tab in the top half of the screen and above it in the bottom half, rather than at the pointer, where it would cover the tab. While it is open the tab keeps its hover look and wears a 2px ring in `accent`, 1px outside its border, so the reader can see which window the menu is for. An application MAY give a tab a menu of its own instead, or none.
+
+### The taskbar (preview)
+
+An application MAY hold its dock of open windows in a **taskbar**, a bar along the foot of the workspace, or along its head. The bar is `surface-alt`, with a 1px hairline in `border` along the edge it shares with the workspace, padded 6px above and below and 12px at the sides, with 6px between the things it holds. At the foot it adds the platform's safe area at the bottom, so nothing sits under a phone's home indicator.
+
+The dock takes the room the bar has left and keeps its tabs on one line, scrolling sideways when they need more, with 4px of room around them so a tab's ring is never cut off. Its tabs are at most 250px wide. The application's own controls, such as one that shows and hides a sidebar, MAY stand on either side of the dock, in the order it gives them. The controls that act on every window are glyph buttons at the bar's end: `minimize-all`, `restore-all` and `close-all`, each 16px, unless the application gives a control a picture of its own, which is drawn at 16px instead. Minimise all and Restore all share one place, which shows whichever would change something; when neither would, it shows Minimise all, disabled.
+
+The bar MAY hold a **tray**, the status area of the [application bar](application-bar.md), drawn on the bar's surface with the raised group's colours. It holds the same items there as in the application bar: glyphs, pictures and badges for things the application wants to keep in sight, each a button or a link to where the reader deals with it.
+
+The bar's edges belong to its controls. A press in the bar's padding, or in a gap between its controls, goes to the control nearest it along the bar, within 16px, so a pointer thrown against the edge of the screen still lands on a button. A secondary press there goes to the nearest tab, opening its window's menu. Anywhere else on the bar, including on the controls that act on every window, a secondary press opens the **taskbar's menu**: Minimise all, Restore all and, after a separator, Close all windows, drawn as a destructive command, each disabled while it would change nothing. An application MAY add rows for its own controls, or turn the menu off.
+
+On a screen 560px wide or less the bar is padded 6px at the sides with 4px between its controls, its tabs are at most 175px wide and 40px tall, and its glyph buttons 36px wide and 40px tall, so a finger finds them.
 
 ### The window menu
 
@@ -84,7 +98,7 @@ A window MAY be docked at an edge of the workspace, the top, the bottom, the lef
 
 The strip is the size of the docked window, a share of the workspace's height for the top and bottom and of its width for the sides. It is a quarter until the reader or the application sets another, and it is never more than 80% of the workspace, nor less than the docked window's title bar and a little of its body.
 
-A docked window is flush with its edge. It has no shadow, no rounded corners and no frame band, and a 1px hairline in `border` separates it from the inner area along its free edge, the one facing the workspace. The free edge is a handle, as chapter 2 describes, so it carries the `grip` glyph at rest, at its middle and just outside the window, on the workspace, where it reads whatever colour the title bar is. Its title bar is thin, 30px tall, with a hairline at its foot, padded 10px at its start and 4px at its end, with 8px between the things it holds. Its title is set at `text-sm`, and its buttons follow it, 22px across with glyphs 11px across. It has no maximise button.
+A docked window is flush with its edge. It has no shadow, no rounded corners and no frame band, and a 1px hairline in `border` separates it from the inner area along its free edge, the one facing the workspace. The free edge is a handle, as chapter 2 describes, so it carries the `grip` glyph at rest, at its middle and just outside the window, on the workspace, where it reads whatever colour the title bar is. Its title bar is thin, 30px tall, with a hairline at its foot, padded 10px at its start and 4px at its end, with 8px between the things it holds. Its title is set at `text-sm`, and its buttons follow it, 26px across with glyphs 13px across. It has no maximise button.
 
 An edge holds any number of docked windows and shows one at a time, the one most recently in front; the others wait behind it and come forward from the dock of open windows.
 
@@ -110,7 +124,7 @@ A window has one placement at a time, and a placement has a mode.
 | State | Appearance |
 |---|---|
 | Floating | Framed and shadowed, as under Anatomy, at its own position and size in the inner area |
-| Maximised | Fills the inner area, flush: no frame band, border, corners or shadow, and a hairline at the title bar's foot |
+| Maximised | Fills the inner area, flush: no frame band, border, corners or shadow, and a hairline at the title bar's foot. Its title bar is a docked window's, 30px tall with its title at `text-sm` and its buttons following it, so the content keeps the room; it keeps the colours, the buttons and every gesture of a title bar, and its maximise button is Restore |
 | Snapped to a half or a zone | Fills its zone, flush as a maximised window is, with a 1px hairline in `raise-border` where it meets another zone rather than the edge of the inner area |
 | Docked | Flush along its edge, as under Docked windows |
 | Docked and collapsed | Its title bar alone, along its edge |
@@ -124,7 +138,7 @@ The outline that shows where a dragged window will land is filled with `accent` 
 
 A splitter between snapped windows is a band 8px wide, or 16px where the pointer is a finger, centred on the hairline the windows already draw, and shows nothing more at rest. Under the pointer, while it is dragged and while it has focus, a 3px line of `accent` runs down its middle, and focus adds a 3px ring in `focus-ring`, as a [splitter](splitters.md)'s handle does. The pointer over it is the platform's column or row resize pointer. The handle where two splitters cross is a square twice the band's width, filled with `accent` under the pointer and while dragged, with the platform's move pointer. A splitter lies above the windows it divides and below every window above them, so a floating window over the arrangement covers it.
 
-The window buttons follow [the button's](buttons.md) states, drawn on a circle: under the pointer the glyph takes `text` and the fill and border their hover tokens, while pressed they are pressed in, and focus adds a 3px ring in `focus-ring`. The close button's glyph turns `danger` under the pointer. The menu button stays pressed in while its menu is open. The maximise button's glyph and name become Restore whenever the window is not floating, and the minimise button of a docked window is named Collapse or Expand.
+The window buttons follow [the glyph button's](glyph-buttons.md) states: under the pointer the glyph takes `text` and the fill and border their hover tokens, while pressed they are pressed in, and focus adds a 3px ring in `focus-ring`. The close button's glyph turns `danger` under the pointer. The menu button stays pressed in while its menu is open. The maximise button's glyph and name become Restore whenever the window is not floating, and the minimise button of a docked window is named Collapse or Expand.
 
 A tab in the dock of open windows follows the button's states. The tabs are a set of raised controls offering places, so the tab of the family in front is drawn pressed in, as chapter 2 requires of where the reader is, and is exposed as current.
 
@@ -333,7 +347,7 @@ A printed page with windows open carries the window in front as its content, its
 
 1. A floating window has a `surface-alt` frame with a `raise-border` hairline, a 5px band, corners of `radius` and a soft shadow, and is never smaller than 320px by 200px unless the inner area is.
 2. Its title bar is raised, at least 38px tall, with its title at `text-md` and weight 700 on one line.
-3. Its buttons are raised circles sized from the title's text, 24px at `text-md`, with Close last, and their names follow the window's state; the menu button's caret stands as tall as the title's letters.
+3. Its buttons are glyph buttons sized from the title's text, 28px at `text-md` with 14px glyphs, with Close last, and their names follow the window's state; the menu button shows the `window` glyph and a smaller `caret`.
 4. At most one window is in front, and it is marked by its frame, its shadow, its title bar and its tab in the dock of open windows.
 5. A press in a window, or focus moving into it, brings it in front, and a window brought forward takes the keyboard, on the element that last had focus in it, or else on an element marked to take focus first, or else on its title bar.
 6. Dragging the title bar moves the window, and a floating window stays inside the inner area.
@@ -393,3 +407,7 @@ A printed page with windows open carries the window in front as its content, its
 60. A splitter is a separator named for the windows either side, with its share as its value and its limits as its least and greatest values.
 61. The window's own commands end with Reset size and position, before the layout picker and the Dock list; in a menu without submenus each of those two stands under its heading, Snap or Dock, after a separator.
 62. A body whose whole content is tabs within a page has no padding, its tab bar runs from edge to edge under the title bar, and choosing a tab neither resizes nor moves the window.
+63. A maximised window's title bar is a docked window's, 30px tall with its title at `text-sm`, and keeps its colours, buttons and gestures.
+64. A tab's context menu is its window's menu, opens against the tab, and the tab wears the `accent` ring while it is open; an application can replace it or turn it off.
+65. Close all closes every window the reader may close, each as its own Close would, and is disabled while there is nothing to close.
+66. A taskbar holds the dock on one scrolling line with the application's controls on either side in its order, shows Minimise all or Restore all in one place, draws the controls' glyphs at 16px, sends a press in its padding or gaps to the nearest control, and opens its own menu on a secondary press away from a tab.

@@ -4,9 +4,11 @@ A menu bar holds an application's commands in menus along its application bar, a
 
 ## Anatomy
 
-The menu bar stands at the start of the application bar, in the brand's place. It holds at most two **menus**. The **host menu** is the application's own and is always there. The **front menu** belongs to whatever is in front, an applet or an article, and stands to the right of the host menu, so the host menu never moves or changes width as the reader moves between windows. Between the two the application MAY add a **pins group**, as the section on pins below describes.
+The menu bar stands at the start of the application bar, in the brand's place. It holds at most two **menus**. The **host menu** is the application's own and is always there. The **front menu** belongs to whatever is in front, an applet or an article, and stands to the right of the host menu, so the host menu never moves or changes width as the reader moves between windows. Between the two the application MAY add the menus of **resident applets** and a **pins group**, as the sections on them below describe.
 
 Each menu is one raised surface with the surface of a plain button, in every theme: filled with `raise-grad`, bounded by a 1px hairline in `raise-border` and casting `raise-shadow`, with corners of `radius-sm` and 2px of padding. A menu is pressed, so it looks like the buttons beside it, as though it were a button with the `menu` glyph at its start; the bar's own colours, which may be dark in the light theme, are not its colours. The `menu` glyph stands at its start, 16px across in a 26px square, in `text` drawn a fifth of the way toward `surface-alt`, as a button's quieter words are; pressing it opens the menu's first title. After it come the menu's **titles**, flat words at `text-sm` and weight 600 in the same colour, padded 4px above and below and 10px at the sides, with corners of `radius-xs`. The titles take their press from the surface around them, as the positions of a segmented control do, so nothing flat is pressable on its own. Under the pointer a title turns `text` and takes a faint fill of `text` at 12%, and the open title is pressed into the surface, filled with `raise-active-bg` and shaded from above with `raise-active-shadow`.
+
+A title MAY carry a **glyph** before its words, 16px across, 6px from them, as the host menu's first title carries the application's mark (preview). The glyph lets the title give way to it when the bar runs short of room, as the section on a narrow space describes.
 
 A menu's first title is its name. The host menu's first title is the application's mark and name, using the same font, size and weight as the other menu titles, and its panel holds the application's places. The host's other titles are its standard ones, such as View, Window and Help, and a title MAY be shown only where it means something, such as Window on a page of windows. A front menu normally begins with the name of the applet or article. An identity title with no applicable commands is omitted; if no titles remain, the whole front menu is omitted. A required window never offers Close. Separators appear only between groups of commands.
 
@@ -16,11 +18,17 @@ A title opens a **panel**, a menu panel as the section on menus describes, below
 
 A pins group holds the few applets and articles a reader goes to most, one press away, where the host's menus are lists to read through. It stands between the host menu and the front menu, so that it stays put as the front changes, as the host menu does. It is one raised surface of the same kind as a menu.
 
-The `pin` glyph stands at its start where a menu has the `menu` glyph, and after it comes the **Pins** title, whose panel holds the application's pinning commands, such as one to pin or unpin whatever is in front. Such a command is shown but disabled while nothing pinnable is in front. After the title come the **pins**, one for each pinned item, each the item's icon and title in the style of a title. A pin is a link to the item's page, not a menu: pressing it goes to the item, and the application MAY take a plain press to open the item its own way, such as raising the item's window, while a press that asks for a new tab or window gets one, as a link's does. A pin's title MAY be shortened to fit, with the whole title kept as its accessible name.
+The `menu` glyph stands at its start, as it does on every menu, so the reader knows the group for a menu and how to work it, and after it comes the **Pins** title, marked by the `pin` glyph before its words, whose panel holds the application's pinning commands, such as one to pin or unpin whatever is in front. Such a command is shown but disabled while nothing pinnable is in front. After the title come the **pins**, one for each pinned item, each the item's icon and title in the style of a title. A pin is a link to the item's page, not a menu: pressing it goes to the item, and the application MAY take a plain press to open the item its own way, such as raising the item's window, while a press that asks for a new tab or window gets one, as a link's does. A pin's title MAY be shortened to fit, with the whole title kept as its accessible name.
 
 With nothing pinned, the group still shows its glyph and its Pins title, so the reader can see where pins go.
 
 What the reader has pinned, where it is kept and what can be pinned are the application's to decide. Pinning an item is an operation on the item, so the command to pin it SHOULD also be where the reader works with the item, such as its window menu.
+
+An application MAY instead keep its pins in a [command bar](toolbar.md) of their own at the far end of the application bar, where they keep their place whether the menus are folded or unfolded into a ribbon, with the Pins title as the menu of a resident applet (preview). A pin there is a glyph button with its item's icon and title, and the pins fold as any toolbar's group folds.
+
+## Resident applets (preview)
+
+An applet MAY be **resident**: running for as long as the application does, rather than in a window that comes to the front, such as one that keeps the reader's pins. A resident applet's menu stands in the bar all the time, after the host menu and before the pins group and the front menu, whatever is in front, as a menu of its own with the `menu` glyph at its start. Its titles follow the rules for a front menu, except that it adds nothing to the host's titles, and its shortcuts work anywhere, as the host's do. Resident applets' menus stand in the order the applets stand in the application.
 
 ## Rules for a front menu
 
@@ -38,9 +46,37 @@ Each command has one home. Where the application has a menu bar, an applet's com
 
 ## In a narrow space
 
+The bar gives way in steps, each taken only when the one before has not made it fit, and taken back in the reverse order as room returns.
+
+1. The Show as ribbon toggle, where the bar has one, shows its glyph alone, unless the application keeps its words.
+2. Every title with a glyph shows its glyph alone, with its words kept as its accessible name and its tooltip (preview).
+3. The pins give way to Items, as below.
+4. The bar becomes one menu button, as below.
+
 When a pins group's pins do not fit, they give way together to one more title, **Items**, whose panel lists them, each with its icon. They never give way one at a time, so the bar never shows some of the pins and hides the rest.
 
 When the bar still does not fit, it becomes one menu button, the `menu` glyph alone, whose panel lists each menu as a section of its titles under the menu's name. Choosing a title shows its commands in the panel's place, with a Back row first, one level at a time; a submenu opens the same way. The pins group's section lists the Pins title's commands themselves, since there are few of them, and then the pins, so a pin is still one choice away. An implementation decides when the pins or the bar do not fit by measuring them.
+
+When the application bar holds other things that fold beside the menu bar, such as a command bar of pins, they share its room in an **order** (preview): each gives way as far as it can before the next starts. Unless the application says otherwise, the Show as ribbon toggle gives way first, then each command bar, folding as a toolbar folds down to its last stage, then the menu bar, by the steps above. The application MAY set the order of each, and MAY keep any of them from folding at all. Everything else in the application bar keeps its width.
+
+## Unfolding into a ribbon (preview)
+
+A menu bar MAY offer to unfold into a [ribbon](ribbons.md), for readers who would rather see their commands than open menus for them. The application asks for it, and a **Show as ribbon** toggle then stands at the far end of the application bar, with the `ribbon` glyph and its words, pressed in while the bar is unfolded. The reader's choice is remembered for the application.
+
+Unfolded, the bar is a ribbon all the way across, with no title left a menu. Every title becomes a tab where it stands, drawn as a ribbon's tab, the chosen one joined to the row below, and one **row of tools** under the application bar holds the chosen tab's commands. The application bar gives up its padding below so the tabs stand on its foot, and everything else in it keeps its place. The Pins title and the pins are not tabs: they stand in the bar as they do folded, since a pin one press away is the point of them.
+
+The row is a folding toolbar built from the rows the tab's menu holds, so an application writes its commands once.
+
+- A heading or a separator starts a group, named by the heading.
+- A command is a button with its glyph and its words, or its glyph alone where the application marks it as one nearly every reader knows.
+- A command that switches is a toggle button, pressed in while it is on.
+- The commands of one group of which one is on become a segmented control.
+- A submenu is a menu button.
+- A dangerous command is a danger button, with the `warning` glyph before its words.
+
+A group's name shows as a caption at its start only where the application asks for captions, with one exception: a group holding a choice, a segmented control, always shows its heading, since its positions are answers that mean nothing without their question.
+
+Every command runs as it does from its menu, and the row is built afresh each time it shows, so every state is true. Each applet keeps the tab chosen in it, so going back to an applet finds the tab left there, and an applet not yet visited opens on its first tab; the host menu's tabs keep theirs the same way. Where the bar has become one menu button it stays folded, and the toggle is hidden until there is room again.
 
 ## Shortcuts
 
@@ -112,7 +148,7 @@ The bar is exposed as a menu bar, each menu as a group named by its name, each t
 10. A command never takes a reserved key.
 11. When the bar does not fit it becomes one menu button whose panel opens one level at a time, and the page does not widen.
 12. The bar, its menus, titles, panels and commands are exposed with the roles and states above.
-13. A pins group stands between the host menu and the front menu, with the `pin` glyph and the Pins title first, and stays there with nothing pinned.
+13. A pins group stands between the host menu and the front menu, with the `menu` glyph and the Pins title, marked by the `pin` glyph, first, and stays there with nothing pinned.
 14. Each pin is a link to its item, with its icon and title; a press asking for a new tab or window gets one.
 15. When the pins do not fit they give way together to an Items title, before the bar becomes one button, and the collapsed bar's panel lists the Pins commands and then the pins.
 16. An article's first title offers opening it as a page, copying its link and, in a window, closing it, and offers printing only where the application says its printed form is worth having; an article has no File title unless the application gives it one.
@@ -124,3 +160,8 @@ The bar is exposed as a menu bar, each menu as a group named by its name, each t
 22. Letters are underlined while the modifier is held, while focus is in the bar, and in a panel opened from the keyboard, and never in one opened with the pointer; the chords and letters are announced.
 23. A command may be dangerous, carry a glyph, have a detail line, and when disabled give a reason that is shown and announced; a markup list of one-of-several commands is exposed as radio commands.
 24. Where any command in a panel has a glyph or a picture, glyphs, pictures, ticks and warnings share one column and every command's words start in one line; a switching command with a glyph shows the glyph while off and the tick while on.
+25. Every menu starts with the `menu` glyph, a resident applet's and the pins group's included.
+26. The bar gives way in its steps, in order, and takes them back in reverse: the ribbon toggle's words, then titles' words beside their glyphs, then the pins, then the whole bar.
+27. Things that fold beside the menu bar share the application bar's room in their order, each folding fully before the next starts.
+28. Unfolded into a ribbon, every title but Pins is a tab, one row of tools shows the chosen tab's commands as the rules above build them, and each applet keeps its own chosen tab.
+29. A resident applet's menu stands after the host menu whatever is in front, and its shortcuts work anywhere.

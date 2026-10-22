@@ -14,13 +14,13 @@ A toolbar either wraps or folds. A **wrapping** toolbar puts its groups onto fur
 4. That menu button with its glyph alone.
 5. A section, under the group's name, of a More menu at the row's end.
 
-Every group reaches stage 2 before any reaches stage 3. After that, the groups of lower priority, and of equal priority the one furthest along the row, fold first. A group the application keeps at the row's end folds last. As the row widens the same steps run back. A group the application marks to stay whole never folds, and the others fold around it.
+Every group reaches stage 2 before any reaches stage 3. After that, the groups of lower priority, and of equal priority the one furthest along the row, fold first. A group the application keeps at the row's end folds last. As the row widens the same steps run back. A group the application marks to stay whole never folds, and the others fold around it. A toolbar of one group stops at stage 4, since a More menu would only hold the same commands under a vaguer name. The fonts' arrival counts as a change of what the toolbar holds, so it folds again once the page's fonts have loaded.
 
 ### Words and captions
 
 A command shows its glyph and its words until folding takes the words. A command whose glyph nearly every reader already knows, such as bold, italic, underline, the lists, copy, the arrows and reload, MAY be marked to show its glyph alone at every stage; its words are then its accessible name and its tooltip. The application marks such commands, since only it knows which glyphs its readers know. A field shows its value, such as a font's name, and no label of its own.
 
-A group's name is the words of its fold button, its accessible name and its tooltip. Whether the name also stands before the group, flat at `text-xs` and weight 600 in `text-muted`, as a **caption**, is chosen once for the whole toolbar by the application. Captions are shown unless the application says otherwise.
+A group's name is the words of its fold button, its accessible name and its tooltip. Whether the name also stands before the group, flat at `text-xs` and weight 600 in `text-muted`, as a **caption**, is chosen once for the whole toolbar by the application. Captions are shown unless the application says otherwise. Where captions are off, the application MAY still caption a group of its choosing (preview), and SHOULD caption a group holding a choice, such as a segmented control, since the choice's positions are answers that mean nothing without their question.
 
 ### What a fold menu holds
 
@@ -64,7 +64,7 @@ The toolbar is exposed as a toolbar named for what it holds, each group as a gro
 2. A latched control is pressed in and exposed as pressed; a menu button with only disabled commands is disabled.
 3. The toolbar is one tab stop, Left and Right move along its enabled controls in sight from end to end, Home and End move to the ends, a disabled control is skipped, and a field is a tab stop of its own that its edges leave by the arrows.
 4. The toolbar, its groups and its controls are exposed with their roles and names.
-5. A folding toolbar keeps to one row, its groups passing through the five stages in the order this section sets out, and back as the row widens.
+5. A folding toolbar keeps to one row, its groups passing through the five stages in the order this section sets out, and back as the row widens; a toolbar of one group stops at stage 4.
 6. A command marked to show its glyph alone does so at every stage, with its words as its accessible name and tooltip; captions show or not as the application chose for the whole toolbar.
 7. A fold menu holds everything its group holds: commands, ticked switches that keep the menu open, ticked choices under a heading, a select's options in a submenu, stepping rows that keep the menu open, fields in a popover, and menus as submenus, shown in place with a Back row on a narrow window.
 8. A command bar's menu group is a menu bar, folds last into the `menu` glyph alone, and its menus open beside their rows when folded; Left and Right and the pointer move between its open menus.

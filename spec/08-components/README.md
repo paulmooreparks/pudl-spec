@@ -35,7 +35,7 @@ Every section is drafted. The sections other than buttons were drafted from the 
 | Layout: stacks, rows and grids | [layout.md](layout.md) |
 | Master-detail layouts | [master-detail.md](master-detail.md) |
 | Splitters | [splitters.md](splitters.md) |
-| Windows, docked windows and snap zones | [windows.md](windows.md) |
+| Windows, docked windows, snap zones and the taskbar | [windows.md](windows.md) |
 | Code blocks and editor surfaces | [code.md](code.md) |
 | Drop targets | [drop-targets.md](drop-targets.md) |
 | The application bar | [application-bar.md](application-bar.md) |
