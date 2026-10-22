@@ -22,7 +22,7 @@ A panel holds any of these, in this order from top to bottom.
 - **A separator**, a 1px rule in `border` with 6px above and below, which sets the actions apart from the places.
 - **Actions**, each a row that performs something when pressed. An action row is a list row as a place row is, flat and responding under the pointer. It leads with a glyph, 8px (`space-2`) before its label, and is set at `text-sm` with a line height of 1.5, with 6px of padding above and below and 14px either side. An action that destroys something, or cannot be undone, is set in `danger` and leads with the warning glyph, so its danger never rests on colour. The implementation draws that glyph at 12px, in the tick's space, unless the action already shows a picture of its own, which it keeps.
 
-An action that switches something on and off shows the tick glyph at 12px before its label while it is on, and leaves the tick's space empty while it is off. In a panel with any such action, every other action leaves the same space empty, so that every label in the panel starts in one line.
+An action that switches something on and off shows the tick glyph at 12px before its label while it is on, and leaves the tick's space empty while it is off. In a panel with any such action, every other action leaves the same space empty, so that every label in the panel starts in one line. Where any action in a panel leads with a glyph, glyphs, ticks and the warning stand in one column 14px wide, the glyphs at 14px in `text-muted`, and an action with none of them leaves the column empty, as in a context menu. An action that switches something and also has a glyph keeps to the one column: its glyph stands there while it is off, and the tick while it is on.
 
 A place row for the place the reader is in, or for a window that is in front, is marked current as a list row is, with a fill of `surface-alt`, a 3px `accent` edge on its end side and its title in weight 700.
 
@@ -89,7 +89,7 @@ A panel MAY be summoned by a single printable key, such as "/". Pressing that ke
 
 A menu button is exposed as a button with its accessible name, and as expanded while its panel is open and collapsed while it is closed. A menu button whose panel can be summoned by a key also exposes that key as its keyboard shortcut.
 
-The panel is exposed with an accessible name, such as the name of the thing it belongs to. Its place rows are exposed as links, and its actions as buttons. An action that switches something on and off is also exposed as pressed or not pressed, and a disabled action as disabled. The glyph that leads an action is not exposed, since its label says what it does, and a destructive action's label says what it destroys. The filter is exposed as a search field with an accessible name.
+The panel is exposed with an accessible name, such as the name of the thing it belongs to. Its place rows are exposed as links, and its actions as buttons. An action that switches something on and off is also exposed as a checked or unchecked menu item, or as one of a group of which one is checked, and a disabled action as disabled. The glyph that leads an action is not exposed, since its label says what it does, and a destructive action's label says what it destroys. The filter is exposed as a search field with an accessible name.
 
 In the platform's high-contrast mode, the panel keeps a visible border, a menu button whose panel is open takes the system's highlight colours, and the caret and the tick are drawn in the system's text colours.
 
@@ -112,7 +112,7 @@ In the platform's high-contrast mode, the panel keeps a visible border, a menu b
 6. Choosing a place or an action, Escape, and a press outside the panel each close it, and focus inside a closing panel returns to its button.
 7. Places and actions are flat list rows that respond under the pointer and are not underlined; actions are led by a drawn glyph and set apart from the places by a rule.
 8. A destructive action is set in `danger` and led by the warning glyph.
-9. An action that switches something on and off shows a tick while it is on, is exposed as pressed or not pressed, and keeps every label in the panel aligned.
+9. An action that switches something on and off shows a tick while it is on, is exposed as checked or not, and keeps every label in the panel aligned; glyphs, ticks and warnings share one column, a switching action with a glyph showing the glyph while off and the tick while on.
 10. A disabled action stays in the panel, faded to half, takes no presses and is exposed as disabled.
 11. A filter narrows the rows as the reader types, ignoring case, hides section labels left with no rows, and says so when nothing matches.
 12. Enter in a filter goes to the first place left, and with none left hands the typed text to the application.

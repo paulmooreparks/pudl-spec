@@ -23,7 +23,8 @@ Every section is drafted. The sections other than buttons were drafted from the 
 | Section tabs, tabs within a page, and document tabs | [tabs.md](tabs.md) |
 | Menus, menu buttons and launchers | [menus.md](menus.md) |
 | Menu bars, their letters and keys | [menu-bar.md](menu-bar.md) |
-| Toolbars | [toolbar.md](toolbar.md) |
+| Toolbars, folding toolbars and command bars | [toolbar.md](toolbar.md) |
+| Ribbons | [ribbons.md](ribbons.md) |
 | Tooltips | [tooltips.md](tooltips.md) |
 | Dialogs | [dialogs.md](dialogs.md) |
 | Popovers | [popovers.md](popovers.md) |

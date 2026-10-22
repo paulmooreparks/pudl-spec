@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.35.0
+
+- **Folding toolbars** (toolbars). A toolbar either wraps or folds. A folding toolbar keeps to one row, its groups passing through five stages, from words and glyphs to glyphs alone, to one menu button, to its glyph alone, to a section of a More menu, and back as the row widens. A fold menu holds everything its group holds: commands, switches as ticked rows that keep the menu open, choices as radio rows, a select's options in a submenu, stepping keys as rows that keep the menu open, a field in a popover, and a menu as a submenu, shown in place with a Back row on a narrow window. A command whose glyph nearly every reader knows may show its glyph alone at every stage, and the application chooses whether a toolbar shows its group names as captions. A field in a toolbar is a tab stop of its own.
+- **Command bars** (toolbars). A folding toolbar whose first group holds a menu bar holds the menus and the tools in one row. The menu group folds last, into the `menu` glyph alone, its menus becoming submenus with their headings, and Left and Right and the pointer move between its open menus.
+- **Ribbons** (ribbons, new). A long set of tools as folding toolbars under tabs, one showing at a time. Show as ribbon, with the new `ribbon` glyph, folds the ribbon into a menu bar of the same names and back, and the choice is remembered. The tab bar and the menu bar are one height, so nothing on the bar moves.
+- **Menu rows** (menus, menu bars). Every menu panel lines up glyphs, ticks and warnings in one column, as menu bars and context menus do; a switching action is exposed as checked; and a switching action that also has a glyph shows its glyph while off and the tick while on, so it keeps to the column.
+- **Glyphs.** `ribbon`, for the Show as ribbon toggle.
+
 ## 0.34.2
 
 - The specification and its changelog no longer refer to any application or site that uses PUDL, nor say who asked for a change. Nothing normative changes.

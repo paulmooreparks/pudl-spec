@@ -82,6 +82,7 @@ The commands of a page editor's toolbar, each the mark its command leaves or the
 | `download` | Download a file |
 | `gear` | Settings, or the commands an applet offers |
 | `menu` | A menu bar's menus, and the menu bar as one button when it does not fit |
+| `ribbon` | A ribbon's tools shown as a row under its tabs, on the Show as ribbon toggle |
 | `pin` | A menu bar's pins group, the items a reader has pinned |
 | `comments` | Comments and messages, such as a status item for a queue of them |
 | `account` | A person's account where it has no picture, drawn at the picture's size, such as the reader's account in the status area |
