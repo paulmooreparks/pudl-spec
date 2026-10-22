@@ -17,11 +17,11 @@ Several components carry a glyph button of their own, sized to fit where it sits
 | A filter chip, to remove the filter | 18px | Circle | Set by the chip |
 | A document tab, to close it | 18px | Circle | 9px |
 | A row of a tree, to expand or collapse it | 16px | Corners of `radius-xs` | 10px |
-| The end of a filter field, to apply the filter | 32px wide, the field's height | Square corners where it meets the field | 14px |
+| The end of a filter field, to apply the filter | 32px wide, the height inside the field's border | A strip inside the field's border, behind a hairline | 14px |
 
 A window's buttons are sized from its title's text rather than in pixels, so that they grow with the text when the reader enlarges it, and a glyph there is about the height of the title's letters.
 
-The last of these is joined to the field it belongs to. Its corners on the side that meets the field are square, and its border overlaps the field's by 1px, so the sunken field and the raised button read as one control made of two parts.
+The last of these sits inside the border of the field it belongs to, as a combo box's opener does. It is a raised strip with square corners, set off from the field's text by a 1px hairline in `raise-border`, and the field's border and focus ring go round both, so the sunken field and the raised button read as one control made of two parts. Since the field's border would clip a ring drawn outside the button, its keyboard focus is a 2px ring in `focus-ring` inside it.
 
 Every one of these, whatever its size or shape, has the states this section sets out. In particular each is drawn pressed in while it is pressed, as every raised control is.
 

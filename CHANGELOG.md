@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.32.0
+
+- Every field with a key in it is drawn as one sunken field whose border runs round everything, with each key a raised strip inside that border behind a hairline (fields, glyph buttons). The field's focus ring, danger border and dimming go round the whole control, keys included, and a key shows its keyboard focus as a ring inside its strip. This covers the combo box and searchable select, the number field, the password field, the date and time fields, the year in a calendar's chooser and a toolbar's filter with its apply button. Until now each key was joined to the field from outside, sharing its border, so the field's border stopped where the key began. the maintainer found that look dated and chose this one from four drawn alternatives.
+
 ## 0.31.1
 
 - Every small raised key is 28px tall, a glyph button's height: a small button, whatever it holds, and a small segmented control's keys, which were shorter than the small buttons beside them in a toolbar (buttons, segmented controls). From the reader application's reader toolbar.
