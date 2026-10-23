@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.37.0
+
+- **Previews made stable.** The taskbar (windows), a menu bar unfolding into a ribbon (menu bars, ribbons), title glyphs and folding in steps, the order things that fold share the application bar's room in (menu bars), and a caption kept on a chosen group (toolbars) are no longer previews. Resident applets remain one.
+- **A folded command keeps its name** (toolbars). A command folding takes to its glyph alone has its words as its accessible name and its tooltip while they are hidden, unless it has a name of its own.
+- **Toasts stand above a taskbar** (notices and toasts) along the window's foot, so they never cover its tray or buttons.
+- **Front titles are cut short** (menu bars) with an ellipsis past 12em, their whole words kept as their name and tooltip.
+- **A toolbar can give way to the ribbon** (menu bars). While the bar shows as a ribbon the application can tell, and a toolbar of its own that repeats the ribbon's commands may be marked to hide.
+- **A token field's values can be checked and set** (fields). A check may refuse a value with a message shown as the field's error, or replace it; the application may read, replace, add and remove the values itself, each checked, without it being reported as the reader's change.
+- **A disclosure button's chevron in high contrast** (buttons) takes the system's button text colour.
+
 ## 0.36.0
 
 - **Window buttons are glyph buttons** (windows). Each is a raised square with corners of `radius-sm`, twice the title's text across, 28px at `text-md` and 26px on a docked window, with its glyph as large as the text. The window menu button shows the new `window` glyph followed by a smaller `caret`. The title bar is padded 4px all round. They were small raised circles 1.7 times the text across.

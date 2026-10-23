@@ -10,7 +10,7 @@ A ribbon is a tab bar along its top, drawn as tabs within a page are, and under 
 
 A tab is never left standing without its row, since tabs over nothing read as tabs for the page beneath them.
 
-An application's own menu bar MAY unfold into a ribbon the other way round, its titles becoming tabs and each menu's rows a row of tools, as the section on menu bars sets out (preview). That ribbon is the application's, under its application bar, where this section's ribbon belongs to one part of the page, such as an editor.
+An application's own menu bar MAY unfold into a ribbon the other way round, its titles becoming tabs and each menu's rows a row of tools, as the section on menu bars sets out. That ribbon is the application's, under its application bar, where this section's ribbon belongs to one part of the page, such as an editor.
 
 ## States
 

@@ -27,7 +27,7 @@ The order of the items is the application's. The reader's account, where the are
 
 The status area draws its items and keeps them in step with what the application sets on them. Running the work behind an item, and deciding when an item has something to say, is the application's.
 
-The same status area MAY stand in a [taskbar](windows.md#the-taskbar-preview) as its tray, where it takes the taskbar's surface and the raised group's colours, as it does beside a menu bar (preview).
+The same status area MAY stand in a [taskbar](windows.md#the-taskbar) as its tray, where it takes the taskbar's surface and the raised group's colours, as it does beside a menu bar.
 
 A plain link in running text on the bar takes `tb-chrome-fg`, and stays underlined.
 

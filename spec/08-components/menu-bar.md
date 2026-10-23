@@ -8,9 +8,9 @@ The menu bar stands at the start of the application bar, in the brand's place. I
 
 Each menu is one raised surface with the surface of a plain button, in every theme: filled with `raise-grad`, bounded by a 1px hairline in `raise-border` and casting `raise-shadow`, with corners of `radius-sm` and 2px of padding. A menu is pressed, so it looks like the buttons beside it, as though it were a button with the `menu` glyph at its start; the bar's own colours, which may be dark in the light theme, are not its colours. The `menu` glyph stands at its start, 16px across in a 26px square, in `text` drawn a fifth of the way toward `surface-alt`, as a button's quieter words are; pressing it opens the menu's first title. After it come the menu's **titles**, flat words at `text-sm` and weight 600 in the same colour, padded 4px above and below and 10px at the sides, with corners of `radius-xs`. The titles take their press from the surface around them, as the positions of a segmented control do, so nothing flat is pressable on its own. Under the pointer a title turns `text` and takes a faint fill of `text` at 12%, and the open title is pressed into the surface, filled with `raise-active-bg` and shaded from above with `raise-active-shadow`.
 
-A title MAY carry a **glyph** before its words, 16px across, 6px from them, as the host menu's first title carries the application's mark (preview). The glyph lets the title give way to it when the bar runs short of room, as the section on a narrow space describes.
+A title MAY carry a **glyph** before its words, 16px across, 6px from them, as the host menu's first title carries the application's mark. The glyph lets the title give way to it when the bar runs short of room, as the section on a narrow space describes.
 
-A menu's first title is its name. The host menu's first title is the application's mark and name, using the same font, size and weight as the other menu titles, and its panel holds the application's places. The host's other titles are its standard ones, such as View, Window and Help, and a title MAY be shown only where it means something, such as Window on a page of windows. A front menu normally begins with the name of the applet or article. An identity title with no applicable commands is omitted; if no titles remain, the whole front menu is omitted. A required window never offers Close. Separators appear only between groups of commands.
+A menu's first title is its name. The host menu's first title is the application's mark and name, using the same font, size and weight as the other menu titles, and its panel holds the application's places. The host's other titles are its standard ones, such as View, Window and Help, and a title MAY be shown only where it means something, such as Window on a page of windows. A front menu normally begins with the name of the applet or article. Its titles come from whatever is in front, so a title longer than 12em is cut short with an ellipsis rather than widening the bar, with its whole words kept as its accessible name and shown as its tooltip. An identity title with no applicable commands is omitted; if no titles remain, the whole front menu is omitted. A required window never offers Close. Separators appear only between groups of commands.
 
 A title opens a **panel**, a menu panel as the section on menus describes, below it. A panel holds **commands**, separators, headings for the commands below them, and submenus. A command shows its shortcut at its end in `text-muted` at `text-xs`, and a submenu's row carries the `caret` glyph turned to point at where the submenu opens. A command that switches something on and off carries the `tick` glyph while it is on, and one of a group of which only one is on carries it on the one that is.
 
@@ -49,7 +49,7 @@ Each command has one home. Where the application has a menu bar, an applet's com
 The bar gives way in steps, each taken only when the one before has not made it fit, and taken back in the reverse order as room returns.
 
 1. The Show as ribbon toggle, where the bar has one, shows its glyph alone, unless the application keeps its words.
-2. Every title with a glyph shows its glyph alone, with its words kept as its accessible name and its tooltip (preview).
+2. Every title with a glyph shows its glyph alone, with its words kept as its accessible name and its tooltip.
 3. The pins give way to Items, as below.
 4. The bar becomes one menu button, as below.
 
@@ -57,9 +57,9 @@ When a pins group's pins do not fit, they give way together to one more title, *
 
 When the bar still does not fit, it becomes one menu button, the `menu` glyph alone, whose panel lists each menu as a section of its titles under the menu's name. Choosing a title shows its commands in the panel's place, with a Back row first, one level at a time; a submenu opens the same way. The pins group's section lists the Pins title's commands themselves, since there are few of them, and then the pins, so a pin is still one choice away. An implementation decides when the pins or the bar do not fit by measuring them.
 
-When the application bar holds other things that fold beside the menu bar, such as a command bar of pins, they share its room in an **order** (preview): each gives way as far as it can before the next starts. Unless the application says otherwise, the Show as ribbon toggle gives way first, then each command bar, folding as a toolbar folds down to its last stage, then the menu bar, by the steps above. The application MAY set the order of each, and MAY keep any of them from folding at all. Everything else in the application bar keeps its width.
+When the application bar holds other things that fold beside the menu bar, such as a command bar of pins, they share its room in an **order**: each gives way as far as it can before the next starts. Unless the application says otherwise, the Show as ribbon toggle gives way first, then each command bar, folding as a toolbar folds down to its last stage, then the menu bar, by the steps above. The application MAY set the order of each, and MAY keep any of them from folding at all. Everything else in the application bar keeps its width.
 
-## Unfolding into a ribbon (preview)
+## Unfolding into a ribbon
 
 A menu bar MAY offer to unfold into a [ribbon](ribbons.md), for readers who would rather see their commands than open menus for them. The application asks for it, and a **Show as ribbon** toggle then stands at the far end of the application bar, with the `ribbon` glyph and its words, pressed in while the bar is unfolded. The reader's choice is remembered for the application.
 
@@ -77,6 +77,8 @@ The row is a folding toolbar built from the rows the tab's menu holds, so an app
 A group's name shows as a caption at its start only where the application asks for captions, with one exception: a group holding a choice, a segmented control, always shows its heading, since its positions are answers that mean nothing without their question.
 
 Every command runs as it does from its menu, and the row is built afresh each time it shows, so every state is true. Each applet keeps the tab chosen in it, so going back to an applet finds the tab left there, and an applet not yet visited opens on its first tab; the host menu's tabs keep theirs the same way. Where the bar has become one menu button it stays folded, and the toggle is hidden until there is room again.
+
+While the bar shows as a ribbon the application can tell, so it can style for it, and a toolbar of its own that repeats the ribbon's commands, such as a window's formatting toolbar, MAY be marked to give way, hidden until the bar folds again.
 
 ## Shortcuts
 

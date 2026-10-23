@@ -48,7 +48,7 @@ An application MAY also offer controls that act on every window at once: one tha
 
 A tab's **context menu** is its window's menu: the window's own commands, then Snap and Dock as submenus, then the commands of what the window holds, then Close. It opens against the tab, as a menu button's panel opens, below the tab in the top half of the screen and above it in the bottom half, rather than at the pointer, where it would cover the tab. While it is open the tab keeps its hover look and wears a 2px ring in `accent`, 1px outside its border, so the reader can see which window the menu is for. An application MAY give a tab a menu of its own instead, or none.
 
-### The taskbar (preview)
+### The taskbar
 
 An application MAY hold its dock of open windows in a **taskbar**, a bar along the foot of the workspace, or along its head. The bar is `surface-alt`, with a 1px hairline in `border` along the edge it shares with the workspace, padded 6px above and below and 12px at the sides, with 6px between the things it holds. At the foot it adds the platform's safe area at the bottom, so nothing sits under a phone's home indicator.
 
