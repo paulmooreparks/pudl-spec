@@ -42,6 +42,7 @@ Each status colour has a glyph of its own, so that a status is never told by col
 | `minimize-all` | Minimise every window, a screen with a chevron pointing down |
 | `restore-all` | Restore every minimised window, the screen with the chevron pointing up |
 | `close-all` | Close every window, two windows stacked with a cross on the front one |
+| `more` | A row's actions button, which opens the row's context menu: three dots in a row |
 | `branch` | A child window's row beneath its parent in a list |
 | `circle` | The dock tab of a window that is showing, and a document tab with unsaved changes |
 | `ring` | The dock tab of a minimised window |

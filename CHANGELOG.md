@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.38.0
+
+- **Row actions buttons** (menus). A row of a list, a tree or a table may carry a small raised button at its end, with the new `more` glyph, that opens the row's context menu against itself. It shows only on the row under the pointer, the selected or current row, a row with focus in it and a row whose menu is open, and keeps its place empty elsewhere. The keyboard reaches the same menu with the context-menu keys, so the button is out of the tab order and hidden from assistive technology.
+- **A long press opens a context menu** (menus) on a touch screen, once, after half a second without moving.
+- **Glyphs.** `more`.
+
 ## 0.37.0
 
 - **Previews made stable.** The taskbar (windows), a menu bar unfolding into a ribbon (menu bars, ribbons), title glyphs and folding in steps, the order things that fold share the application bar's room in (menu bars), and a caption kept on a chosen group (toolbars) are no longer previews. Resident applets remain one.
