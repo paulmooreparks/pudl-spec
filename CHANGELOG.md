@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.39.1
+
+- **The front window's tab fits a narrow taskbar** (windows). Where it alone is still too wide once every other tab has gone to More, it shrinks below 120px to fit, its title cut further, rather than being cut off.
+
 ## 0.39.0
 
 - **The sidebar's head** (master-detail). What acts on the list alone, its filter field, its filter menus with Clear all, and its chips, may stand at the head of the sidebar instead of in rows across the layout. It stays put while the list scrolls, goes with the sidebar wherever it goes, and each of its parts may be replaced on its own.
