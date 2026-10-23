@@ -15,6 +15,8 @@ The toolbar is a flat band of `surface` with a 1px hairline in `border` along it
 
 The chip row is a flat band of `surface` with a hairline in `border` along its foot, padded 8px by 16px, with 6px between chips. It holds a filter chip for each filter in force and MAY end in a link that clears them all. A chip row with no chips takes no space.
 
+What acts on the list alone MAY stand instead at the **head of the sidebar**, so it takes no row across the layout and goes wherever the list goes. The head is a flat band of `surface` with a hairline in `border` along its foot, padded 8px above and below and 12px at each end, with 8px between its parts, and it stays at the top of the sidebar while the list scrolls under it. The filter field runs across it; under that, a row of the list's filter menus and the link that clears them all, which wraps; under that, the chips, which wrap and take no space when there are none. Its controls are 30px tall, as the toolbar's are. Being part of the sidebar, the head collapses, resizes, peeks and moves to the other side with it, and on a narrow layout it heads the list's pane. Each of its parts MAY be replaced on its own, so a change to the chips never replaces the field the reader is typing in.
+
 The sidebar is a flat band of `surface` with a 1px hairline in `border` on the side that faces the detail pane, and it scrolls on its own. Its width is the reader's preferred width held between two limits, 180px by default at the least and half the layout at the most, and its preferred width is 260px until the reader moves the divider. The limits hold however the width was set, and they still hold when the layout narrows after the width was chosen.
 
 The list in the sidebar is made of section labels and rows.
@@ -114,3 +116,4 @@ A printed layout carries the content without the toolbar, the chip row, the divi
 17. A peek at a collapsed sidebar opens after the pointer rests on its handle or the handle is focused from the keyboard, draws over the detail pane without moving it, closes when the pointer or focus leaves it, on Escape or when a row is chosen, and never changes the collapsed state or the width.
 18. The rows are one tab stop, Down, Up, Home and End move among them without going anywhere, and Enter goes to the focused row's place.
 19. A row list on its own is drawn as the sidebar's rows are, has the same current mark and keys, and each of its rows is a link to an address.
+20. A sidebar's head stays at the top of the sidebar as the list scrolls, holds the filter field across it, the filter menus and Clear all, and the chips, wrapping, with no chips taking no space, and goes with the sidebar wherever it goes.

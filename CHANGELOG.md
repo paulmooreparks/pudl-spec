@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.39.0
+
+- **The sidebar's head** (master-detail). What acts on the list alone, its filter field, its filter menus with Clear all, and its chips, may stand at the head of the sidebar instead of in rows across the layout. It stays put while the list scrolls, goes with the sidebar wherever it goes, and each of its parts may be replaced on its own.
+
 ## 0.38.1
 
 - **A taskbar short of room never scrolls** (windows). Its tabs shrink to 120px, or their own width, with titles cut short; then the tray shows glyphs and badges alone; then the last tabs, never the front window's, move into a More tab that lists them. It used to scroll sideways, with a scrollbar along its foot.
