@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.38.1
+
+- **A taskbar short of room never scrolls** (windows). Its tabs shrink to 120px, or their own width, with titles cut short; then the tray shows glyphs and badges alone; then the last tabs, never the front window's, move into a More tab that lists them. It used to scroll sideways, with a scrollbar along its foot.
+
 ## 0.38.0
 
 - **Row actions buttons** (menus). A row of a list, a tree or a table may carry a small raised button at its end, with the new `more` glyph, that opens the row's context menu against itself. It shows only on the row under the pointer, the selected or current row, a row with focus in it and a row whose menu is open, and keeps its place empty elsewhere. The keyboard reaches the same menu with the context-menu keys, so the button is out of the tab order and hidden from assistive technology.
