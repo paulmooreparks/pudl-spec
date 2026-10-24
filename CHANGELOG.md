@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.43.0
+
+Native full-screen application windows can supply a top-left application window menu and top-right Minimize, Restore and Close controls. The controls reserve space before menu folding, retain physical corner order in RTL and use host-reported state and capabilities. Native actions, confirmation and placement remain the host's responsibility.
+
 ## 0.42.0
 
 Selection actions and margin notes provide scoped passage actions and aligned notes without moving the reading column. Narrow containers use passage markers and a readable note list. Menu bars support explicit host focus entry and validated return; redraws retain surviving valid menus. Tooltip Escape dismissal now allows the same key to reach surrounding interactions.

@@ -2,7 +2,17 @@
 
 The application bar runs across the top of an application. It names the application, leads back to its home, and holds the few things that belong to the whole application rather than to any one page, such as links to its main places, the reader's account and the theme. It keeps colours of its own, so it can stay dark above a light page and the reader always knows where the application's frame ends and its content begins.
 
-## Anatomy
+## Native full-screen windows
+
+A native application that removes its OS frame in full screen MAY supply application-window controls in the topbar. Its application window menu stands at the physical top left before the site menu. Minimize, Restore and Close stand at the physical top right after the ribbon toggle. RTL reading direction does not reverse these physical corners. They operate on the native application window, independently of content-window controls.
+
+The buttons are raised glyph controls with accessible names and tips. Their glyphs are app, minimize, restore and close at 16px. Each corner target spans the bar's height and is 40px wide, or 48px for a coarse pointer. Full-screen horizontal padding reserves the corner slots and an 8px gap before the normal flow content. Controls MUST NOT fold away or overlap site menus. Ordinary topbar padding applies again when native full-screen controls are absent.
+
+The application window menu provides Restore, Minimize and Close using the same capability state and actions as the corner buttons. Restore means leaving full screen for the host's remembered normal or maximized placement. The host reports actual full-screen and active state; a maximized window or browser fullscreen state is not evidence of native full screen. Missing or unavailable native operations remain disabled in their fixed positions. These controls do not appear outside full screen or in print.
+
+The native host owns window operations, placement, close confirmation and any drag regions. The presentation layer MUST NOT assume a native framework or infer successful state transitions from callback completion. It suppresses duplicate actions while an asynchronous request is pending, reports rejected requests and accepts subsequent authoritative state. Successful content-focus restoration precedes command invocation and can be reported to the embedding host for cross-document restoration.
+
+## Standard anatomy
 
 The bar is a band the full width of the application. It is filled with `tb-grad`, which runs from a touch of `tb-fg` at its top edge down to `tb-bg`, has a 1px highlight of `tb-hi` along its top edge, and ends in a 1px line of `tb-border` along its foot. It is padded 10px above and below and 20px at each end. It holds two groups, 8px apart at the least: the brand at the start and the chrome at the end.
 
