@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.40.0
+
+Shared docks may contain split panes on any edge. Each pane has an independent tab group, additional splits use the dock's long axis, and internal dividers resize the panes while the outer dock retains its size. Menus and drag previews offer placement, merging, equalizing and swapping. Split arrangements survive address restoration, collapse, minimization and temporary constrained presentation.
+
 ## 0.39.1
 
 - **The front window's tab fits a narrow taskbar** (windows). Where it alone is still too wide once every other tab has gone to More, it shrinks below 120px to fit, its title cut further, rather than being cut off.

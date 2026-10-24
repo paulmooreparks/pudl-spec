@@ -60,6 +60,20 @@ The bar's edges belong to its controls. A press in the bar's padding, or in a ga
 
 On a screen 560px wide or less the bar is padded 6px at the sides with 4px between its controls, its tabs are at most 175px wide and 40px tall, and its glyph buttons 36px wide and 40px tall, so a finger finds them.
 
+### Split docked panes
+
+An application MAY enable split panes on shared docks. Each pane holds its own tab group and shows its selected window independently of the other panes. Left and right docks divide into upper and lower panes; top and bottom docks divide into left and right panes. Further divisions use the same axis and are available while the new panes can meet their minimum sizes. A pane uses the largest minimum among its tabs, including its strip, so selecting a different tab never shifts a divider. One outer size and one Collapse or Pin control belong to the whole edge.
+
+A reader can add a window as a tab in a pane, or place it before or after that pane in a new split. A split initially divides that pane equally and leaves other panes in place. Full height on a side dock, or Full width on a top or bottom dock, merges every pane into one tab group, preserves tab order within each pane and keeps all windows open. The command names the merge when panes already exist. Equalize panes gives the panes equal room subject to their minima. Swap with next pane exchanges their tabs and selections. These operations are available through the window menu as well as dragging, and a placement preview shows the result before release.
+
+A dock tab reorders inside its strip and offers placement targets after it leaves the strip. Its middle target adds a tab; the two targets along the dock's long axis split before or after, where room permits. A title-bar drag can use the same targets. Escape and pointer cancellation abandon the drag, and dropping a tab outside a valid target leaves it where it was. Rearrangement never remounts window content or discards unsaved values. Required windows and dock-only windows retain their existing restrictions.
+
+An internal divider has the splitter's grip and focus ring on a 12px track, enlarged to 20px for a coarse primary pointer. The arrow keys along its movement axis move it by 1%, or 10% with Shift. Home and End reach its limits; Enter or double-click restores equal shares for its two branches. A pointer drag updates both branches live, restores the original ratio on Escape, and records one history step on release. The focusable divider is a separator named for its primary branch, with its percentage and permitted range exposed to assistive technology. Resizing the outer dock remains a separate operation.
+
+The arrangement records pane membership, selections and preferred ratios in the address. A smaller view clamps the displayed ratios without changing their saved values. When the split cannot fit, the edge temporarily presents one tab group in visual pane order and restores the panes when room returns. A collapsed dock also presents one rail or strip, with separators between pane groups. Its peek shows a single window; pinning restores the saved panes.
+
+Closing or moving the last window out of a pane removes that pane and gives its room to its sibling. A refused close leaves the pane intact. Minimization retains membership and selects another available tab. A pane whose windows are all minimized retains a usable strip, so its windows remain reachable without a taskbar entry. If every window on an edge is minimized, the ordinary collapsed-dock behavior applies. Minimize All and Restore All preserve the split arrangement and dock mode.
+
 ### The window menu
 
 The window menu reaches every command a window has from one place, including the ones its title bar has no room for, and it is the keyboard's route to them. It is a menu, as the section on menus specifies, built afresh each time it opens so that every label is true at that moment. It holds three groups, divided by separators.
@@ -411,3 +425,7 @@ A printed page with windows open carries the window in front as its content, its
 64. A tab's context menu is its window's menu, opens against the tab, and the tab wears the `accent` ring while it is open; an application can replace it or turn it off.
 65. Close all closes every window the reader may close, each as its own Close would, and is disabled while there is nothing to close.
 66. A taskbar holds the dock on one line that never scrolls, giving way short of room by shrinking its tabs to 120px, then showing the tray's glyphs alone, then moving the last tabs but the front window's into a More tab, with the application's controls on either side in its order, shows Minimise all or Restore all in one place, draws the controls' glyphs at 16px, sends a press in its padding or gaps to the nearest control, and opens its own menu on a secondary press away from a tab.
+67. Split-enabled shared docks support additional independently tabbed panes along their long axis on all four edges, while pane minima permit them.
+68. Internal dividers resize panes independently of the outer dock and support pointer and keyboard adjustment, cancellation and history.
+69. Split membership, selections and preferred ratios survive address restoration, temporary single-group presentation, collapse and minimization without remounting content.
+70. Placement, merging, equalizing and swapping panes are available through menus, and rearrangement preserves close refusal and required-window and dock-only restrictions.
