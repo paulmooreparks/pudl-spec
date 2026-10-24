@@ -162,6 +162,8 @@ The title bar and the body are each a stop in the tab order. Focus on the title 
 
 ## Interaction
 
+An application MAY offer outline resizing for expensive window content. During a pointer resize, an outline shows the proposed bounds or divider position while the content keeps its current geometry. Releasing the pointer applies the geometry once and records one history entry. Escape or pointer cancellation discards the proposal. Keyboard resizing remains immediate. This preference applies to frame edges, shared-dock edges and dividers, and snapped-window grid dividers; it does not prescribe how an operating-system window resizes.
+
 ### Bringing a window forward
 
 A press anywhere in a window, or focus moving into it, brings it in front at once, before any drag. A collapsed docked window brought forward stays collapsed; its own button, or its tab in the dock of open windows, expands it.
@@ -429,3 +431,4 @@ A printed page with windows open carries the window in front as its content, its
 68. Internal dividers resize panes independently of the outer dock and support pointer and keyboard adjustment, cancellation and history.
 69. Split membership, selections and preferred ratios survive address restoration, temporary single-group presentation, collapse and minimization without remounting content.
 70. Placement, merging, equalizing and swapping panes are available through menus, and rearrangement preserves close refusal and required-window and dock-only restrictions.
+71. Opt-in outline resizing keeps content geometry unchanged during pointer movement, applies it once on release, cancels on Escape or pointer cancellation, and leaves keyboard resizing immediate.

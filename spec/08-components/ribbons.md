@@ -18,11 +18,13 @@ The chosen tab is momentary, as an open menu is, so it is not part of the page's
 
 ## Interaction
 
-The tab bar is one stop in the tab order, and the arrow keys, Home and End move among its tabs and choose them, as among tabs within a page. Tab moves from the tab bar to Show as ribbon and then into the chosen row, which is a toolbar with the keys the section on toolbars sets out. When the ribbon is folded into menus, its menu bar has the keys of a command bar's menus.
+Every ribbon tab exposes its full title on hover and on keyboard focus, including when its words have folded away. A labeled **Ribbon tabs** menu offers the available tabs by their full titles and marks the current tab. It is a separate stop in the tab order and opens with Enter, Space or Down Arrow. Choosing a title selects that tab; Escape returns focus to the chooser. The chooser is available to touch users without a long-press gesture.
+
+The tab bar is one stop in the tab order, and the arrow keys, Home and End move among its tabs and choose them, as among tabs within a page. In a standalone ribbon, Tab moves from the tab bar to Ribbon tabs, then Show as ribbon and then into the chosen row, which is a toolbar with the keys the section on toolbars sets out. In an application's unfolded menu bar, the chooser stands beside the chosen row. When the ribbon is folded into menus, its menu bar has the keys of a command bar's menus.
 
 ## Accessibility
 
-The tab bar is exposed as a tab list holding only its tabs, each tab controlling its row, and the row is a toolbar named for its tab. Show as ribbon stands beside the tab list rather than in it, and is exposed as a toggle button with its pressed state. Folded into menus, the menu bar's titles are menu buttons and their menus are menus.
+The tab bar is exposed as a tab list holding only its tabs, each tab controlling its row, and the row is a toolbar named for its tab. Show as ribbon stands beside the tab list rather than in it, and is exposed as a toggle button with its pressed state. Ribbon tabs is a menu button outside the tab list, and its entries expose their selected state. Folded into menus, the menu bar's titles are menu buttons and their menus are menus.
 
 ## Conformance checklist
 
@@ -32,3 +34,4 @@ The tab bar is exposed as a tab list holding only its tabs, each tab controlling
 4. No tab stands without its row, and the tab bar and the folded menu bar are one height, with Show as ribbon in the same place on both.
 5. The chosen tab is not in the address; whether the ribbon is folded is remembered.
 6. The tabs, the row, the toggle and the folded menu bar have the keys and roles this section sets out.
+7. Full-title tips remain available after folding, and the labeled Ribbon tabs chooser supports keyboard and touch selection with the current tab identified.
