@@ -6,6 +6,8 @@ This section covers the menu button and its panel, the launcher, filtering a pan
 
 ## Anatomy
 
+A menu bar MAY provide an explicit focus entry point for an application host. It preserves the previous content target through title, menu and submenu navigation. Returning focus validates that the target remains connected, visible and enabled, and reports successful restoration before executing a command. A host embedding isolated content owns restoration inside that content. A redraw SHOULD retain an open title that still belongs to the same valid source, using current command descriptors; removed sources MUST NOT retain actionable stale commands.
+
 ### The menu button
 
 A menu button is a button, as the buttons section specifies, in either size, with the caret glyph at 12px after its label, drawn at 75% opacity. The caret says that pressing the button opens something rather than doing something. While its panel is open, the button is drawn pressed in, with the fill `raise-active-bg` and the shadow `raise-active-shadow`, as a latched toggle button is.

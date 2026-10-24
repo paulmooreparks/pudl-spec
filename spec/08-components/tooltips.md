@@ -23,7 +23,7 @@ A tooltip appears when the pointer has rested on its control for 450ms. While on
 
 The tooltip stays while the pointer is over its control or over the tooltip itself, so the reader can move the pointer onto it to read it or to magnify it. When the pointer leaves both, the tooltip hides 150ms later, and returning within that time keeps it. The tooltip also hides when its control loses focus, when the reader presses anywhere with the pointer, and when the view scrolls.
 
-Escape hides a tooltip that is showing. That press of Escape hides only the tooltip, so a reader dismissing a tooltip inside a menu or a dialog does not also close the menu or the dialog.
+Escape hides a tooltip that is showing without stopping propagation or preventing the default action. The same press remains available to the surrounding menu, dialog or application interaction.
 
 Only one tooltip shows at a time. A control MUST NOT show a second tooltip beside PUDL's, such as one the platform draws for the same control.
 
@@ -47,7 +47,7 @@ In the platform's high-contrast mode a tooltip gains a visible border, since its
 1. Every glyph-only control the implementation draws itself has a tooltip whose text is its accessible name.
 2. A tooltip appears after the pointer rests on its control, and at once when the control receives focus from the keyboard.
 3. A tooltip stays while the pointer moves from its control onto the tooltip.
-4. Escape hides a showing tooltip, and the same press closes no menu or dialog around it.
+4. Escape hides a showing tooltip and remains available to the surrounding interaction.
 5. A tooltip hides when its control loses focus, on a pointer press, and when the view scrolls.
 6. A tooltip sits above its control, or below when there is no room above, and stays inside the window.
 7. Only one tooltip shows at a time, and no platform tooltip shows beside it.

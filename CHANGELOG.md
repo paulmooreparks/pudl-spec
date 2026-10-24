@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.42.0
+
+Selection actions and margin notes provide scoped passage actions and aligned notes without moving the reading column. Narrow containers use passage markers and a readable note list. Menu bars support explicit host focus entry and validated return; redraws retain surviving valid menus. Tooltip Escape dismissal now allows the same key to reach surrounding interactions.
+
 ## 0.41.0
 
 Ribbon tabs keep their full-title hover and keyboard-focus tips, and a labeled Ribbon tabs chooser provides keyboard and touch selection by title. Applications may offer outline resizing for expensive window content, deferring geometry changes until pointer release while retaining immediate keyboard resizing and cancellation.
