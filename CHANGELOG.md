@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.44.0
+
+Native full-screen controls match normal floating-window button dimensions and shape while retaining edge-reaching hit areas. Their application menu uses the window glyph by default and may display an application image.
+
 ## 0.43.0
 
 Native full-screen application windows can supply a top-left application window menu and top-right Minimize, Restore and Close controls. The controls reserve space before menu folding, retain physical corner order in RTL and use host-reported state and capabilities. Native actions, confirmation and placement remain the host's responsibility.
