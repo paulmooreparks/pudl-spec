@@ -18,9 +18,9 @@ The chosen tab is momentary, as an open menu is, so it is not part of the page's
 
 ## Interaction
 
-Every ribbon tab exposes its full title on hover and on keyboard focus, including when its words have folded away. A labeled **Ribbon tabs** menu offers the available tabs by their full titles and marks the current tab. It is a separate stop in the tab order and opens with Enter, Space or Down Arrow. Choosing a title selects that tab; Escape returns focus to the chooser. The chooser is available to touch users without a long-press gesture.
+Every ribbon tab exposes its full title on hover and on keyboard focus, including when its words have folded away. A labeled **Ribbon tabs** menu appears when application menu-bar tab titles fold to glyphs or standalone ribbon tabs overflow their strip. It stays hidden when all titles fit. It offers the available tabs by their full titles and marks the current tab. While visible, it is a separate stop in the tab order and opens with Enter, Space or Down Arrow. Choosing a title selects that tab; Escape returns focus to the chooser. The chooser is available to touch users without a long-press gesture. Widening closes an obsolete chooser and returns its focus to the selected tab.
 
-The tab bar is one stop in the tab order, and the arrow keys, Home and End move among its tabs and choose them, as among tabs within a page. In a standalone ribbon, Tab moves from the tab bar to Ribbon tabs, then Show as ribbon and then into the chosen row, which is a toolbar with the keys the section on toolbars sets out. In an application's unfolded menu bar, the chooser stands beside the chosen row. When the ribbon is folded into menus, its menu bar has the keys of a command bar's menus.
+The tab bar is one stop in the tab order, and the arrow keys, Home and End move among its tabs and choose them, as among tabs within a page. In a standalone ribbon, Tab moves from the tab bar to Ribbon tabs when visible, then Show as ribbon and then into the chosen row, which is a toolbar with the keys the section on toolbars sets out. In an application's unfolded menu bar, the chooser stands beside the chosen row. When the ribbon is folded into menus, its menu bar has the keys of a command bar's menus.
 
 ## Accessibility
 

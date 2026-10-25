@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.44.1
+
+The Ribbon tabs chooser appears only when tab titles fold to glyphs or a standalone tab strip overflows. Widening dismisses an obsolete chooser and returns its focus to the selected tab.
+
 ## 0.44.0
 
 Native full-screen controls match normal floating-window button dimensions and shape while retaining edge-reaching hit areas. Their application menu uses the window glyph by default and may display an application image.
