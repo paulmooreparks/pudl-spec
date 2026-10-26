@@ -25,6 +25,8 @@ The tooltip stays while the pointer is over its control or over the tooltip itse
 
 Escape hides a tooltip that is showing without stopping propagation or preventing the default action. The same press remains available to the surrounding menu, dialog or application interaction.
 
+A tooltip MUST NOT cover what its control has opened. While a control's menu or popover is open, its tooltip does not appear, and a tooltip that is showing hides when any menu or popover opens. A tooltip that would only repeat words its control already shows in full, such as a menu title before it folds to its glyph, does not appear; once those words are cut short or hidden, it does.
+
 Only one tooltip shows at a time. A control MUST NOT show a second tooltip beside PUDL's, such as one the platform draws for the same control.
 
 A tooltip is momentary, and it is not part of the reader's restorable state.
@@ -55,3 +57,4 @@ In the platform's high-contrast mode a tooltip gains a visible border, since its
 9. A tooltip's words reach 4.5:1 against its fill, in both themes.
 10. A tooltip holds nothing that can be pressed or focused.
 11. A tooltip's corners are `radius-xs`.
+12. No tooltip shows while its control's menu or popover is open, and none repeats words its control shows in full.

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.46.1
+
+A tooltip no longer covers what its control has opened. It does not appear while the control's menu or popover is open, and a showing tooltip hides when any menu or popover opens. A tooltip that would only repeat words its control shows in full does not appear.
+
 ## 0.46.0
 
 Taskbars may opt into reader-controlled window ordering with pointer dragging, scoped keyboard moves, context commands and a visible draft arrangement control. Ordering remains independent of window activation and shared-dock placement, includes overflow entries, reconciles live membership and persists in URL history.
