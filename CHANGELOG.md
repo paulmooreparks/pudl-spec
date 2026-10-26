@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.45.0
+
+Title-bar status chips inherit their bar's foreground and use transparent fills with currentColor outlines. A strong variant emphasizes in-progress work by weight. Chips compact before they truncate the title and in vertical collapsed headers; their full text remains available through a read-only popover and window command, including shared docks with hidden headers.
+
 ## 0.44.1
 
 The Ribbon tabs chooser appears only when tab titles fold to glyphs or a standalone tab strip overflows. Widening dismisses an obsolete chooser and returns its focus to the selected tab.

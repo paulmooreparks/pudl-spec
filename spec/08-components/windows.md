@@ -6,6 +6,14 @@ This section covers the window itself, the windows a window opens for its own co
 
 ## Anatomy
 
+### Title-bar status
+
+A window MAY show a group of noninteractive status chips after its title and optional detail and before its window controls. Each chip inherits the title bar's foreground, has a transparent background and a 1px currentColor outline, and casts no shadow. Its corners use radius-pill, its text uses text-2xs with line height 1.55, and its padding is 6px at the sides. Ordinary text uses weight 500; a strong in-progress variant uses weight 700. Status words identify the state independently of colour, and an optional decorative glyph does not replace those words. The same treatment applies to active and inactive windows and forced colours.
+
+If the full chips would truncate the title or overflow the header, they compact to a raised glyph button named Window status. A collapsed vertical header always uses the compact control. The control opens a read-only popover listing the full visible status text and a Dismiss button. Widening restores full chips when they fit; if the compact control or its popover held focus, it closes and focus returns to the header. An empty group takes no space. Mandatory window controls retain priority when even the compact form cannot preserve the full title.
+
+The window's commands also offer Window status, so shared docks with hidden individual headers retain a route to the popover through their window menus. The application owns the text, counts and any live announcements. Updating status presentation does not change the URL. Existing ordinary chips and status badges elsewhere retain their own appearance.
+
 ### The workspace
 
 Windows float over a workspace, the region of the application they may occupy, which is usually the main area below the application bar. The workspace does not scroll; the content inside it and inside each window does. The workspace holds the application's own content, beneath the windows, and that content stays usable wherever no window covers it.
