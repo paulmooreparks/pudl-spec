@@ -46,7 +46,7 @@ The **body** is `surface`, bounded by a 1px hairline in `border` at its sides an
 
 ### The dock of open windows
 
-The dock of open windows has one tab for each open top-level window, in the order the windows were opened, and it MAY sit anywhere in the application, usually in a taskbar along the workspace's foot, as below, or in a toolbar above the workspace. An empty dock draws nothing and takes no height.
+The dock of open windows has one tab for each open top-level window, initially in the order the windows were opened, and it MAY sit anywhere in the application, usually in a taskbar along the workspace's foot, as below, or in a toolbar above the workspace. An empty dock draws nothing and takes no height. Where taskbar ordering is enabled, every dock of open windows projects the same reader-chosen order.
 
 A tab is raised, with corners of `radius-sm`, filled with `raise-grad`, bounded by `raise-border` and casting `raise-shadow`, padded 3px above and below and 10px at the sides. Its words are the window's title at `text-xs` and weight 600, on one line, at most 220px wide and ending in an ellipsis. The tabs are 6px apart and wrap onto further lines when they need to.
 
@@ -57,6 +57,12 @@ An application MAY also offer controls that act on every window at once: one tha
 A tab's **context menu** is its window's menu: the window's own commands, then Snap and Dock as submenus, then the commands of what the window holds, then Close. It opens against the tab, as a menu button's panel opens, below the tab in the top half of the screen and above it in the bottom half, rather than at the pointer, where it would cover the tab. While it is open the tab keeps its hover look and wears a 2px ring in `accent`, 1px outside its border, so the reader can see which window the menu is for. An application MAY give a tab a menu of its own instead, or none.
 
 ### The taskbar
+
+An application MAY enable reordering of its taskbar's window entries. Mouse and pen dragging MUST have an insertion marker with a textual destination and MUST preserve normal clicks below the drag threshold. A completed drag MUST NOT activate, minimize or undock a window. Escape, pointer cancellation, lost capture, blur, viewport resize, participating-window changes and release outside the strip MUST discard the preview. Pointer motion MUST NOT repeatedly reapply window layouts or write history.
+
+Reordering MUST also be available without dragging. Each entry's context menu provides Taskbar order with Move earlier, Move later, Move to beginning, Move to end and Arrange taskbar. Boundary moves are disabled. Alt+Shift+Left/Right moves a focused entry in the physical arrow direction, mirrored for right-to-left text. A visible Arrange taskbar control provides a click/tap route independent of context menus and overflow. Its nonmodal draft list includes overflow entries, offers separate move controls, and commits once through Apply order. Cancel or dismissal discards the draft. Focus follows the moved entry, falling back to More when overflow hides it; completed moves receive a polite announcement. Draft announcements identify themselves as previews.
+
+Taskbar order MUST remain independent of activation, MRU, child membership and shared-dock pane order. Required windows remain movable. New roots append, closed roots disappear, and rekey or replacement preserves the original root's position. Live arrangement drafts reconcile membership by stable keys without reopening closed windows. A taskbar that omits docked roots projects the canonical order without deleting omitted positions. Application buttons and tray controls retain their authored places. Successful moves produce one history entry; no-ops and cancellation produce none. The canonical root order is URL-addressable and survives reload and Back/Forward.
 
 An application MAY hold its dock of open windows in a **taskbar**, a bar along the foot of the workspace, or along its head. The bar is `surface-alt`, with a 1px hairline in `border` along the edge it shares with the workspace, padded 6px above and below and 12px at the sides, with 6px between the things it holds. At the foot it adds the platform's safe area at the bottom, so nothing sits under a phone's home indicator.
 

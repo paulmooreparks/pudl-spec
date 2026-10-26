@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.46.0
+
+Taskbars may opt into reader-controlled window ordering with pointer dragging, scoped keyboard moves, context commands and a visible draft arrangement control. Ordering remains independent of window activation and shared-dock placement, includes overflow entries, reconciles live membership and persists in URL history.
+
 ## 0.45.0
 
 Title-bar status chips inherit their bar's foreground and use transparent fills with currentColor outlines. A strong variant emphasizes in-progress work by weight. Chips compact before they truncate the title and in vertical collapsed headers; their full text remains available through a read-only popover and window command, including shared docks with hidden headers.
