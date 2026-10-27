@@ -43,7 +43,7 @@ Each status colour has a glyph of its own, so that a status is never told by col
 | `restore-all` | Restore every minimised window, the screen with the chevron pointing up |
 | `close-all` | Close every window, two windows stacked with a cross on the front one |
 | `more` | A row's actions button, which opens the row's context menu: three dots in a row |
-| `branch` | A child window's row beneath its parent in a list |
+| `branch` | A child window's row beneath its parent in a list. For a line of work that splits off, as in version control, use `fork` |
 | `circle` | The dock tab of a window that is showing, and a document tab with unsaved changes |
 | `ring` | The dock tab of a minimised window |
 
@@ -63,8 +63,8 @@ Each status colour has a glyph of its own, so that a status is never told by col
 | `inbox` | Items waiting to be dealt with, such as drafts waiting for review |
 | `shield` | Protection, security or moderation |
 | `terminal` | A command line or console, where `script` is a program's source |
-| `plus` | Add one, or zoom in: a row to a list, a step of scale |
-| `minus` | Take one away, or zoom out |
+| `plus` | Add one, or zoom in: a row to a list, a step of scale; and, as a state, something added, such as an added line in a diff or an added file |
+| `minus` | Take one away, or zoom out; and, as a state, something removed |
 | `arrow-up`, `arrow-down` | Move something up or down, such as a step in a list; a chevron says direction, an arrow with a stem says movement |
 | `new-window` | Open something in a window of its own, where `open` means go to its page |
 | `pencil-off` | A place that cannot be written to, such as a read-only folder; `shield` marks what needs elevation |
@@ -84,7 +84,8 @@ The commands of a page editor's toolbar, each the mark its command leaves or the
 | `paragraph` | The paragraph's style, such as a heading level |
 | `image` | Insert a picture |
 | `clip` | Attach a file |
-| `download` | Download a file |
+| `download` | Bring something here from elsewhere, such as downloading a file or pulling changes |
+| `upload` | Send something from here to elsewhere, such as uploading a file or pushing changes |
 | `gear` | Settings, or the commands an applet offers |
 | `menu` | A menu bar's menus, and the menu bar as one button when it does not fit |
 | `ribbon` | A ribbon's tools shown as a row under its tabs, on the Show as ribbon toggle |
@@ -114,6 +115,21 @@ These mark what an item in a list is, in file managers, document lists and attac
 | `link` | A link to somewhere else |
 | `board` | A project, a board or a backlog, such as a tracker's project |
 | `ticket` | An issue, a task or a request in a tracker |
+
+### Versions and changes
+
+These mark the history of a body of work, in version control and in anything else that keeps versions, such as a wiki's page history or a document's revisions.
+
+| Glyph | Meaning |
+|---|---|
+| `commit` | A saved revision of a body of work, such as a commit or a version |
+| `fork` | A line of work that splits from another, such as a branch in version control or a copy of a repository |
+| `merge` | Two lines of work joined into one |
+| `tag` | A label fixed to one thing to find it again, such as a release tag or a note's tag |
+| `stash` | Work set aside, to be taken up again later |
+| `history` | The earlier states of something, in time order |
+| `compare` | Two versions shown together to see what changed, such as a diff |
+| `move` | Moved from one place to another, such as a renamed file or one moved between folders |
 
 ## Adding a glyph
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.49.0
+
+Chapter 5 gains glyphs for versions and changes: `commit`, `fork`, `merge`, `tag`, `stash`, `history`, `compare` and `move`, and `upload` beside `download`. `download` widens to bringing something here from elsewhere, such as pulling changes, and `upload` is its counterpart. `plus` and `minus` also mark something added or removed, such as a line in a diff. `branch` keeps its meaning, a child window's row beneath its parent; a line of work that splits off is `fork`.
+
 ## 0.48.0
 
 The palette gains eight category colours, `category-1` to `category-8`, in both forms, for marks that tell things apart without saying anything about their state, such as a chart's series, tags and the lanes of a history graph. Chapter 3 sets their rules: 3:1 against `bg`, `surface` and `input-bg`; at least 12 in OKLab and 20 degrees of hue from each status colour, and 8 from the accent; neighbours at least 15 apart, and 8 under simulated protanopia and deuteranopia; never the only way a thing is identified. A theme that changes `bg`, `surface`, `input-bg` or the lighting sets all eight. In forced colours they become the system's text colour.
