@@ -4,9 +4,9 @@ A tab names one of several things that share a space, and pressing it brings tha
 
 ## Anatomy
 
-Tabs stand in a row on a tab bar. The bar is a recessed band, filled with `recess-bg`, shaded from above with `recess-shadow`, and ruled along its foot with a 1px line in `border`. It has 10px of padding above its tabs, 16px (`space-4`) at either end and none below, so the tabs stand on its foot. The tabs are 4px (`space-1`) apart. When they outrun the bar's width the bar scrolls sideways, and it never widens the view.
+Tabs stand in a row on a tab bar. The bar is a recessed band, filled with `recess-bg`, shaded from above with `recess-shadow`, and ruled along its foot with a 1px line in `border`. It has 9px of padding above its tabs, 16px (`space-4`) at either end and none below. The tabs the reader can press stand on the rule, 1px above the foot, so the rule runs unbroken in front of them; only the current tab reaches the foot and opens the rule. The tabs are 4px (`space-1`) apart. When they outrun the bar's width the bar scrolls sideways, and it never widens the view.
 
-A tab the reader can press is raised. It is filled with `raise-grad` and bounded on its top and sides by a 1px hairline in `raise-border`, with no line at its foot, where it stands on the bar. Its top corners are `radius-sm` and its foot is square. It is lit along its top edge by a 1px line of `light` at the strength `lit` sets, and casts no shadow outside itself, because it rises from the band rather than floating over it. Its label is set in the interface face at `text-sm` and weight 600, in `text`, on one line, with 5px of padding above, 14px either side and 4px below.
+A tab the reader can press is raised. It is filled with `raise-grad` and bounded on its top and sides by a 1px hairline in `raise-border`, with no line at its foot, where it stands on the bar's rule. Its top corners are `radius-sm` and its foot is square. It is lit along its top edge by a 1px line of `light` at the strength `lit` sets, and casts no shadow outside itself, because it rises from the band rather than floating over it. Its label is set in the interface face at `text-sm` and weight 600, in `text`, on one line, with 5px of padding above, 14px either side and 4px below.
 
 The tab for where the reader is, the current section or the chosen panel or document, is the exception chapter 2 makes to drawing where the reader is as pressed in. It stands flat, because it is the edge of the content below rather than a control beside it. It has no light, a 1px border in `border`, and is filled with `section-current-bg`, which is the colour of the content below the bar, so the content visibly hangs from it. It stands 4px taller than the other tabs, with 7px of padding above and 6px below, and it is open at its foot into the content. The bar keeps the same height whether or not one of its tabs is current, so the content below does not move when a tab becomes current.
 
@@ -90,7 +90,7 @@ In the platform's high-contrast mode, every tab and panel keeps a visible border
 
 ## Conformance checklist
 
-1. A tab bar is recessed, and its tabs stand on its foot, raised, with square feet and `radius-sm` top corners.
+1. A tab bar is recessed, and the tabs the reader can press stand on its rule, 1px above its foot, raised, with square feet and `radius-sm` top corners.
 2. The current or chosen tab, of every kind, is flat, 4px taller than the others, and open at its foot into the content below.
 3. The tab bar keeps the same height whether or not one of its tabs is current.
 4. A tab's label is `text-sm` at weight 600, on one line.

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.46.2
+
+The tabs a reader can press stand on the tab bar's rule, 1px above its foot, so the rule runs in front of them. Only the current tab reaches the foot and opens the rule into the content. The bar's top padding is 9px, so the bar's height and the current tab's position are unchanged.
+
 ## 0.46.1
 
 A tooltip no longer covers what its control has opened. It does not appear while the control's menu or popover is open, and a showing tooltip hides when any menu or popover opens. A tooltip that would only repeat words its control shows in full does not appear.
