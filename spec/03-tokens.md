@@ -25,6 +25,7 @@ The palette has a light form and a dark form, in `palette.light.tokens.json` and
 | `lit`, `depth` | How strongly the light shows and how strongly the shadow does, each a number from 0 to 1 |
 | `tb-bg`, `tb-fg` | The application bar's background and foreground, which may stay dark on a light page |
 | `syntax-keyword` to `syntax-error` | The ten colours of highlighted code |
+| `category-1` to `category-8` | Eight colours that tell things apart without saying anything about their state, such as a chart's series, tags and the lanes of a history graph |
 
 `lit` and `depth` are how a theme tunes elevation. A light theme wants a strong highlight and a soft shadow, and a dark theme wants the reverse, which is why the light palette sets `lit` to 0.9 and `depth` to 0.18 and the dark one sets them to 0.07 and 0.48.
 
@@ -36,6 +37,19 @@ A theme sets any palette token, in both forms. The result MUST keep these rules.
 - Text reaches a contrast of 4.5:1 against its background, and the bounds of a control and a focus indicator reach 3:1 against what surrounds them, as WCAG 2.2 requires at level AA.
 - `warn`, `danger`, `positive` and `accent` stay distinguishable from one another.
 - Each syntax colour reaches 4.5:1 on `surface`, `surface-alt` and `input-bg`.
+- A theme that changes `bg`, `surface`, `input-bg` or the lighting sets all eight category colours, in both forms, and they keep the rules of the next section. The defaults fail most other surfaces, so a theme MUST NOT rely on them.
+
+### Categorical colours
+
+The category colours are for marks that tell things apart, such as lines, dots, swatches, bars and the edge of a chip. They say nothing about state, so a status colour MUST NOT stand in for one, and a category colour MUST NOT be used where a status is meant. Consumers assign them in order, so the first slots are the ones most often seen together. Each form of the palette keeps these rules, measured as follows: contrast is the WCAG 2.2 ratio of chapter 6; distance is the Euclidean distance between two colours in OKLab, multiplied by 100; and colour-vision deficiency is simulated with the model of Machado, Oliveira and Fernandes (2009) at full severity.
+
+- Each category colour reaches 3:1 against `bg`, `surface` and `input-bg`, as WCAG 2.2 asks of a graphical object that conveys information. `surface-alt` is not in the rule, so a mark drawn on `surface-alt` has a 1px outline in `text-muted`, or the application keeps its marks off that surface.
+- Each category colour is at least 12 from `warn`, `danger` and `positive`, and its hue is at least 20 degrees from each of theirs.
+- Each category colour is at least 8 from `accent`.
+- Neighbouring slots are at least 15 apart for normal vision and at least 8 apart under simulated protanopia and deuteranopia. Eight colours cannot all be told apart under simulation, so where any mark may sit beside any other, as in a scatter plot or a set of tags, the first four slots are the safer set.
+- A category colour is never the only way a thing is identified. A lane has its position and its drawn topology, a chart's series has a legend or a direct label, and a tag has its words.
+
+Words beside a mark stay in `text` or `text-muted`, since a slot need not reach 4.5:1 and a coloured word reads like a link or a status. An application assigns slots in a stable order by identity, so hiding one series does not repaint the others. Past eight, where position or words already identify each item, slot nine takes slot one's colour and the sequence repeats; where colour is the main way to match an item to its legend, as in a chart, the application shows seven and folds the rest into one "Other" in `text-muted`, or splits the chart. In the platform's forced-colours mode every category colour becomes the system's text colour, and identity rests on position, labels and legends.
 
 ## The scales
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.48.0
+
+The palette gains eight category colours, `category-1` to `category-8`, in both forms, for marks that tell things apart without saying anything about their state, such as a chart's series, tags and the lanes of a history graph. Chapter 3 sets their rules: 3:1 against `bg`, `surface` and `input-bg`; at least 12 in OKLab and 20 degrees of hue from each status colour, and 8 from the accent; neighbours at least 15 apart, and 8 under simulated protanopia and deuteranopia; never the only way a thing is identified. A theme that changes `bg`, `surface`, `input-bg` or the lighting sets all eight. In forced colours they become the system's text colour.
+
 ## 0.47.0
 
 A toast may carry one action, the single obvious next step after what it reports, as a small raised button between its message and its dismiss button. A toast with an action never leaves by itself, and pressing the action runs it and starts the toast leaving. The step must also be available somewhere that lasts, and where the application has a command for it, the action should be that command. This settles the open question of whether a toast may carry an action, and leaves open how a keyboard reader reaches the action without passing through the whole view.
