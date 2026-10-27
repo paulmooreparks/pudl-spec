@@ -33,6 +33,8 @@ A notice keeps its content inside its card whatever the text. A word with no spa
 
 A toast is a small panel lifted above the view. It is filled with `dialog-bg`, bounded by a 1px line in `border`, edged on its start side with a 4px bar of the notice colour, and has `radius-sm` corners. It casts `shadow-card` together with a soft shadow of `shade`, 10px below it and blurred over 28px, at 1.4 times the strength `depth` sets. It has 12px (`space-3`) of padding above, below and at its end, and 16px (`space-4`) at its start. Inside it, 12px (`space-3`) apart, are the kind's glyph at 18px in the notice colour, the message set at `text-md` in `text`, and a dismiss button at the end.
 
+A toast MAY carry one **action**, the single obvious next step after what it reports, such as Restart Now after an update has downloaded or Try Again after a download failed. The action is a small raised button between the message and the dismiss button, labelled with what it does; a label too long for the room ends in an ellipsis, with its whole label as its tooltip. A toast has at most one action. A message that needs two choices is a dialog or a notice, and an error the reader must act on is still a notice. The action MUST also be available somewhere that does not leave, such as the matching entry in the application's notifications or a command in a menu, because a toast is easy to miss. Where the application has a command for the step, the action SHOULD be that command, so the toast, a menu, a key and an agent all run one thing.
+
 Toasts gather in a stack at the foot of the window, in its end corner, 16px (`space-4`) from the foot and from the end side. The stack is as wide as 384px or the window less 32px, whichever is smaller, and each toast fills its width. The toasts are 8px (`space-2`) apart, and a new toast joins the stack at the foot. The space between and around the toasts does not catch presses, so the reader can still press what lies beneath it. Where a [taskbar](windows.md#the-taskbar) runs along the foot of the window, the stack stands 16px above the taskbar instead, so a toast never covers its tray or its buttons.
 
 A toast raised while a modal dialog is open appears inside the dialog, above its backdrop, where the reader can read it and press its dismiss button. When the dialog closes, any such toast still showing moves back to the page's stack.
@@ -60,11 +62,15 @@ A notice stays until the reader presses its dismiss button, where it has one, or
 
 A toast leaves by itself 5 seconds after it appears, unless the application gives it a different time. Its time stops running while the pointer is over it or focus is inside it, and runs on for the time that was left once both have gone, so a reader who is reading it or about to press its dismiss button does not lose it. The application MAY make a toast stay until the reader dismisses it. Pressing a toast's dismiss button starts it leaving at once.
 
+A toast with an action MUST NOT leave by itself. It stays until the reader presses its action or its dismiss button, or the application removes it, because a button that leaves on a timer fails a reader who is slow to reach it (WCAG 2.2 success criterion 2.2.1). Pressing the action runs it and starts the toast leaving. If the action fails, the application reports the failure as it would any other, and the action stays available where it lasts.
+
 A toast that is present when a view first appears, such as one confirming a save after the application has moved the reader to a new view, MUST be announced as a toast raised afterwards is.
 
 ## Accessibility
 
 The stack of toasts is exposed as a status region whose changes are announced politely, so assistive technology reads each toast as it arrives, after whatever it is already saying. A notice that appears after the view has loaded SHOULD be exposed so that it is announced: as an alert when it reports a failure, and as a status otherwise.
+
+A toast's action is exposed as a button with its label as its name. Since a status region announces text, the toast's message SHOULD say what the action offers, such as "The update is ready. Restart now to install it.", so a reader who hears the toast knows the step is there.
 
 The kind's glyph is drawn and not exposed. Where the message alone does not make the kind plain, its words SHOULD say it, as "The expense could not be saved" does.
 
@@ -72,7 +78,7 @@ In the platform's high-contrast mode, a notice and a toast keep a visible border
 
 ## Questions this section must settle
 
-- Whether a toast may carry an action, such as Undo, which the buttons section suggests a destructive action should offer. An action that leaves after five seconds is hard to reach for a reader who is slow, uses a keyboard or uses a screen reader, and WCAG 2.2 success criterion 2.2.1 bears on it.
+- How a keyboard reader reaches a toast's action without passing through the whole view, since the stack sits at the end of the reading order.
 - What a danger toast is for, given that an error the reader must act on is always a notice, and whether it is announced more urgently than the other kinds.
 - Whether the kind of a notice or a toast must be exposed to assistive technology in its own right, since chapter 2 requires every shown state to be exposed and today the kind is carried only by the glyph, the colour and whatever the words say.
 - Whether the five seconds a toast stays is part of the language or a default each platform may change, and whether a reader may lengthen it.
@@ -91,3 +97,4 @@ In the platform's high-contrast mode, a notice and a toast keep a visible border
 9. Every message reaches 4.5:1 against its panel in every kind, in both themes.
 10. In high-contrast mode a notice and a toast keep a border, their start edge and a visible glyph.
 11. A notice's and a toast's content stays inside the card: a word with no space breaks at the edge, prose breaks as before, a code block scrolls, and a long action ends in an ellipsis with its whole label as its tooltip.
+12. A toast has at most one action, a small raised button between its message and its dismiss button; a toast with an action never leaves by itself, and pressing the action runs it and starts the toast leaving.

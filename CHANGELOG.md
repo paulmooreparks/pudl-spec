@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.47.0
+
+A toast may carry one action, the single obvious next step after what it reports, as a small raised button between its message and its dismiss button. A toast with an action never leaves by itself, and pressing the action runs it and starts the toast leaving. The step must also be available somewhere that lasts, and where the application has a command for it, the action should be that command. This settles the open question of whether a toast may carry an action, and leaves open how a keyboard reader reaches the action without passing through the whole view.
+
 ## 0.46.3
 
 A menu bar unfolded into a ribbon draws the application bar's rule in `border`, the colour of the chosen tab's outline, so the line runs on from the chosen tab and in front of the others. A dark application bar's own rule was darker, which left the line broken.
