@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.46.3
+
+A menu bar unfolded into a ribbon draws the application bar's rule in `border`, the colour of the chosen tab's outline, so the line runs on from the chosen tab and in front of the others. A dark application bar's own rule was darker, which left the line broken.
+
 ## 0.46.2
 
 The tabs a reader can press stand on the tab bar's rule, 1px above its foot, so the rule runs in front of them. Only the current tab reaches the foot and opens the rule into the content. The bar's top padding is 9px, so the bar's height and the current tab's position are unchanged.
