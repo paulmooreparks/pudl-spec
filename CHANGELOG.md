@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.50.0
+
+Chapter 8 gains a section on diffs: their two layouts, their parts and how each is drawn, the derived tokens `diff-add`, `diff-del`, `diff-add-bg` and `diff-del-bg`, choosing lines, accessibility and forced colours. Every changed line shows its sign, since the tint alone is below 3:1. The tint is the strongest at which every syntax colour still reaches 4.5:1 over `input-bg`, 10% for the default palette. Lines that can be chosen are at least 24px tall with the whole gutter cell as the target. Three-way views for resolving conflicts remain open.
+
 ## 0.49.0
 
 Chapter 5 gains glyphs for versions and changes: `commit`, `fork`, `merge`, `tag`, `stash`, `history`, `compare` and `move`, and `upload` beside `download`. `download` widens to bringing something here from elsewhere, such as pulling changes, and `upload` is its counterpart. `plus` and `minus` also mark something added or removed, such as a line in a diff. `branch` keeps its meaning, a child window's row beneath its parent; a line of work that splits off is `fork`.
