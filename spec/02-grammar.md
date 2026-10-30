@@ -10,6 +10,8 @@ Every surface a reader sees has one of three elevations, and the elevation says 
 - **Sunken** means the thing takes input. A sunken surface sits below what is around it, with a shadow falling inside its top edge. Text fields, selects, text areas and a switch's track are sunken.
 - **Flat** means the thing is there to be read. Text, tables of values, badges and a read-only field are flat.
 
+The descriptions above define Standard's paint. An admitted skin MAY express the same elevations with different edge lighting, gradients or shadows, including a flat fill bounded by a bevel. Its raised, pressed and sunken treatments MUST remain visibly distinct, and the component assignments do not change.
+
 The three elevations MUST stay distinct from one another in every theme and in every state, so that a reader can tell them apart at a glance. A raised control that is pressed, or latched on, is drawn pressed in: it keeps its bounds and loses its light, and the shadow moves inside it. It does not become flat, because it can still be pressed again.
 
 Nothing is raised that cannot be pressed, and nothing sunken that cannot take input. A disabled control keeps its elevation and is dimmed, so the reader learns that it exists and what it would do.

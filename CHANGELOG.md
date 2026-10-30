@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.52.0
+
+Skins may express PUDL's existing component grammar through validated surface treatments and decorative radii. The specification defines palette precedence, Standard preservation, host-owned persistence, availability fallback and separate rendered admission. Historical resemblance grants no accessibility or behavioral exception.
+
+Taskbar stacks gain full mode, with a single overflow threshold, return margin and interaction deferral.
+
 ## 0.51.0
 
 Chapter 8 defines opt-in taskbar stacks, including represented-root counts and lifecycle commands, host-supplied membership, preview and pinned lists, accessible row controls, live updates, canonical ordering, overflow and localization. Group commands preserve omitted windows and the existing cancellable close lifecycle. Ordinary taskbars keep their current behavior.

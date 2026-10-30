@@ -59,7 +59,7 @@ A theme MUST NOT change the scales. It MAY change the three faces, `font`, `font
 
 ## The derived tokens
 
-The derived tokens are in `derived.json`, where each is a formula over the palette. An implementation MUST compute each one from the palette in force, so that a theme's palette reaches every derived value. A derived token with separate `light` and `dark` members has a formula for each theme.
+The derived tokens are in `derived.json`, where each is a formula over the palette. Except for the approved treatment mappings of an admitted skin, an implementation MUST compute each one from the palette in force, so that a theme's palette reaches every derived value. A derived token with separate `light` and `dark` members has a formula for each theme.
 
 ### Colours
 
@@ -101,3 +101,15 @@ With the light palette that is `#ffffff` at 0.9 into `#e4e7eb`, which comes to a
 ## Glyphs
 
 The glyphs are in `glyphs/`, one SVG file each, drawn on a 16-unit grid and filled or stroked in black. Chapter 5 sets out their meanings and how they are drawn.
+
+## Skins
+
+A skin changes decorative geometry and surface treatments while retaining component meanings. Standard is the appearance defined by the token files above and requires no selected skin. An implementation MAY offer additional skins through bounded structured definitions. A skin MUST NOT supply executable behavior or arbitrary component selectors. The implementation owns each named treatment and validates its values before generating platform styles.
+
+A skin MAY change decorative radii, including pill ends, and the fills, edge lighting and shadows that express raised, pressed, sunken and lifted surfaces. It MUST preserve structural seams, hit targets, type and spacing scales, focus order, visible action glyphs and every accessibility requirement. Intentional circles and resize hit areas are structural geometry, not decorative corner tokens. Focus paint MAY change to meet contrast requirements while preserving focus behavior and placement.
+
+A skin MAY supply palette defaults in both light and dark forms. The effective palette is Standard defaults followed by the selected skin's defaults followed by the host's palette overrides. Surface paints MUST consume that effective palette. Host themes MUST NOT redefine a skin's treatment mapping. Each offered host palette and skin combination MUST satisfy the palette and rendered contrast requirements. System-colour and print treatments remain component-owned.
+
+A skin MUST NOT change mounted content, command meaning, window state or navigation history when selected. A missing or unavailable skin MUST fall back to Standard while retaining the requested preference. Hosts with an authoritative appearance store MUST be able to disable implementation-owned persistence and external-storage synchronization. Availability and conformance are separate: successful loading does not admit a skin for release.
+
+Implementations MUST publish a machine-readable catalogue identifying each admitted skin and its required assets. New treatment families require rendered verification of their component states before admission. Historical resemblance grants no conformance exception.
