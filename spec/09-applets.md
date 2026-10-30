@@ -70,3 +70,5 @@ An instance MAY offer a menu bar's front menu in full, asked afresh each time a 
 
 - Whether a request's state should survive the host restoring its windows, as the rest of an arrangement does. In the web implementation it reaches a new window through memory, so a reload keeps the window but loses the request unless the host keeps it.
 - Whether an applet's instance limit belongs to the applet or to the host.
+
+A menu or ribbon MUST recheck a contributed command against the current source before invoking it. A removed or disabled command cannot run through an older rendered control. Hosts provide a notification mechanism for changes that must redraw an already-open menu or ribbon, while opening a menu always reads current commands. Renaming the front window updates its generated menu identity.

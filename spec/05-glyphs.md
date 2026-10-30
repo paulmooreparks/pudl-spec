@@ -139,3 +139,7 @@ A glyph is added to the language by adding its file here, drawn to the same grid
 
 - What a platform that can only show characters, such as a terminal, draws for each glyph. The rule above against font characters needs a stated exception for it, with safeguards of its own, such as a fixed set of characters known to render in the common terminals.
 - Whether `circle` and `ring` should have names of their own for the unsaved and minimised states, so that a platform can draw them differently from the status circle.
+
+## Execution states
+
+Working uses the open arc `working`, Waiting uses `flag`, Stuck uses `warning`, and Idle uses the hollow `ring`. Working may rotate, but remains an open arc when reduced motion stops animation. These glyphs are distinct without colour. Their semantic colours are accent, warn, danger and text-muted respectively.

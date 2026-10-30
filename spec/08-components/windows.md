@@ -451,3 +451,9 @@ A printed page with windows open carries the window in front as its content, its
 ## Taskbar stacks
 
 Opt-in taskbar grouping follows the [taskbar stacks contract](taskbar-stacks.md). Existing ungrouped taskbars retain their behavior.
+
+## Execution-state marks
+
+A window may declare Working, Waiting, Stuck or Idle independently of unread counts, lifecycle and provider connection. Compact taskbar, dock and title marks use a fixed-width glyph slot with an accessible name and tooltip. The slot remains reserved without a state, so changing execution state never shifts controls or changes a fold threshold. Stack popup and folded status rows show the glyph, colour and words; labels are truncated within reserved space with full accessible names and tooltips and controls remain fixed. A folded status retains its glyph and semantic colour.
+
+Stacks aggregate their represented windows in the priority order Stuck, Waiting, Working, Idle and expose counts for each present state. Unmarked windows contribute no execution state. Legacy running marks render as Working, including its glyph. Forced colours preserve the distinct glyphs.

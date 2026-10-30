@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.52.1
+
+Execution states share distinct glyphs and semantic colours across compact and folded window surfaces. Compact marks reserve space even without a state. Working gains an open-arc glyph.
+
+
 ## 0.52.0
 
 Single-line fields keep their default 36px height and grow when text is enlarged so their content is not clipped.
