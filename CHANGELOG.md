@@ -2,6 +2,8 @@
 
 ## 0.52.0
 
+Single-line fields keep their default 36px height and grow when text is enlarged so their content is not clipped.
+
 Skins may express PUDL's existing component grammar through validated surface treatments and decorative radii. The specification defines palette precedence, Standard preservation, host-owned persistence, availability fallback and separate rendered admission. Historical resemblance grants no accessibility or behavioral exception.
 
 Taskbar stacks gain full mode, with a single overflow threshold, return margin and interaction deferral.
