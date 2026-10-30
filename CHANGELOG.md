@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.51.0
+
+Chapter 8 defines opt-in taskbar stacks, including represented-root counts and lifecycle commands, host-supplied membership, preview and pinned lists, accessible row controls, live updates, canonical ordering, overflow and localization. Group commands preserve omitted windows and the existing cancellable close lifecycle. Ordinary taskbars keep their current behavior.
+
 ## 0.50.0
 
 Chapter 8 gains a section on diffs: their two layouts, their parts and how each is drawn, the derived tokens `diff-add`, `diff-del`, `diff-add-bg` and `diff-del-bg`, choosing lines, accessibility and forced colours. Every changed line shows its sign, since the tint alone is below 3:1. The tint is the strongest at which every syntax colour still reaches 4.5:1 over `input-bg`, 10% for the default palette. Lines that can be chosen are at least 24px tall with the whole gutter cell as the target. Three-way views for resolving conflicts remain open.

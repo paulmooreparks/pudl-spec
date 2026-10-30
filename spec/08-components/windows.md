@@ -446,3 +446,8 @@ A printed page with windows open carries the window in front as its content, its
 69. Split membership, selections and preferred ratios survive address restoration, temporary single-group presentation, collapse and minimization without remounting content.
 70. Placement, merging, equalizing and swapping panes are available through menus, and rearrangement preserves close refusal and required-window and dock-only restrictions.
 71. Opt-in outline resizing keeps content geometry unchanged during pointer movement, applies it once on release, cancels on Escape or pointer cancellation, and leaves keyboard resizing immediate.
+
+
+## Taskbar stacks
+
+Opt-in taskbar grouping follows the [taskbar stacks contract](taskbar-stacks.md). Existing ungrouped taskbars retain their behavior.
