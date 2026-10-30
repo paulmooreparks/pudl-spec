@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.52.2
+
+Folded window status rows sit in one named, focusable scrolling region. The owning window may reserve one to six rows so Dismiss stays still as statuses change, and enlarged or wrapped text stays reachable. An execution state may have an undrawn detail that joins its marks' accessible names and tooltips.
+
 ## 0.52.1
 
 Execution states share distinct glyphs and semantic colours across compact and folded window surfaces. Compact marks reserve space even without a state. Working gains an open-arc glyph.
